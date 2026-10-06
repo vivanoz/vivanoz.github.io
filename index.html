@@ -544,7 +544,7 @@ td{font:500 1.18rem/1.3 var(--serif)}
     <form class="form" id="f" novalidate>
       <div class="campos">
         <label for="nome">Seu nome<input id="nome" type="text" autocomplete="given-name" placeholder="Como a Clara pode te chamar"></label>
-        <label for="loja">Nome da loja<input id="loja" type="text" autocomplete="organization" placeholder="Ex.: Café da Praça"></label>
+        <label for="nomeloja">Nome da loja<input id="nomeloja" type="text" autocomplete="organization" placeholder="Ex.: Café da Praça"></label>
         <label for="tipo">Tipo de espaço<select id="tipo"><option>cafeteria</option><option>empório</option><option>loja de produtos naturais</option><option>estúdio</option><option>salão ou barbearia</option><option>coworking</option><option>clínica ou consultório</option><option>outro tipo de loja</option></select></label>
         <label for="bairro">Bairro e cidade<input id="bairro" type="text" autocomplete="address-level2" placeholder="Ex.: Zona 7, Maringá"></label>
       </div>
@@ -583,7 +583,7 @@ td{font:500 1.18rem/1.3 var(--serif)}
 
   var f=document.getElementById('f'),t=document.getElementById('texto'),av=document.getElementById('aviso');
   function v(id){return document.getElementById(id).value.trim();}
-  function msg(){var n=v('nome'),l=v('loja'),b=v('bairro'),tp=v('tipo');
+  function msg(){var n=v('nome'),l=v('nomeloja'),b=v('bairro'),tp=v('tipo');
     t.textContent='Oi, Clara. '+(n?'Aqui é '+n+(l?', da '+l:'')+'. ':(l?'Falo da '+l+'. ':''))+'Tenho '+(/^(e|o|s|cow)/.test(tp)?'um ':'uma ')+tp+(b?' em '+b:'')+' e quero receber o Kit Teste da Viva Noz no meu balcão.';}
   var zap=document.getElementById('zap');var msg0=msg;msg=function(){msg0();zap.href='https://wa.me/5544994896222?text='+encodeURIComponent(t.textContent);};f.addEventListener('input',function(){msg()});f.addEventListener('submit',function(e){e.preventDefault()});msg();
   document.getElementById('copiar').addEventListener('click',function(){
