@@ -412,6 +412,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 .rodape2 .ink{width:110px;color:var(--creme)}
 .rodape2 p{font-size:.84rem;opacity:.8}
 .rascunho{background:var(--ouro);color:#2e1305;font:700 .66rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:7px 12px}
+#caixas .pz{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+#caixas .plano .kg{font:700 .7rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.presente-x{display:flex;flex-direction:column;gap:10px;margin-top:10px}
 /* Acréscimos ao CSS do site3: caixa interativa, carta, reações, toasts. */
 .mao{font-family:'Caveat',var(--serif);font-weight:600}
 .nomebox{display:flex;flex-direction:column;gap:6px;max-width:380px}
@@ -467,6 +470,12 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 @media (prefers-reduced-motion:reduce){.lacre{animation:none}}
 .carta-prev{background:#fbf5e8;padding:24px;border-radius:3px;font:600 1.3rem/1.4 'Caveat',var(--serif);color:var(--marrom);box-shadow:0 22px 30px -24px rgba(20,10,2,.6);transform:rotate(-1deg);background-image:repeating-linear-gradient(transparent 0 30px,rgba(69,29,8,.08) 30px 31px)}
 .carta-prev p+p{margin-top:.4em}
+.abas{max-width:1120px;margin:8px auto 0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.abas::-webkit-scrollbar{display:none}
+.abas a{flex:none;font:700 .64rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--marrom);padding:8px 12px;border:1.5px solid var(--linha);border-radius:99px;white-space:nowrap}
+.abas a.on{background:var(--marrom);color:var(--creme);border-color:var(--marrom)}
+#p-loja section{scroll-margin-top:112px}
+@media(max-width:600px){#p-loja section{scroll-margin-top:150px}}
 </style>
 </head>
 <body>
@@ -488,19 +497,22 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     <a href="#parceiros" data-p="parceiros">Para parceiros</a>
   </nav>
   <a class="carr" href="#carrinho">Carrinho <b id="ncar">0</b></a>
-</div></header>
+</div>
+<div class="abas" id="abas" role="navigation" aria-label="Nesta página"><a href="#caixas">Caixas</a><a href="#dentro">O que vem</a><a href="#como">Como funciona</a><a href="#jornada">Níveis</a><a href="#produtos">Produtos</a><a href="#duvidas">Dúvidas</a></div>
+</header>
 
 <!-- ======================= LOJA ======================= -->
 <main class="page" id="p-loja">
 <section class="pl verde" style="overflow:hidden">
   <div class="in hero2">
     <div class="col" style="gap:24px">
-      <p class="cap">Assinatura mensal · Maringá e região</p>
-      <h1>Todo mês, uma caixa que <em>sabe o seu nome.</em></h1>
-      <p class="lead">Você conta do que gosta. A gente escolhe, prova, embala à mão e escreve uma carta dizendo por que mandou cada coisa. O seu favorito vem sempre.</p>
-      <div class="nomebox"><label for="nomeHero">De quem é esta caixa?</label><input id="nomeHero" type="text" autocomplete="given-name" placeholder="Escreva seu nome" maxlength="18"></div>
-      <div class="ctas"><button type="button" class="btn ouro" data-add="essencial">Quero a minha caixa</button><a class="btn alt" href="#caixas">Ver as duas caixas</a></div>
-      <p class="cap">R$ 59,90 por mês · cancele quando quiser</p>
+      <p class="cap">Assinatura de castanhas · Maringá e região</p>
+      <h1>Sua caixa de castanhas, <em>montada pelo seu gosto.</em></h1>
+      <p class="lead">Você responde um perfil de 2 minutos. A gente monta a caixa em pacotes fechados e entrega uma vez por mês. Sem amendoim, sem uva-passa, e o seu favorito vem em todas.</p>
+      <div class="ctas"><a class="btn ouro" href="#caixas">Ver as caixas, de 400 g a 2 kg</a><a class="btn alt" href="#dentro">Ver o que vem na caixa</a></div>
+      <p class="cap">Sem fidelidade · Cancele pelo WhatsApp · Entrega em Maringá e região</p>
+      <div class="nomebox"><label for="nomeHero">Seu nome</label><input id="nomeHero" type="text" autocomplete="given-name" placeholder="Vai na etiqueta da caixa" maxlength="18"><p class="reac" id="prazer" aria-live="polite" style="color:inherit"></p></div>
+
     </div>
 
     <div class="unbox" id="unbox" data-s="0">
@@ -558,31 +570,29 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
         <i class="ink word logo-f"></i>
         <div class="carta" aria-live="polite">
           <p><span class="nomeCarta">Oi</span>,</p>
-          <p>Este mês tem drágea de cereja. Você deu nota 5 para frutas secas, então essa foi fácil.</p>
-          <p>A Caramelizada veio porque é a sua favorita, e vem sempre. A amêndoa defumada é aposta nossa: prove com um vinho, de preferência numa sexta.</p>
-          <p>Se não gostar de algo, me conta. Eu anoto e não mando mais.</p>
+          <p>A Caramelizada veio porque é a sua favorita. O sal de parrilha, porque você belisca enquanto cozinha.</p>
+          <p>A drágea de caju é aposta minha. Se errei, me conta que eu anoto.</p>
           <p class="ass">Clara</p>
         </div>
       </div>
       <div class="ub-ctl">
-        <p class="ub-cap" id="ubCap">Chega assim: caixa kraft, barbante de algodão e uma etiqueta com o seu nome, escrita à mão.</p>
+        <p class="ub-cap" id="ubCap">Caixa kraft, barbante de algodão e seu nome na etiqueta.</p>
         <button type="button" class="btn alt" id="ubBtn">Desamarrar o barbante</button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="pl creme">
+<section class="pl creme" id="dentro">
   <div class="in">
     <p class="eye">O que vem na caixa</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Spoiler: castanha. <em>Mas não só.</em></h2>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">O que vem <em>na sua caixa</em></h2>
+    <p class="tx">De 400 g a 2 kg por mês, em pacotes fechados de 100 a 250 g. Você abre um de cada vez, e o resto continua crocante.</p>
     <ol class="passos3">
-      <li><h3>Caixa kraft com barbante</h3><p>Barbante de algodão, não fita adesiva. Firme o bastante para virar a caixa dos lápis de cor da casa.</p></li>
-      <li><h3>Etiqueta com o seu nome</h3><p>Escrita à mão. Se a letra sair torta, foi pressa de entregar.</p></li>
-      <li><h3>Carta lacrada com cera</h3><p>Conta o que veio, por que veio e com o que combina. Escrita para você, não para “prezado cliente”.</p></li>
-      <li><h3>Ficha de prova</h3><p>Um cartão para cada novidade, como as fichas de receita da casa da avó: origem, textura e a melhor hora para comer. Dá para colecionar.</p></li>
-      <li><h3>Os pacotes</h3><p>Cinco de 50 g na Essencial, embrulhados em papel de seda. O seu favorito fica por cima, onde é mais fácil achar.</p></li>
-      <li><h3>Um bilhete solto</h3><p>Às vezes uma receita, às vezes um desafio. Às vezes só um “e aí, como foi o mês?”.</p></li>
+      <li><h3>Seu favorito</h3><p>No maior pacote. O mesmo todo mês, até você trocar.</p></li>
+      <li><h3>Os da casa</h3><p>Mix, Caramelizada e Caju com Sal, conforme o tamanho da caixa.</p></li>
+      <li><h3>Escolhidos pela gente</h3><p>Pelo seu perfil. Nunca algo que você recusou, e nada de amendoim nem de uva-passa.</p></li>
+      <li><h3>A carta</h3><p>Explica cada escolha.</p></li>
     </ol>
   </div>
 </section>
@@ -590,102 +600,117 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 <section class="pl kraft" id="caixas">
   <div class="in">
     <p class="eye">As caixas</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Duas caixas. <em>Uma conversa.</em></h2>
-    <p class="tx">Antes do pagamento, você responde um perfil rápido: o que ama, o que evita e quando costuma beliscar. É com ele que a gente monta cada mês.</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Escolha sua caixa</h2>
+    <p class="tx">Todas com o seu favorito, carta com lacre de cera e pacotes que fecham de novo. Dá para trocar de tamanho quando quiser.</p>
     <div class="pz">
       <article class="plano">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para começar</p>
-        <h3>Caixa Essencial</h3>
-        <p class="preco">R$ 59,90<small>/mês + entrega</small></p>
-        <ul>
-          <li><span>5 pacotes de 50 g, cerca de 250 g por mês</span></li>
-          <li><span>O seu favorito, em toda caixa</span></li>
-          <li><span>2 itens escolhidos por você e 2 surpresas pelo seu perfil</span></li>
-          <li><span>Caixa kraft com barbante, carta lacrada e ficha de prova</span></li>
-        </ul>
-        <button type="button" class="btn" data-add="essencial">Quero esta</button>
+        <p class="cap">Para quem mora sozinho</p>
+        <h3>Essencial</h3>
+        <p class="kg">400 g · 4 pacotes de 100 g</p>
+        <p class="preco">R$ 69,90<small>/mês + entrega</small></p>
+        <ul><li><span>Seu favorito, 1 da casa e 2 pelo seu perfil</span></li><li><span>Caixa kraft, barbante e carta</span></li></ul>
+        <button type="button" class="btn" data-add="essencial">Assinar a Essencial</button>
       </article>
       <article class="plano res">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#455020"/><polygon points="6,30 114,30 104,14 16,14" fill="#56632a"/><path d="M60,14 L60,80 M10,22 H110" stroke="#B88945" stroke-width="3" fill="none"/><circle cx="60" cy="50" r="11" fill="#B88945"/><circle cx="60" cy="50" r="7" fill="none" stroke="#8a6326" stroke-width="1.4"/></svg>
-        <p class="cap">Para quem já é da casa</p>
-        <span class="selo-lock">Abre no 3º mês de assinatura</span>
-        <h3>Caixa Reserva</h3>
-        <p class="preco">R$ 159<small>/mês + entrega</small></p>
-        <ul>
-          <li><span>Cerca de 600 g de itens selecionados</span></li>
-          <li><span>Pistache, macadâmia, pecan, baru e drágeas finas</span></li>
-          <li><span>Mais escolhas, menos acaso</span></li>
-          <li><span>Caixa rígida verde, fita de algodão e lacre dourado</span></li>
-        </ul>
-        <button type="button" class="btn ouro" disabled title="Disponível a partir do 3º mês de assinatura">Disponível no 3º mês</button>
+        <p class="cap">Para quem já compra 1 kg por mês</p>
+        <span class="selo-lock">A mais escolhida</span>
+        <h3>Mês Inteiro</h3>
+        <p class="kg">1 kg · 5 pacotes de 200 g</p>
+        <p class="preco">R$ 139,90<small>/mês + entrega</small></p>
+        <ul><li><span>Seu favorito e os 3 da casa</span></li><li><span>1 escolhido pelo seu perfil</span></li><li><span>Um pacote por semana, sempre crocante</span></li></ul>
+        <button type="button" class="btn ouro" data-add="mes">Assinar o Mês Inteiro</button>
+      </article>
+      <article class="plano">
+        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
+        <p class="cap">Para dividir em casa</p>
+        <h3>A Dois</h3>
+        <p class="kg">1,5 kg · 6 pacotes de 250 g</p>
+        <p class="preco">R$ 189,90<small>/mês + entrega</small></p>
+        <ul><li><span>Seu favorito, os 3 da casa e castanha-do-pará</span></li><li><span>1 escolhido pelo seu perfil</span></li></ul>
+        <button type="button" class="btn" data-add="dois">Assinar A Dois</button>
+      </article>
+      <article class="plano">
+        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
+        <p class="cap">Para a família ou o escritório</p>
+        <h3>Casa Cheia</h3>
+        <p class="kg">2 kg · 8 pacotes de 250 g</p>
+        <p class="preco">R$ 239,90<small>/mês + entrega</small></p>
+        <ul><li><span>Seu favorito, os 3 da casa e castanha-do-pará</span></li><li><span>2 escolhidos pelo seu perfil</span></li><li><span>Dá para entregar na empresa</span></li></ul>
+        <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
       </article>
     </div>
   </div>
 </section>
 
-<section class="pl creme">
+<section class="pl creme" id="como">
   <div class="in">
     <p class="eye">Como funciona</p>
     <ol class="passos3">
-      <li><h3>Você escolhe a caixa</h3><p>E responde um perfil de dois minutos. A gente pergunta até com quem você divide, e se você esconde.</p></li>
-      <li><h3>A gente monta</h3><p>Alergia bloqueia o item na hora. O que você odeia não entra, nem por engano.</p></li>
-      <li><h3>Chega na sua porta</h3><p>Uma vez por mês. Antes de sair para entregar, a gente avisa no WhatsApp.</p></li>
-      <li><h3>Você responde</h3><p>Gostou, não gostou, quer o dobro de algo: é só falar. A próxima já vem diferente.</p></li>
+      <li><h3>Escolha o tamanho</h3><p>De 400 g a 2 kg por mês. Dá para trocar depois.</p></li>
+      <li><h3>Conte do que gosta</h3><p>Favorito, alergias e o que você não quer receber. Leva 2 minutos.</p></li>
+      <li><h3>Receba em casa</h3><p>Uma vez por mês. A gente avisa no WhatsApp antes de sair.</p></li>
+      <li><h3>Ajuste quando quiser</h3><p>Mande pelo WhatsApp o que gostou e o que não gostou. A próxima caixa muda.</p></li>
     </ol>
   </div>
 </section>
 
 <section class="pl kraft jornada" id="jornada">
   <div class="in">
-    <p class="eye">Quanto mais tempo, mais sua</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">O preço fica. <em>O resto cresce.</em></h2>
+    <p class="eye">Os níveis</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Quanto mais tempo, <em>mais vantagens.</em></h2>
+    <p class="tx">O preço não muda quando você sobe de nível.</p>
     <div class="meses">
       <label class="mn" for="mes" id="mesN">Mês 1</label>
       <input type="range" id="mes" min="1" max="12" value="1" aria-describedby="mesTxt">
       <output id="mesTxt" for="mes"></output>
     </div>
     <div class="niveis">
-      <div class="niv" style="--n:var(--areia)"><p class="q">Meses 1 e 2</p><h3>Semente</h3><ul><li>Caixa Essencial</li><li>Você escolhe 2 itens</li></ul></div>
-      <div class="niv" style="--n:#a7b56a"><p class="q">A partir do 3º mês</p><h3>Broto</h3><ul><li>Você escolhe 3 itens</li><li>1 item extra</li><li>Abre a Caixa Reserva</li></ul></div>
-      <div class="niv" style="--n:var(--verde)"><p class="q">A partir do 6º mês</p><h3>Raiz</h3><ul><li>Você escolhe 4 itens</li><li>Um presente feito com o seu nome</li></ul></div>
+      <div class="niv" style="--n:var(--areia)"><p class="q">Meses 1 e 2</p><h3>Semente</h3><ul><li>Qualquer caixa</li><li>Seu favorito em todas</li></ul></div>
+      <div class="niv" style="--n:#a7b56a"><p class="q">A partir do 3º mês</p><h3>Broto</h3><ul><li>1 item extra por mês</li><li>Você escolhe um dos itens</li></ul></div>
+      <div class="niv" style="--n:var(--verde)"><p class="q">A partir do 6º mês</p><h3>Raiz</h3><ul><li>Você escolhe dois itens</li><li>Um presente feito com o seu nome</li></ul></div>
       <div class="niv" style="--n:var(--ouro)"><p class="q">A partir do 9º mês</p><h3>Colheita</h3><ul><li>Um café da manhã ou jantar numa casa parceira em Maringá</li><li>Edições limitadas antes de todo mundo</li></ul></div>
     </div>
   </div>
 </section>
 
-<section class="pl creme">
+<section class="pl creme" id="produtos">
   <div class="in">
     <p class="eye">O que pode chegar</p>
     <div class="dupla" style="align-items:center">
-      <h2 class="h" style="font-size:clamp(2rem,4.4vw,3.2rem)">Curioso? <em>Monte uma caixa de exemplo.</em></h2>
-      <div class="col" style="gap:16px"><div class="amostra" id="amostra"><p class="cap">Clique no botão abaixo</p><p class="mao">A gente sorteia como poderia ser o seu mês.</p></div><button type="button" class="btn" id="btnAmostra" style="align-self:flex-start">Sortear uma caixa</button></div>
+      <h2 class="h" style="font-size:clamp(2rem,4.4vw,3.2rem)">O que pode vir <em>na sua caixa</em></h2>
+      <div class="col" style="gap:16px"><div class="amostra" id="amostra"><p class="cap">Caixa de exemplo</p><p class="mao">Os 3 sabores da casa estão sempre disponíveis. As novidades variam.</p></div><button type="button" class="btn" id="btnAmostra" style="align-self:flex-start">Ver uma caixa de exemplo</button></div>
     </div>
     <div class="cat">
-      <div class="item"><div class="im"><img src="assets/emb_mix_frente.webp" alt="Mix de Castanhas"></div><div class="tx2"><b>Mix de Castanhas</b><span>Caju, nozes, amêndoa, pará e cranberry</span><span class="nota">Some antes do fim do episódio.</span><i class="tagf fixo">Da casa</i></div></div>
-      <div class="item"><div class="im"><img src="assets/emb_caram_frente.webp" alt="Caju Caramelizada"></div><div class="tx2"><b>Caju Caramelizada</b><span>Com gergelim</span><span class="nota">Perigosa depois do almoço.</span><i class="tagf fixo">Da casa</i></div></div>
-      <div class="item"><div class="im"><img src="assets/emb_caju_frente.webp" alt="Caju com Sal"></div><div class="tx2"><b>Caju com Sal</b><span>W1, inteiro e graúdo</span><span class="nota">Para quem diz que não liga para doce. E fala sério.</span><i class="tagf fixo">Da casa</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Amêndoa defumada</b><span>Para acompanhar um vinho</span><span class="nota">Pede um vinho. Ou uma desculpa.</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de caju 70%</b><span>Chocolate amargo de verdade</span><span class="nota">Amargo do jeito certo, não do jeito castigo.</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Sal de parrilha</b><span>Para quem cozinha</span><span class="nota">Seu churrasco vai ficar se achando.</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Farinha da alegria</b><span>Farinhas e sementes, porcionadas</span><span class="nota">O nome já explica.</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Pistache</b><span>Sem casca, inteiro</span><span class="nota">A casca a gente já tirou.</span><i class="tagf res">Reserva</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de cereja</b><span>Com chocolate 70%</span><span class="nota">Deu 5 para frutas secas? É sua.</span><i class="tagf res">Reserva</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Macadâmia caramelizada</b><span>Com gergelim</span><span class="nota">A rica da família.</span><i class="tagf res">Reserva</i></div></div>
+      <div class="item"><div class="im"><img src="assets/emb_mix_frente.webp" alt="Mix de Castanhas"></div><div class="tx2"><b>Mix de Castanhas</b><span>Caju, nozes, amêndoa, pará e cranberry</span><span class="nota">Bom para: lanche no trabalho</span><i class="tagf fixo">Da casa</i></div></div>
+      <div class="item"><div class="im"><img src="assets/emb_caram_frente.webp" alt="Caju Caramelizada"></div><div class="tx2"><b>Caju Caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: quem gosta de doce</span><i class="tagf fixo">Da casa</i></div></div>
+      <div class="item"><div class="im"><img src="assets/emb_caju_frente.webp" alt="Caju com Sal"></div><div class="tx2"><b>Caju com Sal</b><span>W1, inteiro</span><span class="nota">Bom para: petisco com amigos</span><i class="tagf fixo">Da casa</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Amêndoa defumada</b><span>Defumada</span><span class="nota">Bom para: tábua de frios</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de caju 70%</b><span>Caju com chocolate 70%</span><span class="nota">Bom para: depois do almoço, com café</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Sal de parrilha</b><span>Para quem cozinha</span><span class="nota">Bom para: churrasco</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Farinha da alegria</b><span>Farinhas e sementes, porcionadas</span><span class="nota">Bom para: iogurte e frutas</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Pistache</b><span>Sem casca, inteiro</span><span class="nota">Bom para: festas de fim de ano</span><i class="tagf res">Especial</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de cereja</b><span>Com chocolate 70%</span><span class="nota">Bom para: quem gosta de frutas secas</span><i class="tagf res">Especial</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Macadâmia caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: levar de presente</span><i class="tagf res">Especial</i></div></div>
     </div>
   </div>
 </section>
 
-<section class="pl kraft faq2">
+<section class="pl kraft faq2" id="duvidas">
   <div class="in">
-    <p class="eye">Antes de assinar</p>
+    <p class="eye">Perguntas frequentes</p>
     <div>
-      <details><summary>Posso cancelar quando quiser?</summary><p>Pode. Sem multa, sem fidelidade e sem e-mail chorando depois.</p></details>
-      <details><summary>E se eu não gostar de algo que veio?</summary><p>Conta pra gente. O item sai do seu perfil e não volta, nem disfarçado de surpresa.</p></details>
-      <details><summary>Posso pular um mês?</summary><p>Pode. Viagem, mudança, dieta: quando voltar, você continua no mesmo nível.</p></details>
-      <details><summary>Dá para dar de presente?</summary><p>Dá. A carta vai assinada por quem dá, e a gente guarda segredo até chegar.</p></details>
-      <details><summary>Como funciona a entrega?</summary><p>Em Maringá e região, a própria Viva Noz entrega. Para outras cidades, o valor sai pelo CEP.</p></details>
-      <details><summary>E alergias?</summary><p>Aqui não tem piada. O perfil pergunta antes de tudo, um item marcado como alergia nunca entra na sua caixa, e todo pacote traz ingredientes e alérgicos por extenso.</p></details>
+      <details><summary>Quanto custa?</summary><p>De R$ 69,90 (400 g) a R$ 239,90 (2 kg) por mês, mais a entrega. A Mês Inteiro, de 1 kg, sai R$ 139,90.</p></details>
+      <details><summary>Por que pacotes pequenos e não um de 1 kg?</summary><p>Pacote grande aberto perde a crocância rápido. Com pacotes de 100 a 250 g, você abre um de cada vez e o resto fica fechado.</p></details>
+      <details><summary>Tem amendoim ou uva-passa?</summary><p>Não. O Mix leva caju, nozes, amêndoa, castanha-do-pará e cranberry, sempre na mesma medida.</p></details>
+      <details><summary>Como eu pago?</summary><p>Por enquanto, por Pix ou link de cartão, combinado pelo WhatsApp depois do pedido. O site não pede dados de cartão.</p></details>
+      <details><summary>Posso cancelar?</summary><p>Pode, quando quiser, pelo WhatsApp. Sem multa, sem fidelidade e sem ninguém insistindo para você ficar.</p></details>
+      <details><summary>E se eu não gostar de um item?</summary><p>Avise pelo WhatsApp. Ele sai do seu perfil e não volta.</p></details>
+      <details><summary>Posso pular um mês?</summary><p>Pode. Quando voltar, você continua no mesmo nível.</p></details>
+      <details><summary>Dá para dar de presente?</summary><p>Dá. No perfil, marque que é presente: a caixa vai com o nome de quem recebe e a carta assinada por você.</p></details>
+      <details><summary>Onde vocês entregam?</summary><p>Em Maringá e região, a própria Viva Noz entrega. Para outras cidades, o valor sai pelo CEP.</p></details>
+      <details><summary>Tenho alergia. Posso assinar?</summary><p>Aqui não tem piada. O que você marcar como alergia não entra na sua caixa. Mas todos os itens passam pelo mesmo lugar onde a gente embala, então pode haver traços. Se a sua alergia é grave, fala com a gente antes de assinar.</p></details>
     </div>
   </div>
 </section>
@@ -697,8 +722,8 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div class="in hero2">
     <div class="col" style="gap:24px">
       <p class="cap">Nossa história</p>
-      <h1>A gente nasceu na rua. <em>E continua conversando com todo mundo.</em></h1>
-      <p class="lead">A Viva Noz é pequena e é de Maringá. Quem escolhe o lote é quem embala, e quem embala sabe para quem vai.</p>
+      <h1>Quem está por trás <em>da Viva Noz</em></h1>
+      <p class="lead">A Viva Noz é uma marca pequena de Maringá, criada pela Clara. Ela começou vendendo brigadeiro na rua, trocou por castanhas, levou para lojas da região e agora monta caixas por assinatura.</p>
     </div>
     <div class="foto-c"><img src="assets/emb_mix_frente_cena.jpg" alt="Pacote de Mix de Castanhas Viva Noz sobre mesa de madeira"></div>
   </div>
@@ -710,10 +735,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     <article class="carta-g">
       <svg class="selo-g" viewBox="-34 -34 68 68" aria-hidden="true"><use href="#selo" x="-34" y="-34" width="68" height="68"/></svg>
       <p>Oi. Aqui é a Clara.</p>
-      <p>A Viva Noz nasceu na rua. Eu vendia brigadeiro, de mão em mão, e de tanto conversar com quem comprava, comecei a ouvir a mesma coisa: as pessoas queriam outra opção. Não precisava ser dieta. Precisava ser diferente, bem feito e com cuidado.</p>
-      <p>Foi assim que troquei o brigadeiro pelo mix de castanhas. Depois vieram os primeiros balcões, em consignado, um parceiro de cada vez. Hoje a empresa é toda regularizada, e eu continuo escolhendo cada lote.</p>
-      <p>Tenho 29 anos e sou mãe de um menino de 6. Cuidar é o que eu mais faço na vida, e é isso que eu coloco em cada caixa.</p>
-      <p>Acredito nas pessoas. Quando a sua chegar, quero que você sinta que alguém pensou em você. Porque pensou.</p>
+      <p>A Viva Noz começou na rua. Eu vendia brigadeiro e percebi que as pessoas queriam outra coisa, alguma coisa diferente. Troquei o brigadeiro pelo mix de castanhas.</p>
+      <p>Depois vieram as lojas, em consignado. Hoje a empresa é toda regularizada.</p>
+      <p>Acredito muito nas pessoas. Quando eu monto uma caixa, quero que a pessoa se sinta querida.</p>
       <p class="ass">Clara</p>
     </article>
   </div>
@@ -721,11 +745,11 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 
 <section class="pl profundo">
   <div class="in">
-    <p class="eye">O que a gente cumpre</p>
+    <p class="eye">O que a gente faz</p>
     <div class="g3">
-      <div class="col"><p class="lead" style="font-size:1.5rem">Provamos antes.</p><p class="tx">Nenhum lote entra no pacote sem ser provado. Alguém tem que fazer esse trabalho, e a gente se oferece.</p></div>
-      <div class="col"><p class="lead" style="font-size:1.5rem">Dizemos tudo.</p><p class="tx">Ingredientes por extenso, peso, lote e validade legíveis. O que costuma vir em letra miúda, a gente escreve grande.</p></div>
-      <div class="col"><p class="lead" style="font-size:1.5rem">Lembramos de você.</p><p class="tx">O que você ama, o que evita, quando come. Inclusive aquilo que você disse que nunca quer receber.</p></div>
+      <div class="col"><p class="lead" style="font-size:1.5rem">Monta o Mix aqui</p><p class="tx">Caju, nozes, amêndoa, castanha-do-pará e cranberry, sempre na mesma medida.</p></div>
+      <div class="col"><p class="lead" style="font-size:1.5rem">Embala à mão, em Maringá</p><p class="tx">Cada pacote é fechado e recebe o selo à mão.</p></div>
+      <div class="col"><p class="lead" style="font-size:1.5rem">Segue o seu perfil</p><p class="tx">O que você recusa não vem. Para mudar, é só mandar no WhatsApp.</p></div>
     </div>
   </div>
 </section>
@@ -734,11 +758,11 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div class="in">
     <p class="eye">Os sabores da casa</p>
     <div class="g3">
-      <div class="col"><div class="foto-c"><img src="assets/emb_mix_frente_cena.jpg" alt="Mix de Castanhas"></div><p class="lead" style="font-size:1.4rem">Mix de Castanhas</p><p class="tx">Caju, nozes, amêndoa, castanha-do-pará e cranberry. Para quem não quer escolher.</p></div>
-      <div class="col"><div class="foto-c"><img src="assets/emb_caram_frente_cena.jpg" alt="Caju Caramelizada com Gergelim"></div><p class="lead" style="font-size:1.4rem">Caju Caramelizada com Gergelim</p><p class="tx">Crocante, doce na medida. Difícil abrir e guardar o resto para depois.</p></div>
-      <div class="col"><div class="foto-c"><img src="assets/emb_caju_frente_cena.jpg" alt="Castanha de Caju com Sal"></div><p class="lead" style="font-size:1.4rem">Castanha de Caju com Sal</p><p class="tx">Inteira, graúda, no ponto do sal. A clássica, sem invenção.</p></div>
+      <div class="col"><div class="foto-c"><img src="assets/emb_mix_frente_cena.jpg" alt="Mix de Castanhas"></div><p class="lead" style="font-size:1.4rem">Mix de Castanhas</p><p class="tx">Caju, nozes, amêndoa, castanha-do-pará e cranberry.</p></div>
+      <div class="col"><div class="foto-c"><img src="assets/emb_caram_frente_cena.jpg" alt="Caju Caramelizada com Gergelim"></div><p class="lead" style="font-size:1.4rem">Caju Caramelizada com Gergelim</p><p class="tx">Castanha de caju caramelizada, com gergelim. Crocante e doce.</p></div>
+      <div class="col"><div class="foto-c"><img src="assets/emb_caju_frente_cena.jpg" alt="Castanha de Caju com Sal"></div><p class="lead" style="font-size:1.4rem">Castanha de Caju com Sal</p><p class="tx">Castanha de caju inteira, tipo W1, com sal.</p></div>
     </div>
-    <div class="ctas"><a class="btn" href="#caixas">Quero receber a minha carta</a></div>
+    <div class="ctas"><a class="btn" href="#caixas">Ver as caixas</a></div>
   </div>
 </section>
 </main>
@@ -749,8 +773,8 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div class="in hero2">
     <div class="col" style="gap:24px">
       <p class="cap">Para cafés, empórios, arenas e conveniências</p>
-      <h1>A Viva Noz <em>no seu balcão.</em></h1>
-      <p class="lead">Consignado: você não compra estoque, paga só o que vender, e a reposição é com a gente. Você só precisa de um espaço perto do caixa.</p>
+      <h1>Castanha no seu balcão. <em>Sem comprar estoque.</em></h1>
+      <p class="lead">Você paga só o que vender, a reposição é com a gente e não tem frete. Só precisa de um espaço perto do caixa.</p>
       <div class="ctas"><a class="btn" id="zapB2B" href="#" target="_blank" rel="noopener">Pedir o Kit Teste</a></div>
     </div>
     <div class="foto-c"><img src="assets/emb_caram_frente_cena.jpg" alt="Pacote de Caju Caramelizada Viva Noz em cena"></div>
@@ -769,7 +793,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
         <tr><td>Caju Caramelizada</td><td>R$ 16,90</td><td>R$ 10,90</td><td class="m">36%</td></tr>
         <tr><td>Caju com Sal</td><td>R$ 16,90</td><td>R$ 13,90</td><td class="m">18%</td></tr></tbody></table></div></div>
     </div>
-    <p class="tx">O preço de venda é uma sugestão. Na compra direta, com pagamento na entrega, a loja paga menos por pacote.</p>
+    <p class="tx">O preço de venda é uma sugestão: a loja pode vender pelo valor que preferir. Na compra direta, com pagamento na entrega, a loja paga menos por pacote.</p>
   </div>
 </section>
 <section class="pl kraft">
@@ -779,7 +803,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       <li><h3>Kit Teste</h3><p>21 pacotes, 7 de cada sabor. Se não girar, a gente busca. Sem climão.</p></li>
       <li><h3>Consignado</h3><p>30 pacotes, 10 de cada sabor, com reposição combinada.</p></li>
       <li><h3>Acerto</h3><p>Você paga só o que vendeu. O resto continua nosso.</p></li>
-      <li><h3>Casa parceira</h3><p>Parceiros podem receber assinantes da Colheita para um café ou jantar. Gente nova entrando pela porta.</p></li>
+      <li><h3>Visita</h3><p>Quem conta, repõe e acerta é a Viva Noz, em pessoa.</p></li>
     </ol>
   </div>
 </section>
@@ -822,7 +846,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
         <label><input type="radio" name="fav" value="Ainda não provei" data-r="Então a primeira caixa vem com os três. Depois você elege."><span>Ainda não provei nenhum</span></label>
       </div><p class="reac" aria-live="polite"></p></fieldset>
 
-    <fieldset class="q"><legend>Tem alguma alergia?</legend><p class="sub">Aqui a gente fica sério. O que você marcar nunca entra na sua caixa.</p>
+    <fieldset class="q"><legend>Tem alguma alergia?</legend><p class="sub">Aqui a gente fica sério. O que você marcar não entra na sua caixa. Se a alergia é grave, fale com a gente antes: todos os itens passam pelo mesmo lugar.</p>
+      <p class="sub">Alergia é dado de saúde. A gente usa só para montar a sua caixa, só a Viva Noz vê, e você pode pedir para apagar pelo WhatsApp.</p>
+      <div class="chips"><label><input type="checkbox" name="consent" id="pconsent" value="sim" data-r="Combinado. Só para montar a caixa."><span>Pode guardar as minhas alergias para montar a caixa</span></label></div>
       <div class="chips">
         <label><input type="checkbox" name="alergia" value="Amendoim"><span>Amendoim</span></label>
         <label><input type="checkbox" name="alergia" value="Castanha de caju"><span>Castanha de caju</span></label>
@@ -837,7 +863,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       </div>
       <div class="campo"><input id="palergia" type="text" placeholder="Outra alergia ou restrição (sem açúcar, vegano…)"></div><p class="reac" aria-live="polite"></p></fieldset>
 
-    <fieldset class="q"><legend>Quanto você topa?</legend><p class="sub">Seja sincero. Ninguém vai contar para a sua avó.</p>
+    <fieldset class="q"><legend>Quanto você topa?</legend><p class="sub">Sem mentir. Ninguém vai contar para a sua avó.</p>
       <div class="esc" id="escala"></div><p class="reac" aria-live="polite"></p></fieldset>
 
     <fieldset class="q"><legend>Time crocante ou time macio?</legend>
@@ -851,11 +877,11 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       <div class="chips">
         <label><input type="checkbox" name="momento" value="Café da manhã" data-r="Café da manhã: a farinha da alegria entrou no radar."><span>No café da manhã</span></label>
         <label><input type="checkbox" name="momento" value="Meio da tarde no trabalho" data-r="Meio da tarde: porção de gaveta, discreta."><span>No meio da tarde, no trabalho</span></label>
-        <label><input type="checkbox" name="momento" value="Pós-treino" data-r="Pós-treino: porção certa, sem exagero."><span>Depois do treino</span></label>
+        <label><input type="checkbox" name="momento" value="Pós-treino" data-r="Depois do treino: pacote que vai na mochila."><span>Depois do treino</span></label>
         <label><input type="checkbox" name="momento" value="No carro ou na bolsa" data-r="Na bolsa: pacote que fecha de novo."><span>No carro, na bolsa</span></label>
         <label><input type="checkbox" name="momento" value="Vendo série" data-r="Vendo série: porção de episódio duplo, então."><span>Vendo série</span></label>
-        <label><input type="checkbox" name="momento" value="Cozinhando" data-r="Cozinhando: o sal de parrilha entrou no radar."><span>Cozinhando</span></label>
-        <label><input type="checkbox" name="momento" value="Com vinho" data-r="Com vinho: a amêndoa defumada entrou no radar."><span>Com um vinho</span></label>
+        <label><input type="checkbox" name="momento" value="Cozinhando" data-r="Cozinhando: um sal de parrilha cai bem aí."><span>Cozinhando</span></label>
+        <label><input type="checkbox" name="momento" value="Com vinho" data-r="Com vinho: anotado para a amêndoa defumada."><span>Com um vinho</span></label>
       </div><p class="reac" aria-live="polite"></p></fieldset>
 
     <fieldset class="q"><legend>Com quem você divide?</legend>
@@ -870,7 +896,17 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       <div class="chips">
         <label><input type="radio" name="novo" value="1" data-r="Tudo bem. Novidade só quando você pedir."><span>Prefiro o que eu conheço</span></label>
         <label><input type="radio" name="novo" value="3" data-r="Uma por mês. Combinado."><span>Uma novidade por mês está ótimo</span></label>
-        <label><input type="radio" name="novo" value="5" data-r="Corajoso. As mais diferentes ficam guardadas para você."><span>Pode mandar a mais estranha</span></label>
+        <label><input type="radio" name="novo" value="5" data-r="Coragem. As mais diferentes ficam guardadas para você."><span>Pode mandar a mais estranha</span></label>
+      </div><p class="reac" aria-live="polite"></p></fieldset>
+
+    <fieldset class="q"><legend>A caixa é para você?</legend>
+      <div class="chips">
+        <label><input type="radio" name="para" value="Para mim" data-r="Então é com você mesmo."><span>É para mim</span></label>
+        <label><input type="radio" name="para" value="Presente" data-r="Presente. A carta vai assinada por você."><span>É presente</span></label>
+      </div>
+      <div class="presente-x" id="presX" hidden>
+        <div class="campo"><input id="ppnome" type="text" placeholder="Nome de quem recebe" maxlength="24"></div>
+        <div class="campo"><input id="pprec" type="text" placeholder="Um recado seu para a carta" maxlength="140"></div>
       </div><p class="reac" aria-live="polite"></p></fieldset>
 
     <div class="q"><label class="t" for="pnunca">Uma coisa que você nunca quer receber</label><div class="campo"><input id="pnunca" type="text" placeholder="Uva-passa? Pode falar."></div></div>
@@ -939,18 +975,23 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 
 <footer class="rodape2"><div class="in">
   <i class="ink word" role="img" aria-label="Viva Noz"></i>
-  <p>Feito em Maringá, embalado à mão, entregue por quem sabe o seu nome.<br>@viva_noz · (44) 99849-6222 · vivanozcastanhas@gmail.com</p>
+  <p>Viva Noz · Maringá, PR · Embalado à mão<br>@viva_noz · (44) 99849-6222 · vivanozcastanhas@gmail.com</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
-  var PROD={essencial:{n:'Caixa Essencial',d:'Assinatura mensal · 5 pacotes de 50 g',p:59.90,rec:true},
+  var PROD={essencial:{n:'Caixa Essencial',d:'Assinatura mensal · 400 g, 4 pacotes de 100 g',p:69.90,rec:true},
+    mes:{n:'Caixa Mês Inteiro',d:'Assinatura mensal · 1 kg, 5 pacotes de 200 g',p:139.90,rec:true},
+    dois:{n:'Caixa A Dois',d:'Assinatura mensal · 1,5 kg, 6 pacotes de 250 g',p:189.90,rec:true},
+    casa:{n:'Caixa Casa Cheia',d:'Assinatura mensal · 2 kg, 8 pacotes de 250 g',p:239.90,rec:true},
     mix100:{n:'Mix de Castanhas 100 g',d:'Uma vez, na primeira caixa',p:16.90},
     car100:{n:'Caju Caramelizada 100 g',d:'Uma vez, na primeira caixa',p:16.90},
     caj100:{n:'Caju com Sal 100 g',d:'Uma vez, na primeira caixa',p:16.90}};
   var cart={};
   try{cart=JSON.parse(localStorage.getItem('vn-cart')||'{}')||{}}catch(e){cart={}}
+  Object.keys(cart).forEach(function(k){if(!PROD[k])delete cart[k]});
+  function temCaixa(){return Object.keys(cart).some(function(k){return PROD[k].rec})}
   function save(){try{localStorage.setItem('vn-cart',JSON.stringify(cart))}catch(e){}}
   var $=function(id){return document.getElementById(id)};
   var brl=function(v){return 'R$ '+v.toFixed(2).replace('.',',')};
@@ -971,14 +1012,15 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     ['nomeHero','pnome'].forEach(function(id){var el=$(id);if(el&&el!==document.activeElement)el.value=n});}
   function setNome(v){try{localStorage.setItem('vn-nome',v)}catch(e){} syncNome(v)}
   ['nomeHero','pnome'].forEach(function(id){$(id).addEventListener('input',function(e){setNome(e.target.value)})});
+  $('nomeHero').addEventListener('input',function(e){var n=e.target.value.trim();$('prazer').textContent=n?'Prazer, '+n+'. Já está na etiqueta.':''});
   syncNome(getNome());
 
   // caixa interativa
-  var UB=[{b:'Desamarrar o barbante',c:'Chega assim: caixa kraft, barbante de algodão e uma etiqueta com o seu nome, escrita à mão.'},
-    {b:'Abrir a tampa',c:'Barbante, não fita adesiva. Dá mais trabalho para a gente e menos para a sua tesoura.'},
-    {b:'Quebrar o lacre',c:'Papel de seda por cima e o seu favorito no meio, onde é mais fácil achar.'},
-    {b:'Ler a carta',c:'Toda caixa traz uma carta lacrada com cera. De verdade. O selo tem o V da Viva Noz.'},
-    {b:'Fechar e ver de novo',c:'A carta conta o que veio, por que veio e com o que combina. Escrita para você.'}];
+  var UB=[{b:'Desamarrar o barbante',c:'Caixa kraft, barbante de algodão e seu nome na etiqueta.'},
+    {b:'Abrir a tampa',c:'Sem fita adesiva: abre com a mão.'},
+    {b:'Quebrar o lacre',c:'Pacotes fechados, para abrir um de cada vez. Seu favorito fica por cima.'},
+    {b:'Ler a carta',c:'Toda caixa tem uma carta, fechada com lacre de cera.'},
+    {b:'Fechar e ver de novo',c:'A carta explica por que cada item veio.'}];
   function ub(s){var u=$('unbox');for(var i=1;i<=4;i++)u.classList.toggle('a'+i,s>=i);u.dataset.s=s;$('ubBtn').textContent=UB[s].b;$('ubCap').textContent=UB[s].c;}
   $('ubBtn').addEventListener('click',function(){ub((+$('unbox').dataset.s+1)%5)});
 
@@ -987,17 +1029,17 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     var box=$('itensCar'),ks=Object.keys(cart);
     $('ncar').textContent=count();
     $('vazio').hidden=ks.length>0;
-    $('irPerfil').hidden=!cart.essencial;
+    $('irPerfil').hidden=!temCaixa();
     box.innerHTML=ks.map(function(k){var p=PROD[k];return '<div class="linha"><div><b>'+p.n+'</b><small>'+p.d+'</small></div>'+
       (p.rec?'<span></span>':'<div class="qtd"><button type="button" data-dec="'+k+'" aria-label="Menos">−</button><span>'+cart[k]+'</span><button type="button" data-inc="'+k+'" aria-label="Mais">+</button></div>')+
       '<div style="display:flex;align-items:center;gap:6px"><span class="val">'+brl(p.p*cart[k])+(p.rec?'/mês':'')+'</span><button type="button" class="rm" data-rm="'+k+'">remover</button></div></div>'}).join('');
-    $('totCar').innerHTML=ks.length?'<p><span>Subtotal</span><span>'+brl(sub())+'</span></p><p><span>Entrega</span><span>na próxima etapa</span></p><p class="g"><span>Total</span><span>'+brl(sub())+'</span></p>'+(cart.essencial?'':'<p class="aviso">Os pacotes avulsos seguem junto com uma assinatura. Escolha uma caixa para continuar.</p>'):'';
+    $('totCar').innerHTML=ks.length?'<p><span>Subtotal</span><span>'+brl(sub())+'</span></p><p><span>Entrega</span><span>na próxima etapa</span></p><p class="g"><span>Total</span><span>'+brl(sub())+'</span></p>'+(temCaixa()?'':'<p class="aviso">Os pacotes avulsos seguem junto com uma assinatura. Escolha uma caixa para continuar.</p>'):'';
   }
   document.addEventListener('click',function(e){
     var a=e.target.closest('[data-add]');
     if(a){var k=a.dataset.add;
-      if(PROD[k].rec){var ja=cart[k];cart[k]=1;toast(ja?'Ela já está no carrinho. Uma por pessoa, a gente promete caprichar.':pick(['Boa. Já separamos um barbante com o seu nome.','Entrou. A cera já está esquentando.']))}
-      else{cart[k]=(cart[k]||0)+1;toast(pick(['Anotado. A caixa ficou mais pesada, no bom sentido.','Mais um. A gente não julga.']))}
+      if(PROD[k].rec){var ja=cart[k];Object.keys(cart).forEach(function(x){if(PROD[x].rec&&x!==k)delete cart[x]});cart[k]=1;toast(ja?'Ela já está no carrinho. Uma por pessoa, a gente promete caprichar.':pick(['Boa. Já separamos um barbante com o seu nome.','Entrou. A cera já está esquentando.']))}
+      else{cart[k]=(cart[k]||0)+1;toast(pick(['Anotado. A caixa ficou mais pesada, no bom sentido.','Mais um. Ninguém está contando.']))}
       save();renderCart();if(location.hash!=='#carrinho')location.hash='carrinho';return;}
     var r=e.target.closest('[data-rm]');if(r){delete cart[r.dataset.rm];save();renderCart();toast('Tirado. Sem ressentimentos.');return;}
     var i=e.target.closest('[data-inc]');if(i){cart[i.dataset.inc]++;save();renderCart();return;}
@@ -1005,9 +1047,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   });
 
   // jornada
-  var NIV=['Semente. Ainda estamos nos conhecendo: você escolhe 2 itens, o resto é com a gente.',
-    'Broto. A essa altura a gente já sabe se você é time crocante. Você escolhe 3 itens e a Caixa Reserva abre.',
-    'Raiz. Você escolhe 4 itens, e chega um presente feito com o seu nome.',
+  var NIV=['Semente. Ainda estamos nos conhecendo: o favorito é seu, o resto é com a gente.',
+    'Broto. A essa altura a gente já sabe se você é time crocante. Vem 1 item extra, e um dos itens você escolhe.',
+    'Raiz. Você escolhe dois itens, e chega um presente feito com o seu nome.',
     'Colheita. Um café da manhã ou jantar numa casa parceira em Maringá, por nossa conta.'];
   function nivel(){var m=+$('mes').value,i=m<3?0:m<6?1:m<9?2:3;
     document.querySelectorAll('.jornada .niv').forEach(function(n,k){n.classList.toggle('on',k===i)});
@@ -1017,14 +1059,14 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 
   // caixa de exemplo
   var FIX=['Mix de Castanhas','Caju Caramelizada','Caju com Sal'];
-  var SUR={'Amêndoa defumada':'A amêndoa defumada é aposta nossa. Prove com um vinho.','Drágea de caju 70%':'Se a drágea sumir antes do fim de semana, a gente entende.','Sal de parrilha':'O sal de parrilha é para o domingo. Não economize.','Farinha da alegria':'A farinha da alegria vai bem no iogurte. E na colher, direto.'};
+  var SUR={'Amêndoa defumada':'A amêndoa defumada é aposta minha. Prove numa sexta à noite.','Drágea de caju 70%':'Se a drágea sumir antes do fim de semana, a gente entende.','Sal de parrilha':'O sal de parrilha é para o domingo. Não economize.','Farinha da alegria':'A farinha da alegria vai bem em cima da fruta. E na colher, direto.'};
   $('btnAmostra').addEventListener('click',function(){
     var fav=pick(FIX),out=FIX.filter(function(f){return f!==fav}),s=Object.keys(SUR).sort(function(){return Math.random()-.5}).slice(0,2);
     var MES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
     $('amostra').innerHTML='<p class="cap">Caixa de exemplo · '+pick(MES)+'</p><ul>'+
       '<li>'+fav+'<small>seu favorito</small></li>'+out.map(function(o){return '<li>'+o+'<small>você escolheu</small></li>'}).join('')+
       s.map(function(o){return '<li>'+o+'<small>surpresa</small></li>'}).join('')+'</ul><p class="mao">“'+SUR[s[0]]+'” · Clara</p>';
-    $('btnAmostra').textContent='Sortear outra';
+    $('btnAmostra').textContent='Ver outra';
   });
 
   // perfil: escala e reações
@@ -1033,12 +1075,13 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   $('escala').innerHTML='<span></span><div class="legenda">'+LEG.map(function(l,i){return '<span>'+(i+1)+'<br>'+l+'</span>'}).join('')+'</div>'+
     ITENS.map(function(it,j){return '<span class="nm" id="esc'+j+'">'+it+'</span><div class="r" role="radiogroup" aria-labelledby="esc'+j+'">'+[1,2,3,4,5].map(function(v){return '<label><input type="radio" name="esc'+j+'" value="'+v+'" aria-label="'+v+' · '+LEG[v-1]+'"><span>'+v+'</span></label>'}).join('')+'</div>'}).join('');
   $('fperfil').addEventListener('change',function(e){
+    if(e.target.name==='para')$('presX').hidden=(e.target.value!=='Presente');
     var t=e.target,box=t.closest('.q'),r=box&&box.querySelector('.reac');if(!r||!t.name)return;
     if(t.type==='checkbox'&&!t.checked)return;
     var msg=t.dataset.r;
     if(t.name.indexOf('esc')===0){var it=ITENS[+t.name.slice(3)].toLowerCase();
-      msg=t.value==='5'?'Nota 5 para '+it+'. Guardado com carinho.':t.value==='1'?'Nada de '+it+'. Sem ressentimentos.':'Anotado: '+it+', nota '+t.value+'.';}
-    if(!msg&&t.name==='alergia')msg=t.value==='Nenhuma'?'Ótimo. Mesmo assim, todo pacote traz os alérgicos escritos.':t.value+': anotado. Nunca entra na sua caixa.';
+      msg=t.value==='5'?'Nota 5 para '+it+'. Vai aparecer mais.':t.value==='1'?'Nada de '+it+'. Combinado.':'Anotado: '+it+', nota '+t.value+'.';}
+    if(!msg&&t.name==='alergia')msg=t.value==='Nenhuma'?'Anotado: nenhuma alergia.':t.value+': anotado. Não entra na sua caixa.';
     r.textContent=msg||'Anotado.';
   });
   function val(n){var x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
@@ -1047,7 +1090,8 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     var escv=ITENS.map(function(it,j){return [it,val('esc'+j)]}).filter(function(x){return x[1]});
     var outra=$('palergia').value.trim();
     return {nome:$('pnome').value.trim(),fav:val('fav'),alergias:vals('alergia').concat(outra?[outra]:[]),
-      esc:escv,textura:val('textura'),momento:vals('momento'),divide:val('divide'),novo:val('novo'),nunca:$('pnunca').value.trim()};
+      esc:escv,consentimento_alergias:$('pconsent').checked,textura:val('textura'),momento:vals('momento'),divide:val('divide'),novo:val('novo'),nunca:$('pnunca').value.trim(),
+      presente:val('para')==='Presente',presente_para:$('ppnome').value.trim(),presente_recado:$('pprec').value.trim()};
   }
   function frete(){var c=($('ecep').value||'').replace(/\D/g,'');
     if(c.length<5)return {t:'Informe o CEP para ver a forma de entrega.',v:null};
@@ -1068,10 +1112,12 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     L.push('Até a primeira caixa,<br>Clara');
     return L.map(function(l){return '<p>'+l+'</p>'}).join('');}
   $('fent').addEventListener('input',function(){$('freteInfo').textContent=frete().t});
-  var SUPA_URL='https://lcorpbjnckszdhslvard.supabase.co',SUPA_KEY='{{SUPA_KEY}}',enviado=null;
+  var PEDIDOS_URL='https://script.google.com/macros/s/AKfycbzM7tXejpZs2qQkblR4OkEeeOh5btTRGL3YzdFJ3tI_leVuWqu9VBtY23ZvQ928eSRRjg/exec',enviado=null;
+  var ORIGEM=(location.search.match(/[?&]o=([\w-]{1,30})/)||[])[1];
+  try{if(ORIGEM)localStorage.setItem('vn-origem',ORIGEM);else ORIGEM=localStorage.getItem('vn-origem')||'site'}catch(e){ORIGEM=ORIGEM||'site'}
   function pedido(){var p=perfil();return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
     endereco:$('erua').value.trim(),bairro:$('ebai').value.trim(),complemento:$('ecomp').value.trim(),horario:$('ejan').value,recado:$('erec').value.trim(),pagamento:val('pag'),
-    itens:Object.keys(cart).map(function(k){return {item:PROD[k].n,qtd:cart[k],preco:PROD[k].p}}),total:sub().toFixed(2),perfil:p};}
+    itens:Object.keys(cart).map(function(k){return {item:PROD[k].n,qtd:cart[k],preco:PROD[k].p}}),total:sub().toFixed(2),origem:ORIGEM,perfil:p};}
   function zapTexto(d){var p=d.perfil;return 'Olá, Viva Noz! Acabei de pedir pelo site.\n\n'+d.itens.map(function(i){return '• '+i.item+(i.qtd>1?' × '+i.qtd:'')}).join('\n')+'\nTotal: '+brl(+d.total)+' + entrega'+
     '\n\nNome: '+d.nome+'\nEndereço: '+[d.endereco,d.complemento,d.bairro,d.cidade,d.cep].filter(Boolean).join(', ')+'\nPagamento: '+d.pagamento+
     (p.fav?'\nFavorito: '+p.fav:'')+(p.alergias.length?'\nAlergias: '+p.alergias.join(', '):'');}
@@ -1079,9 +1125,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     var d=pedido(),btn=$('finalizar');
     if(!d.nome||d.whatsapp.replace(/\D/g,'').length<10){toast('Faltou o nome ou o WhatsApp. Sem eles a gente não te acha.');location.hash='entrega';return;}
     btn.disabled=true;btn.textContent='Lacrando…';
-    var h={'Content-Type':'application/json',apikey:SUPA_KEY};if(SUPA_KEY.indexOf('ey')===0)h.Authorization='Bearer '+SUPA_KEY;
-    fetch(SUPA_URL+'/rest/v1/rpc/registrar_pedido_site',{method:'POST',headers:h,body:JSON.stringify({p:d})})
-      .then(function(r){if(!r.ok)throw new Error(r.status);enviado={ok:true,d:d};})
+    if(PEDIDOS_URL.indexOf('https://')!==0){enviado={ok:false,d:d};btn.disabled=false;btn.textContent='Lacrar minha caixa';location.hash='pronto';return;}
+    fetch(PEDIDOS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
+      .then(function(){enviado={ok:true,d:d};})
       .catch(function(){enviado={ok:false,d:d};})
       .then(function(){btn.disabled=false;btn.textContent='Lacrar minha caixa';location.hash='pronto';});
   });
@@ -1091,8 +1137,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   function show(){
     var h=(location.hash||'#loja').slice(1),p=pages.indexOf(h)>=0?h:null,anchor=null;
     if(!p){var el=document.getElementById(h);var pg=el&&el.closest('.page');p=pg?pg.id.slice(2):'loja';anchor=el;}
-    if(['perfil','entrega','pagamento'].indexOf(p)>=0&&!cart.essencial)p='carrinho';
+    if(['perfil','entrega','pagamento'].indexOf(p)>=0&&!temCaixa())p='carrinho';
     pages.forEach(function(x){$('p-'+x).hidden=(x!==p)});
+    $('abas').hidden=(p!=='loja');
     document.querySelectorAll('.nav nav a').forEach(function(a){if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     if(p==='pagamento'){$('resumo').innerHTML=resumoHTML();$('cartaPrev').innerHTML=cartaHTML();}
     if(p==='pronto'){var pf=perfil();$('okTit').textContent=pf.nome?'Lacrado, '+pf.nome+'.':'Lacrado.';
@@ -1105,7 +1152,13 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     renderCart();
     if(anchor)anchor.scrollIntoView();else window.scrollTo(0,0);
   }
-  window.addEventListener('hashchange',show);show();
+  var ABAS=[].slice.call(document.querySelectorAll('#abas a'));
+  function abaAtiva(){if($('abas').hidden)return;var y=window.innerHeight*.35,on=null;
+    ABAS.forEach(function(a){var el=$(a.getAttribute('href').slice(1));if(el&&el.getBoundingClientRect().top<y)on=a;});
+    ABAS.forEach(function(a){a.classList.toggle('on',a===on)});
+    if(on&&on.scrollIntoView){var b=$('abas');b.scrollLeft=on.offsetLeft-b.offsetLeft-16;}}
+  window.addEventListener('scroll',abaAtiva,{passive:true});
+  window.addEventListener('hashchange',show);show();abaAtiva();
 })();
 </script>
 
