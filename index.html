@@ -551,6 +551,22 @@ a.mais{color:inherit;text-underline-offset:3px}
 @media(min-width:800px){.porque{grid-template-columns:repeat(3,1fr)}}
 .porque li{background:var(--creme);color:var(--marrom);border-radius:10px;padding:14px 16px;font-size:.92rem;line-height:1.35}
 .porque b{display:block;font:500 1.25rem/1.1 var(--serif);margin-bottom:4px}
+.slogan{font:600 clamp(1.6rem,4vw,2.1rem)/1 'Caveat',var(--serif);color:var(--areia)}
+.item .desc{font-size:.82rem;line-height:1.35;opacity:.9}
+.zapf{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:31;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 22px -8px rgba(0,0,0,.5)}
+#dlgCx{border:0;border-radius:12px;padding:0;width:min(560px,calc(100% - 20px));max-height:88vh;background:var(--creme);color:var(--marrom)}
+#dlgCx::backdrop{background:rgba(20,10,2,.55)}
+.dlg-in{padding:18px 18px 22px;display:flex;flex-direction:column;gap:10px}
+.dlg-top{display:flex;justify-content:space-between;align-items:center}
+.dlg-x{background:none;border:0;font:400 2rem/1 var(--sans);color:inherit;cursor:pointer;padding:0 4px}
+#dlgCx h3{font:500 2rem/1 var(--serif)}
+.dlg-lista{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.dlg-lista li{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:start;padding:10px;border:1px solid var(--linha);border-radius:8px;background:#fbf5e8}
+.dlg-lista img,.dlg-lista .ph{width:56px;height:56px;border-radius:6px;object-fit:cover;background:var(--areia);display:grid;place-items:center;font:500 1.6rem/1 var(--serif)}
+.dlg-lista b{font:500 1.1rem/1.15 var(--serif);display:block}
+.dlg-lista small{font:700 .6rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--verde);display:block;margin:3px 0 4px}
+.dlg-lista span{display:block;font-size:.85rem;line-height:1.35}
+.dlg-lista .nota{font:600 1.15rem/1.1 'Caveat',var(--serif);color:var(--verde);margin-top:3px}
 </style>
 </head>
 <body>
@@ -584,6 +600,7 @@ a.mais{color:inherit;text-underline-offset:3px}
     <div class="col pitch">
       <p class="cap">Viva Noz · assinatura de castanhas · Maringá</p>
       <h1>Um presente para você, <em>todo mês.</em></h1>
+      <p class="slogan">Viva você. Viva Noz.</p>
       <p class="lead">A Viva Noz nasceu do gosto de presentear. Todo mês, uma caixa de castanhas montada pelo seu gosto: seu favorito sempre, e o resto a gente escolhe.</p>
       <div class="ctas"><a class="btn ouro" href="#caixas">Assinar</a><a class="btn alt" href="#teste">Qual caixa é a minha?</a></div>
       <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
@@ -616,6 +633,7 @@ a.mais{color:inherit;text-underline-offset:3px}
         <p class="preco">R$ 69,90<small data-ent></small></p>
         <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
         <button type="button" class="btn" data-add="essencial">Assinar a Essencial</button>
+        <button type="button" class="btn alt" data-abre="essencial">Abrir a caixa</button>
       </article>
       <article class="plano res" data-cx="mes">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#455020"/><polygon points="6,30 114,30 104,14 16,14" fill="#56632a"/><path d="M60,14 L60,80 M10,22 H110" stroke="#B88945" stroke-width="3" fill="none"/><circle cx="60" cy="50" r="11" fill="#B88945"/><circle cx="60" cy="50" r="7" fill="none" stroke="#8a6326" stroke-width="1.4"/></svg>
@@ -627,6 +645,7 @@ a.mais{color:inherit;text-underline-offset:3px}
         <p class="preco">R$ 139,90<small data-ent></small></p>
         <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
         <button type="button" class="btn ouro" data-add="mes">Assinar o Mês Inteiro</button>
+        <button type="button" class="btn alt" data-abre="mes">Abrir a caixa</button>
       </article>
       <article class="plano" data-cx="dois">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
@@ -638,6 +657,7 @@ a.mais{color:inherit;text-underline-offset:3px}
         <p class="preco">R$ 189,90<small data-ent></small></p>
         <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
         <button type="button" class="btn" data-add="dois">Assinar A Dois</button>
+        <button type="button" class="btn alt" data-abre="dois">Abrir a caixa</button>
       </article>
       <article class="plano" data-cx="casa">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
@@ -649,8 +669,10 @@ a.mais{color:inherit;text-underline-offset:3px}
         <p class="preco">R$ 239,90<small data-ent></small></p>
         <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
         <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
+        <button type="button" class="btn alt" data-abre="casa">Abrir a caixa</button>
       </article>
     </div>
+    <a class="tudo" href="#avulsos" data-presente><b>Dar de presente</b><span>Monte uma caixa para alguém, com um cartão escrito por você. A gente entrega no endereço da pessoa.</span><i>Montar um presente</i></a>
     <a class="tudo" href="#avulsos"><b>Prefere escolher tudo?</b><span>Sem surpresa: você monta a caixa pacote por pacote.</span><i>Montar a minha</i></a>
     <p class="envio" id="envio">Os envios são nos dias 15 e 30.</p>
     <p class="mais"><a href="#teste">Na dúvida, faça o teste de 3 perguntas</a> · <a href="#caixa">Ver a caixa por dentro</a></p>
@@ -1100,6 +1122,12 @@ a.mais{color:inherit;text-underline-offset:3px}
       <label class="campo" for="ecomp">Complemento<input id="ecomp" placeholder="Apto, bloco, “casa do portão verde”"></label>
       <label class="campo" for="ejan">Melhor horário para receber<select id="ejan"><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Tanto faz</option></select></label>
     </div>
+    <div class="chips"><label><input type="checkbox" id="epres"><span>É presente para outra pessoa</span></label></div>
+    <div class="col" id="epresX" style="gap:10px" hidden>
+      <label class="campo" for="eprnome">Nome de quem recebe<input id="eprnome" maxlength="40"></label>
+      <label class="campo" for="eprcartao">Mensagem do cartão<textarea id="eprcartao" maxlength="200" rows="3" placeholder="Escreva do seu jeito. Vai à mão no cartão."></textarea></label>
+      <p class="aviso">Use acima o endereço de quem vai receber.</p>
+    </div>
     <label class="campo" for="erec">Recado para quem entrega<input id="erec" placeholder="“Pode deixar com o porteiro, ele é de confiança.”"></label>
     <p class="aviso" id="freteInfo">Informe o CEP para ver a forma de entrega.</p>
     <button type="button" class="btn alt" id="avisoFora" hidden>Me avise quando chegar aqui</button>
@@ -1145,8 +1173,10 @@ a.mais{color:inherit;text-underline-offset:3px}
 
 <footer class="rodape2"><div class="in">
   <i class="ink word" role="img" aria-label="Viva Noz"></i>
-  <p>Viva Noz · Maringá, PR · Embalado à mão · <a href="#parceiros" style="color:inherit">Para lojas parceiras</a> · <a href="#duvidas" style="color:inherit">Dúvidas</a><br>@viva_noz · (44) 99849-6222 · vivanozcastanhas@gmail.com</p>
+  <p><span class="slogan" style="font-size:1.4rem">Viva você. Viva Noz.</span><br>Viva Noz · Maringá, PR · Embalado à mão · <a href="#parceiros" style="color:inherit">Para lojas parceiras</a> · <a href="#duvidas" style="color:inherit">Dúvidas</a><br>@viva_noz · (44) 99849-6222 · vivanozcastanhas@gmail.com</p>
 </div></footer>
+<a class="zapf" id="zapf" href="#" target="_blank" rel="noopener" aria-label="Falar com a Viva Noz no WhatsApp"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.6 5.8 5.1c2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.3z"/></svg></a>
+<dialog id="dlgCx" aria-labelledby="dlgTit"><div class="dlg-in" id="dlgIn"></div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -1203,6 +1233,7 @@ a.mais{color:inherit;text-underline-offset:3px}
 
   // pacotes avulsos: preço em branco até a frente Preços definir (p:null = "Em breve")
   var T3=[100,250,500],TD=[100,150,300];
+  var DESC={"Caju sem sal": ["Castanha de caju inteira, torrada e sem sal. Crocante, com o gosto da castanha e nada por cima.", "beliscar no trabalho, entre uma tarefa e outra"], "Caju com sal": ["Caju inteiro e torrado, com sal na medida. Estala na mordida.", "petisco com os amigos, ou vendo o jogo"], "Caju caramelizada com gergelim": ["Caju coberto de caramelo crocante, com gergelim. Doce, com um fundo tostado.", "depois do almoço, com um café"], "Amêndoa torrada": ["Amêndoa inteira e torrada. Firme, crocante, com gosto levemente tostado.", "a fome das 4 da tarde, direto da bolsa"], "Nozes": ["Nozes em metades. Macias por dentro, com aquele amarguinho leve da pele fina.", "em cima do iogurte ou da salada"], "Nozes quartz": ["Nozes em pedaços menores, prontas para salpicar.", "no iogurte, na aveia ou na receita do fim de semana"], "Castanha do Pará inteira": ["Castanha-do-pará grande e inteira. Macia e amanteigada.", "o lanche da madrugada, direto do pacote"], "Castanha do Pará média": ["Castanha-do-pará de tamanho médio, com o mesmo gosto amanteigado.", "a mesa de petiscos da família"], "Mix de castanhas": ["Caju, nozes, amêndoa, castanha-do-pará e cranberry no mesmo pacote. Um pouco de tudo, com um toque azedinho.", "o lanche no trabalho, quando bate a fome"], "Cranberry fatiado": ["Cranberry seco em fatias. Azedinho, adocicado e macio de mastigar.", "misturar no mix, no iogurte ou na salada"], "Mix de frutas liofilizadas": ["Frutas secas a frio: ficam leves, crocantes e com o gosto da fruta bem forte.", "o café da manhã, com leite ou iogurte"], "Frutas liofilizadas": ["Fruta seca a frio. Leve, crocante, derrete na boca.", "o lanche da tarde"], "Chips de coco": ["Lâminas finas de coco, crocantes, com gosto de coco de verdade.", "ver série, no lugar da pipoca"], "Coco caramelizado": ["Cubinhos de coco com caramelo. Crocantes e docinhos.", "a vontade de doce à noite"], "Damasco": ["Damasco seco, macio e adocicado, com um fundo azedinho.", "a tábua de queijos, ou puro no fim da tarde"], "Drageado de caju com chocolate 70%": ["Caju crocante coberto de chocolate 70%, meio amargo.", "depois do almoço, com café"], "Drageado de morango com chocolate": ["Morango seco coberto de chocolate ao leite. Doce e frutado.", "a sobremesa rápida, no sofá"], "Drageado de cereja com chocolate 70%": ["Cereja seca coberta de chocolate 70%. Azedinha por dentro, chocolate por fora.", "dividir com alguém. Ou não"]};
   var AV=[
     {c:'Castanha de caju',t:T3,i:[['Caju sem sal'],['Caju com sal','assets/emb_caju_frente.webp'],['Caju caramelizada com gergelim','assets/emb_caram_frente.webp']]},
     {c:'Castanhas e nozes',t:T3,i:[['Amêndoa torrada'],['Nozes'],['Nozes quartz'],['Castanha do Pará inteira'],['Castanha do Pará média'],['Mix de castanhas','assets/emb_mix_frente.webp']]},
@@ -1215,7 +1246,7 @@ a.mais{color:inherit;text-underline-offset:3px}
   Object.keys(cart).forEach(function(k){if(!PROD[k]||PROD[k].p==null)delete cart[k]});save();
   $('avLista').innerHTML=AV.map(function(g,gi){return '<div class="avc"><h3>'+g.c+'</h3><div class="cat">'+g.i.map(function(it,ii){var id='av'+gi+'_'+ii;
     return '<div class="item av" data-av="'+slug(it[0])+'"><div class="im">'+(it[1]?'<img src="'+it[1]+'" alt="'+it[0]+'" loading="lazy">':'<i class="ink nuts"></i><span class="foto">Foto a fazer</span>')+'</div>'+
-      '<div class="tx2"><b>'+it[0]+'</b><div class="chips tams" role="radiogroup" aria-label="Tamanho de '+it[0]+'">'+g.t.map(function(t,k){return '<label><input type="radio" name="'+id+'" value="'+t+'"'+(k===0?' checked':'')+'><span>'+t+' g</span></label>'}).join('')+'</div>'+
+      '<div class="tx2"><b>'+it[0]+'</b>'+(DESC[it[0]]?'<span class="desc">'+DESC[it[0]][0]+'</span><span class="nota">Bom para '+DESC[it[0]][1]+'</span>':'')+'<div class="chips tams" role="radiogroup" aria-label="Tamanho de '+it[0]+'">'+g.t.map(function(t,k){return '<label><input type="radio" name="'+id+'" value="'+t+'"'+(k===0?' checked':'')+'><span>'+t+' g</span></label>'}).join('')+'</div>'+
       '<p class="preco-av"></p><button type="button" class="btn"></button></div></div>'}).join('')+'</div></div>'}).join('');
   function avAtualiza(card){var t=card.querySelector('input:checked').value,k='av-'+card.dataset.av+'-'+t,pr=PROD[k].p,b=card.querySelector('.btn');
     card.querySelector('.preco-av').textContent=pr==null?'Preço em breve':brl(pr);
@@ -1225,6 +1256,37 @@ a.mais{color:inherit;text-underline-offset:3px}
   document.querySelectorAll('[data-pav]').forEach(function(el){var k=el.closest('[data-add]').dataset.add;el.textContent=brl(PROD[k].p)+' · avulso'});
   $('montePreco').textContent=brl(PROD.monte.p);
   $('avEnt').textContent='Escolha o produto e o tamanho. Entrega grátis em Maringá a partir de '+brl(MIN_AV).replace(',00','')+' em pacotes.';
+
+  // botão do WhatsApp
+  $('zapf').href='https://wa.me/5544998496222?text='+encodeURIComponent('Olá, Viva Noz! Vim pelo site.');
+  // caixa que abre: o que vem, com descrição, e simulação pelo favorito
+  var FAVS=['Mix de castanhas','Caju caramelizada com gergelim','Caju com sal'];
+  var CASA=['Mix de castanhas','Caju caramelizada com gergelim','Caju com sal','Caju sem sal','Amêndoa torrada','Nozes','Castanha do Pará média','Chips de coco'];
+  var FOTO={'Mix de castanhas':'assets/mix_tigela.webp','Caju caramelizada com gergelim':'assets/caram_tigela.webp','Caju com sal':'assets/caju_tigela.webp'};
+  function simula(k,fav){var c=PROD[k],usados=[fav],out=[];
+    function prox(pref){var n=pref&&usados.indexOf(pref)<0?pref:CASA.filter(function(x){return usados.indexOf(x)<0})[0];usados.push(n);return n}
+    c.comp.forEach(function(x){for(var i=0;i<x[2];i++){
+      if(x[0]==='Seu favorito')out.push({n:fav,g:x[1],t:'Seu favorito'});
+      else if(x[0]==='Surpresa')out.push({n:null,g:x[1],t:'Surpresa'});
+      else out.push({n:prox(x[0]==='Mix'?'Mix de castanhas':null),g:x[1],t:x[0]==='Mix'?'Da casa':x[0]});}});
+    return out;}
+  function abreCx(k,fav){var c=PROD[k];fav=fav||FAVS[0];
+    $('dlgIn').innerHTML='<div class="dlg-top"><p class="cap">Abrir a caixa</p><button type="button" class="dlg-x" data-fecha aria-label="Fechar">×</button></div>'+
+      '<h3 id="dlgTit">'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes · '+peso(c.g)+' · '+brl(c.p)+'/mês</p>'+
+      '<p class="cap" style="margin-top:8px">Simule a sua: qual é o seu favorito?</p><div class="chips" id="dlgFav">'+FAVS.map(function(f){return '<label><input type="radio" name="dlgfav" value="'+f+'"'+(f===fav?' checked':'')+'><span>'+f+'</span></label>'}).join('')+'</div>'+
+      '<ul class="dlg-lista">'+simula(k,fav).map(function(x){var d=x.n&&DESC[x.n];
+        return '<li>'+(x.n&&FOTO[x.n]?'<img src="'+FOTO[x.n]+'" alt="">':'<span class="ph">'+(x.n?'':'?')+'</span>')+'<div><b>'+(x.n||'Surpresa')+' · '+x.g+' g</b><small>'+x.t+'</small>'+
+          (d?'<span>'+d[0]+'</span><span class="nota">Bom para '+d[1]+'</span>':'<span>A gente escolhe pelo seu perfil. A carta conta por quê.</span>')+'</div></li>'}).join('')+'</ul>'+
+      '<p class="aviso">Exemplo: os itens da casa variam conforme o seu perfil e o mês.</p>'+
+      '<div class="ctas"><button type="button" class="btn ouro" data-add="'+k+'">Assinar · '+brl(c.p)+'/mês</button><button type="button" class="btn alt" data-fecha>Ver outras caixas</button></div>';
+    var d=$('dlgCx');d.dataset.cx=k;if(!d.open){if(d.showModal)d.showModal();else d.setAttribute('open','')}}
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-abre]');if(a){abreCx(a.dataset.abre);return}
+    if(e.target.closest('[data-fecha]')||e.target===$('dlgCx')){$('dlgCx').close?$('dlgCx').close():$('dlgCx').removeAttribute('open');return}
+    if(e.target.closest('#dlgCx [data-add]')&&$('dlgCx').close)$('dlgCx').close();
+    if(e.target.closest('[data-presente]')){try{localStorage.setItem('vn-presente','1')}catch(x){}toast('Escolha os pacotes. Na entrega, marque que é presente e escreva o cartão.')}});
+  $('dlgCx').addEventListener('change',function(e){if(e.target.name==='dlgfav')abreCx($('dlgCx').dataset.cx,e.target.value)});
+  // presente na entrega
+  $('epres').addEventListener('change',function(){$('epresX').hidden=!this.checked});
 
   // carrinho
   function renderCart(){
@@ -1377,10 +1439,10 @@ a.mais{color:inherit;text-underline-offset:3px}
   var PEDIDOS_URL='https://script.google.com/macros/s/AKfycbzM7tXejpZs2qQkblR4OkEeeOh5btTRGL3YzdFJ3tI_leVuWqu9VBtY23ZvQ928eSRRjg/exec',enviado=null;
   var ORIGEM=(location.search.match(/[?&]o=([\w-]{1,30})/)||[])[1];
   try{if(ORIGEM)localStorage.setItem('vn-origem',ORIGEM);else ORIGEM=localStorage.getItem('vn-origem')||'site'}catch(e){ORIGEM=ORIGEM||'site'}
-  function pedido(){var p=perfil();p.entrega=entrega().toFixed(2);p.fundador=temCaixa()&&fundador();p.envio=dm(proxEnvio(new Date()));return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
+  function pedido(){var p=perfil();if($('epres').checked){p.presente=true;p.presente_para=$('eprnome').value.trim();p.presente_recado=$('eprcartao').value.trim();}p.entrega=entrega().toFixed(2);p.fundador=temCaixa()&&fundador();p.envio=dm(proxEnvio(new Date()));return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
     endereco:$('erua').value.trim(),bairro:$('ebai').value.trim(),complemento:$('ecomp').value.trim(),horario:$('ejan').value,recado:$('erec').value.trim(),pagamento:val('pag'),
     itens:Object.keys(cart).map(function(k){return {item:PROD[k].n,qtd:cart[k],preco:PROD[k].p}}),entrega:entrega().toFixed(2),total:total().toFixed(2),fundador:temCaixa()&&fundador(),envio:dm(proxEnvio(new Date())),origem:ORIGEM,perfil:p};}
-  function zapTexto(d){var p=d.perfil;return 'Olá, Viva Noz! Acabei de pedir pelo site.\n\n'+d.itens.map(function(i){return '• '+i.item+(i.qtd>1?' × '+i.qtd:'')}).join('\n')+'\nTotal: '+brl(+d.total)+' (entrega: '+(+d.entrega?brl(+d.entrega):'grátis')+')'+(d.fundador?'\nAssinante Fundador':'')+'\nEnvio: dia '+d.envio+
+  function zapTexto(d){var p=d.perfil;return 'Olá, Viva Noz! Acabei de pedir pelo site.\n\n'+d.itens.map(function(i){return '• '+i.item+(i.qtd>1?' × '+i.qtd:'')}).join('\n')+'\nTotal: '+brl(+d.total)+' (entrega: '+(+d.entrega?brl(+d.entrega):'grátis')+')'+(d.fundador?'\nAssinante Fundador':'')+(d.perfil.presente?'\nPresente para: '+(d.perfil.presente_para||'')+'\nCartão: '+(d.perfil.presente_recado||''):'')+'\nEnvio: dia '+d.envio+
     '\n\nNome: '+d.nome+'\nEndereço: '+[d.endereco,d.complemento,d.bairro,d.cidade,d.cep].filter(Boolean).join(', ')+'\nPagamento: '+d.pagamento+
     (p.fav?'\nFavorito: '+p.fav:'')+(p.alergias.length?'\nAlergias: '+p.alergias.join(', '):'');}
   $('finalizar').addEventListener('click',function(){
@@ -1405,6 +1467,7 @@ a.mais{color:inherit;text-underline-offset:3px}
     $('abas').hidden=true;
     document.querySelectorAll('.nav nav a').forEach(function(a){if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     if(p==='perfil'&&!val('fav')){var sf='';try{sf=localStorage.getItem('vn-fav')||''}catch(e){}var r=sf&&document.querySelector('input[name="fav"][value="'+sf+'"]');if(r)r.checked=true;}
+    if(p==='entrega'){var vp='';try{vp=localStorage.getItem('vn-presente')||''}catch(x){}if(vp&&!$('epres').checked){$('epres').checked=true;$('epresX').hidden=false;}}
     if(p==='pagamento'){$('resumo').innerHTML=resumoHTML();$('cartaPrev').innerHTML=cartaHTML();$('cartaPrev').hidden=!temCaixa();}
     if(p==='pronto'){var pf=perfil();$('okTit').textContent=pf.nome?'Lacrado, '+pf.nome+'.':'Lacrado.';
       var d=enviado?enviado.d:pedido();
