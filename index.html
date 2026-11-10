@@ -567,6 +567,13 @@ a.mais{color:inherit;text-underline-offset:3px}
 .dlg-lista small{font:700 .6rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--verde);display:block;margin:3px 0 4px}
 .dlg-lista span{display:block;font-size:.85rem;line-height:1.35}
 .dlg-lista .nota{font:600 1.15rem/1.1 'Caveat',var(--serif);color:var(--verde);margin-top:3px}
+.btn.grande{padding:19px 30px;font-size:.82rem}
+.lnk{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.tres .dlg-lista{margin:6px 0}
+.preco-t{font:500 2.4rem/1 var(--serif)}
+.preco-t small{font:600 .8rem/1 var(--sans);opacity:.7;margin-left:6px}
+.fundr{font-size:.88rem;background:var(--profundo);color:var(--creme);padding:10px 12px;border-radius:8px}
+#p-teste .tres{transform:none;max-width:560px}
 </style>
 </head>
 <body>
@@ -598,18 +605,21 @@ a.mais{color:inherit;text-underline-offset:3px}
 <section class="pl verde" id="topo">
   <div class="in">
     <div class="col pitch">
-      <p class="cap">Viva Noz · assinatura de castanhas · Maringá</p>
-      <h1>Um presente para você, <em>todo mês.</em></h1>
+      <p class="cap">Assinatura de castanhas · Maringá</p>
+      <h1>Castanhas todo mês, <em>escolhidas pelo seu gosto.</em></h1>
       <p class="slogan">Viva você. Viva Noz.</p>
-      <p class="lead">A Viva Noz nasceu do gosto de presentear. Todo mês, uma caixa de castanhas montada pelo seu gosto: seu favorito sempre, e o resto a gente escolhe.</p>
-      <div class="ctas"><a class="btn ouro" href="#caixas">Assinar</a><a class="btn alt" href="#teste">Qual caixa é a minha?</a></div>
-      <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
+      <p class="lead">Responda 3 perguntas e a gente monta a sua caixa. Seu favorito vem sempre, e mais 2 surpresas para provar.</p>
+      <ul class="fatos"><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b> por mês</li><li>entrega em Maringá</li><li>sem fidelidade</li></ul>
+      <div class="ctas"><a class="btn ouro grande" href="#teste">Montar minha caixa</a></div>
+      <a class="mais" href="#caixas">Já sei qual quero: ver as caixas</a>
       <video class="vid" src="assets/video_mix.mp4" poster="assets/video_mix_capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pacote do Mix de Castanhas da Viva Noz sendo aberto"></video>
-      <a class="mais" href="#avulsos">Prefere comprar só um pacote? Ver os avulsos</a>
     </div>
   </div>
 </section>
+</main>
 
+<!-- ======================= CAIXAS ======================= -->
+<main class="page" id="p-caixas" hidden>
 <section class="pl kraft" id="caixas">
   <div class="in">
     <p class="eye">Assinatura</p>
@@ -689,19 +699,6 @@ a.mais{color:inherit;text-underline-offset:3px}
     <div class="ctas"><a class="btn ouro" href="#caixas">Quero fazer parte</a></div>
   </div>
 </section>
-<section class="pl creme" id="prova">
-  <div class="in">
-    <p class="eye">Pacotes avulsos</p>
-    <h2 class="h" style="font-size:clamp(2rem,5vw,3.2rem)">Quer provar antes? <em>Leve um pacote.</em></h2>
-    <div class="addon">
-      <button type="button" data-add="av-caju-caramelizada-com-gergelim-100"><img src="assets/caram_tigela.webp" alt="Caju caramelizada com gergelim numa tigela"><span><b>Caju caramelizada com gergelim · 100 g</b><i data-pav></i></span></button>
-      <button type="button" data-add="av-caju-com-sal-100"><img src="assets/caju_tigela.webp" alt="Caju com sal numa tigela"><span><b>Caju com sal · 100 g</b><i data-pav></i></span></button>
-      <button type="button" data-add="av-mix-de-castanhas-100"><img src="assets/mix_tigela.webp" alt="Mix de castanhas numa tigela"><span><b>Mix de castanhas · 100 g</b><i data-pav></i></span></button>
-    </div>
-    <p class="mais"><a href="#avulsos">Ver todos os 18 avulsos</a> · <a href="#duvidas">Dúvidas</a></p>
-  </div>
-</section>
-<a class="fixo-cta" id="fixoCta" href="#caixas">Assinar</a>
 </main>
 
 <!-- ======================= TESTE ======================= -->
@@ -1201,7 +1198,7 @@ a.mais{color:inherit;text-underline-offset:3px}
   var brl=function(v){return 'R$ '+v.toFixed(2).replace('.',',')};
   function pick(a){return a[Math.floor(Math.random()*a.length)]}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  var pages=['loja','teste','caixa','avulsos','duvidas','marca','parceiros','carrinho','perfil','entrega','pagamento','pronto'];
+  var pages=['loja','caixas','teste','caixa','avulsos','duvidas','marca','parceiros','carrinho','perfil','entrega','pagamento','pronto'];
   function sub(){var s=0;Object.keys(cart).forEach(function(k){s+=PROD[k].p*cart[k]});return s}
   function entrega(){if(!count())return 0;var cx=Object.keys(cart).filter(function(k){return PROD[k].rec})[0];
     return cx?entregaCx(cx):(sub()>=MIN_AV?0:FRETE);}
@@ -1317,7 +1314,6 @@ a.mais{color:inherit;text-underline-offset:3px}
     return c.pes[1]===1?'Rende uns '+hi+' g por dia.':lo===hi?'Rende uns '+hi+' g por pessoa por dia.':'Rende uns '+lo+' a '+hi+' g por pessoa por dia.';}
   document.querySelectorAll('[data-rende]').forEach(function(el){el.textContent=rende(el.dataset.rende)});
   var pacs=CX.map(function(k){return PROD[k].pac}),precos=CX.map(function(k){return PROD[k].p});
-  $('fPac').textContent=Math.min.apply(0,pacs)+' a '+Math.max.apply(0,pacs)+' pacotes';
   $('fPreco').textContent=brl(Math.min.apply(0,precos))+' a '+brl(Math.max.apply(0,precos));
   function compLi(x){var l=x[0],g=x[1],q=x[2];if(l==='Surpresa')return q>1?q+' surpresas de '+g+' g':'1 surpresa de '+g+' g';
     return q>1?q+' pacotes de '+g+' g · '+l.toLowerCase():l+' · '+g+' g';}
@@ -1338,7 +1334,7 @@ a.mais{color:inherit;text-underline-offset:3px}
 
   // mini teste: 3 perguntas, uma por tela
   var TQ=[].slice.call(document.querySelectorAll('#fteste fieldset'));
-  function tq(i){TQ.forEach(function(f,k){f.hidden=k!==i});$('tPasso').textContent=i<TQ.length?'Pergunta '+(i+1)+' de '+TQ.length:'';$('tRes').hidden=i<TQ.length;}
+  function tq(i){TQ.forEach(function(f,k){f.hidden=k!==i});$('tPasso').textContent=i<TQ.length?'Passo '+(i+1)+' de '+(TQ.length+1):'Passo '+(TQ.length+1)+' de '+(TQ.length+1)+' · a sua caixa';$('tRes').hidden=i<TQ.length;}
   tq(0);
   $('fteste').addEventListener('change',function(e){var i=TQ.indexOf(e.target.closest('fieldset'));setTimeout(function(){tq(i+1)},220)});
   $('tRes').addEventListener('click',function(e){if(e.target.id==='tRefaz'){$('fteste').reset();tq(0);}});
@@ -1346,16 +1342,19 @@ a.mais{color:inherit;text-underline-offset:3px}
   $('fteste').addEventListener('change',function(){
     var q=tval('t1'),f=tval('t2'),fav=tval('t3');if(!q||!f||!fav)return;
     var k=q==='1'?(f==='dia'?'mes':'essencial'):q==='2'?(f==='dia'?'dois':'mes'):(f==='visita'?'dois':'casa');
-    var c=PROD[k];
+    var c=PROD[k];var favN={'Caju Caramelizada':'Caju caramelizada com gergelim','Caju com Sal':'Caju com sal','Mix de Castanhas':'Mix de castanhas'}[fav]||fav;
     try{localStorage.setItem('vn-fav',fav)}catch(e){}
     document.querySelectorAll('[data-cx]').forEach(function(el){var on=el.dataset.cx===k;el.classList.toggle('ind',on);el.querySelector('.selo-lock').hidden=!on});
     $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes, '+peso(c.g)+' por mês. '+rende(k)+'</p>'+
-      '<p>Favorito sugerido: <b>'+fav+'</b>. Ele vem em todas, e dá para trocar no perfil.</p>'+
-      '<div class="ctas"><button type="button" class="btn ouro" data-add="'+k+'">Assinar · '+brl(c.p)+'/mês</button><a class="btn alt" href="#caixas">Ver as 4 caixas</a></div><button type="button" class="mais" id="tRefaz" style="background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;align-self:flex-start;color:inherit">Refazer o teste</button>';
+      '<ul class="dlg-lista">'+simula(k,favN).map(function(x){var d=x.n&&DESC[x.n];return '<li>'+(x.n&&FOTO[x.n]?'<img src="'+FOTO[x.n]+'" alt="">':'<span class="ph">'+(x.n?'':'?')+'</span>')+'<div><b>'+(x.n||'Surpresa')+' · '+x.g+' g</b><small>'+x.t+'</small>'+(d?'<span>'+d[0]+'</span>':'<span>A gente escolhe pelo seu perfil. A carta conta por quê.</span>')+'</div></li>'}).join('')+'</ul>'+
+      (fundador()?'<p class="fundr"><b>Assinante Fundador:</b> preço travado por 12 meses e uma Caramelizada a mais na primeira caixa.</p>':'')+
+      '<p class="preco-t">'+brl(c.p)+'<small>/mês'+(entregaCx(k)?' + '+brl(FRETE)+' de entrega':' · entrega grátis')+'</small></p>'+
+      '<button type="button" class="btn ouro grande" data-add="'+k+'">Assinar a '+nomeCx(k)+'</button>'+
+      '<p class="mais"><a href="#caixas">Ver outras caixas</a> · <button type="button" id="tRefaz" class="lnk">Refazer</button></p>';
   });
 
   // botão fixo de compra: aparece depois do topo e some perto das caixas
-  function fixo(){var b=$('fixoCta');if($('p-loja').hidden){b.classList.remove('on');return}
+  function fixo(){var b=$('fixoCta');if(!b)return;if($('p-loja').hidden){b.classList.remove('on');return}
     var t=$('topo').getBoundingClientRect(),h=window.innerHeight,perto=['caixas'].some(function(id){var r=$(id).getBoundingClientRect();return r.top<h&&r.bottom>0});
     b.classList.toggle('on',t.bottom<0&&!perto);}
   window.addEventListener('scroll',fixo,{passive:true});
