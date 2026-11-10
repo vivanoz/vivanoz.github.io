@@ -533,6 +533,15 @@ a.mais{color:inherit;text-underline-offset:3px}
   #caixas .plano .mini{display:none}
   .pitch{gap:18px}
 }
+.vid{display:block;width:min(100%,420px);aspect-ratio:1;border-radius:10px;object-fit:cover;box-shadow:0 26px 34px -24px rgba(10,5,0,.7);background:#2c2a18}
+#prova .addon img{border-radius:6px;object-fit:cover}
+.tudo{display:grid;gap:4px;margin-top:14px;padding:16px 18px;border-radius:10px;border:1.5px dashed var(--marrom);color:var(--marrom);text-decoration:none;max-width:640px}
+.tudo b{font:500 1.35rem/1.1 var(--serif)}
+.tudo span{font-size:.92rem}
+.tudo i{font:700 .7rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;font-style:normal;margin-top:6px;text-decoration:underline;text-underline-offset:3px}
+.faixa{display:flex;gap:8px;overflow-x:auto;padding:12px clamp(18px,5vw,56px);background:var(--creme);scrollbar-width:none}
+.faixa::-webkit-scrollbar{display:none}
+.faixa img{flex:0 0 auto;height:clamp(150px,30vw,240px);width:auto;border-radius:8px;object-fit:cover}
 </style>
 </head>
 <body>
@@ -567,7 +576,7 @@ a.mais{color:inherit;text-underline-offset:3px}
       <p class="cap">Viva Noz · castanhas de Maringá</p>
       <h1>Castanha todo mês. <em>Escolhida pelo seu gosto.</em></h1>
       <p class="lead">A Viva Noz nasceu vendendo castanha na rua, em Maringá. Hoje monta uma caixa por mês: você conta do que gosta, a gente escolhe e entrega.</p>
-      <div class="trio" aria-hidden="true"><img src="assets/emb_caram_frente.webp" alt=""><img src="assets/emb_mix_frente.webp" alt=""><img src="assets/emb_caju_frente.webp" alt=""></div>
+      <video class="vid" src="assets/video_mix.mp4" poster="assets/video_mix_capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pacote do Mix de Castanhas da Viva Noz sendo aberto"></video>
       <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
       <div class="ctas"><a class="btn ouro" href="#caixas">Assinar</a><a class="btn alt" href="#teste">Qual caixa é a minha?</a></div>
       <a class="mais" href="#avulsos">Prefere comprar só um pacote? Ver os avulsos</a>
@@ -627,6 +636,7 @@ a.mais{color:inherit;text-underline-offset:3px}
         <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
       </article>
     </div>
+    <a class="tudo" href="#avulsos"><b>Prefere escolher tudo?</b><span>Sem surpresa: você monta a caixa pacote por pacote.</span><i>Montar a minha</i></a>
     <p class="envio" id="envio">Os envios são nos dias 15 e 30.</p>
     <p class="mais"><a href="#teste">Na dúvida, faça o teste de 3 perguntas</a> · <a href="#caixa">Ver a caixa por dentro</a></p>
   </div>
@@ -637,9 +647,9 @@ a.mais{color:inherit;text-underline-offset:3px}
     <p class="eye">Pacotes avulsos</p>
     <h2 class="h" style="font-size:clamp(2rem,5vw,3.2rem)">Quer provar antes? <em>Leve um pacote.</em></h2>
     <div class="addon">
-      <button type="button" data-add="av-caju-caramelizada-com-gergelim-100"><img src="assets/emb_caram_frente.webp" alt=""><span><b>Caju caramelizada com gergelim · 100 g</b><i data-pav></i></span></button>
-      <button type="button" data-add="av-caju-com-sal-100"><img src="assets/emb_caju_frente.webp" alt=""><span><b>Caju com sal · 100 g</b><i data-pav></i></span></button>
-      <button type="button" data-add="av-mix-de-castanhas-100"><img src="assets/emb_mix_frente.webp" alt=""><span><b>Mix de castanhas · 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-caju-caramelizada-com-gergelim-100"><img src="assets/caram_tigela.webp" alt="Caju caramelizada com gergelim numa tigela"><span><b>Caju caramelizada com gergelim · 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-caju-com-sal-100"><img src="assets/caju_tigela.webp" alt="Caju com sal numa tigela"><span><b>Caju com sal · 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-mix-de-castanhas-100"><img src="assets/mix_tigela.webp" alt="Mix de castanhas numa tigela"><span><b>Mix de castanhas · 100 g</b><i data-pav></i></span></button>
     </div>
     <p class="mais"><a href="#avulsos">Ver todos os 18 avulsos</a> · <a href="#duvidas">Dúvidas</a></p>
   </div>
@@ -758,6 +768,7 @@ a.mais{color:inherit;text-underline-offset:3px}
   </div>
 </section>
 
+<div class="faixa" aria-hidden="true"><img src="assets/mix_colher.webp" alt=""><img src="assets/caram_solta.webp" alt=""><img src="assets/caju_solta.webp" alt=""><img src="assets/emb_mix_frente_cena.jpg" alt=""></div>
 <section class="pl creme" id="como">
   <div class="in">
     <p class="eye">Como funciona</p>
@@ -800,10 +811,10 @@ a.mais{color:inherit;text-underline-offset:3px}
 <section class="pl creme" id="avulsos">
   <div class="in">
     <p class="eye">Pacotes avulsos</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Sem assinatura. <em>Você escolhe cada pacote.</em></h2>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Você escolhe tudo. <em>Pacote por pacote.</em></h2>
     <p class="tx" id="avEnt">Escolha o produto e o tamanho.</p>
     <div id="avLista"></div>
-    <div class="monte"><p class="cap">Monte a sua</p><p>Quer os pacotes numa caixa kraft, com barbante e carta? Escolha os pacotes acima e acrescente a caixa: <b id="montePreco">R$ 9,90</b>.</p><button type="button" class="btn" data-add="monte">Acrescentar a caixa</button></div>
+    <div class="monte"><p class="cap">Você escolhe tudo</p><p>Quer os pacotes numa caixa kraft, com barbante e carta? Escolha os pacotes acima e acrescente a caixa: <b id="montePreco">R$ 9,90</b>.</p><button type="button" class="btn" data-add="monte">Acrescentar a caixa</button></div>
   </div>
 </section>
 </main>
@@ -1116,10 +1127,10 @@ a.mais{color:inherit;text-underline-offset:3px}
 <script>
 (function(){
   var PROD={essencial:{n:'Caixa Essencial',p:69.90,rec:true,pes:[1,1],comp:[['Seu favorito',150,1],['Da casa',100,1],['Da casa',50,1],['Surpresa',50,2]]},
-    mes:{n:'Caixa Mês Inteiro',p:139.90,rec:true,pes:[1,1],comp:[['Seu favorito',250,1],['Mix',150,1],['Da casa e do seu perfil',100,4],['Surpresa',50,1]]},
-    dois:{n:'Caixa A Dois',p:189.90,rec:true,pes:[2,2],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',100,4],['Surpresa',50,1]]},
+    mes:{n:'Caixa Mês Inteiro',p:139.90,rec:true,pes:[1,1],comp:[['Seu favorito',250,1],['Mix',150,1],['Da casa e do seu perfil',100,4],['Surpresa',50,2]]},
+    dois:{n:'Caixa A Dois',p:189.90,rec:true,pes:[2,2],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',100,4],['Surpresa',50,2]]},
     casa:{n:'Caixa Casa Cheia',p:239.90,rec:true,pes:[3,4],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',250,2],['Da casa e do seu perfil',100,3],['Surpresa',50,2]],extra:['Dá para entregar na empresa']},
-    monte:{n:'Caixa Monte a sua',d:'Caixa kraft, barbante e carta para os seus pacotes',p:9.90,uno:true}};
+    monte:{n:'Caixa Você escolhe tudo',d:'Caixa kraft, barbante e carta para os seus pacotes',p:9.90,uno:true}};
   // entrega: só Maringá e região. Grátis a partir da Mês Inteiro; avulso grátis a partir de MIN_AV
   var FRETE=9.90,MIN_AV=69,FUND_ATE=new Date(2026,10,30,23,59,59);
   function peso(g){return g>=1000?String(+(g/1000).toFixed(2)).replace('.',',')+' kg':g+' g'}
