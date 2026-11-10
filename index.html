@@ -476,6 +476,26 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 .abas a.on{background:var(--marrom);color:var(--creme);border-color:var(--marrom)}
 #p-loja section{scroll-margin-top:112px}
 @media(max-width:600px){#p-loja section{scroll-margin-top:150px}}
+.pitch{gap:22px;max-width:780px}
+.pitch h1{font:500 clamp(2.6rem,8vw,4.8rem)/.98 var(--serif);letter-spacing:-.015em;text-wrap:balance}
+.pitch h1 em{font-style:italic;color:var(--areia)}
+.fatos{display:flex;flex-wrap:wrap;gap:8px}
+.fatos li{font:600 .86rem/1.2 var(--sans);padding:9px 13px;border:1.5px solid rgba(244,235,221,.35);border-radius:99px}
+.fatos b{font-weight:800}
+.sempre{display:grid;gap:18px}
+.sempre ul{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.sempre li{font-size:.98rem;line-height:1.4;padding-left:18px;position:relative}
+.sempre li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;background:var(--areia)}
+#teste .q{padding:18px 0}
+.tres{margin-top:24px;background:#fbf5e8;color:var(--marrom);border-radius:4px;padding:22px 24px;box-shadow:0 22px 30px -24px rgba(20,10,2,.6);display:flex;flex-direction:column;gap:10px;max-width:560px;transform:rotate(-1deg);background-image:repeating-linear-gradient(transparent 0 29px,rgba(69,29,8,.08) 29px 30px)}
+.tres .mao{font-size:1.35rem;color:var(--verde)}
+.tres h3{font:500 2.3rem/1 var(--serif)}
+.tres .ctas{margin-top:6px}
+.plano .rende{font-size:.9rem;opacity:.85;margin-top:-6px}
+.plano.ind{outline:3px solid var(--ouro);outline-offset:4px}
+.fixo-cta{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:30;display:inline-flex;padding:15px 26px;border-radius:99px;background:var(--ouro);color:#2e1305;font:700 .74rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 26px -12px rgba(20,10,2,.7);transition:transform .3s;white-space:nowrap}
+.fixo-cta.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.fixo-cta{transition:none}}
 </style>
 </head>
 <body>
@@ -498,23 +518,47 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   </nav>
   <a class="carr" href="#carrinho">Carrinho <b id="ncar">0</b></a>
 </div>
-<div class="abas" id="abas" role="navigation" aria-label="Nesta página"><a href="#caixas">Caixas</a><a href="#dentro">O que vem</a><a href="#como">Como funciona</a><a href="#jornada">Níveis</a><a href="#produtos">Produtos</a><a href="#duvidas">Dúvidas</a></div>
+<div class="abas" id="abas" role="navigation" aria-label="Nesta página"><a href="#como">Como funciona</a><a href="#dentro">A caixa</a><a href="#teste">Teste</a><a href="#caixas">Caixas</a><a href="#produtos">Produtos</a><a href="#jornada">Níveis</a><a href="#duvidas">Dúvidas</a></div>
 </header>
 
 <!-- ======================= LOJA ======================= -->
 <main class="page" id="p-loja">
-<section class="pl verde" style="overflow:hidden">
-  <div class="in hero2">
-    <div class="col" style="gap:24px">
+<section class="pl verde" id="topo">
+  <div class="in">
+    <div class="col pitch">
       <p class="cap">Assinatura de castanhas · Maringá e região</p>
-      <h1>Sua caixa de castanhas, <em>montada pelo seu gosto.</em></h1>
-      <p class="lead">Você responde um perfil de 2 minutos. A gente monta a caixa em pacotes fechados e entrega uma vez por mês. Sem amendoim, sem uva-passa, e o seu favorito vem em todas.</p>
-      <div class="ctas"><a class="btn ouro" href="#caixas">Ver as caixas, de 400 g a 2 kg</a><a class="btn alt" href="#dentro">Ver o que vem na caixa</a></div>
-      <p class="cap">Sem fidelidade · Cancele pelo WhatsApp · Entrega em Maringá e região</p>
-      <div class="nomebox"><label for="nomeHero">Seu nome</label><input id="nomeHero" type="text" autocomplete="given-name" placeholder="Vai na etiqueta da caixa" maxlength="18"><p class="reac" id="prazer" aria-live="polite" style="color:inherit"></p></div>
-
+      <h1>Castanha todo mês. <em>Escolhida pelo seu gosto.</em></h1>
+      <p class="lead">Cansou do mesmo pacote de sempre? Você conta do que gosta. A gente escolhe, monta a caixa e entrega todo mês. Seu favorito vem em todas.</p>
+      <ul class="fatos"><li><b id="fPac">4 a 8 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
+      <div class="ctas"><a class="btn ouro" href="#teste">Qual caixa é a minha?</a><a class="btn alt" href="#caixas">Já sei: ver as caixas</a></div>
     </div>
+  </div>
+</section>
 
+<section class="pl creme" id="como">
+  <div class="in">
+    <p class="eye">Como funciona</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Você conta. <em>A gente escolhe.</em></h2>
+    <ol class="passos3">
+      <li><h3>Escolha o tamanho</h3><p>De 4 a 8 pacotes por mês, para 1 pessoa ou para a casa toda. Dá para trocar depois.</p></li>
+      <li><h3>Conte do que gosta</h3><p>Seu favorito, alergias e o que você não quer receber. Leva 2 minutos.</p></li>
+      <li><h3>A gente escolhe o resto</h3><p>Pelo seu perfil. A carta explica por que cada item veio.</p></li>
+      <li><h3>Chega em casa</h3><p>Uma vez por mês. A gente avisa no WhatsApp antes de sair.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pl verde" id="dentro" style="overflow:hidden">
+  <div class="in hero2">
+    <div class="col" style="gap:22px">
+      <p class="eye">O que chega na sua porta</p>
+      <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Abra a caixa <em>antes de assinar.</em></h2>
+      <div class="sempre">
+        <div><p class="cap">Sempre vem</p><ul><li><b>Seu favorito,</b> que você escolhe, no maior pacote</li><li><b>Os da casa:</b> Mix, Caramelizada e Caju com Sal, conforme o tamanho</li><li><b>A carta,</b> com lacre de cera</li></ul></div>
+        <div><p class="cap">A gente escolhe</p><ul><li><b>1 ou 2 itens</b> pelo seu perfil. Nunca algo que você recusou.</li></ul></div>
+      </div>
+      <div class="nomebox"><label for="nomeHero">Seu nome</label><input id="nomeHero" type="text" autocomplete="given-name" placeholder="Vai na etiqueta da caixa" maxlength="18"><p class="reac" id="prazer" aria-live="polite" style="color:inherit"></p></div>
+    </div>
     <div class="unbox" id="unbox" data-s="0">
       <div class="ub-art">
         <svg viewBox="0 0 600 560" role="img" aria-label="Caixa kraft da Viva Noz amarrada com barbante, com etiqueta escrita à mão e uma carta lacrada com cera">
@@ -583,17 +627,29 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   </div>
 </section>
 
-<section class="pl creme" id="dentro">
+<section class="pl creme" id="teste">
   <div class="in">
-    <p class="eye">O que vem na caixa</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">O que vem <em>na sua caixa</em></h2>
-    <p class="tx">De 400 g a 2 kg por mês, em pacotes fechados de 100 a 250 g. Você abre um de cada vez, e o resto continua crocante.</p>
-    <ol class="passos3">
-      <li><h3>Seu favorito</h3><p>No maior pacote. O mesmo todo mês, até você trocar.</p></li>
-      <li><h3>Os da casa</h3><p>Mix, Caramelizada e Caju com Sal, conforme o tamanho da caixa.</p></li>
-      <li><h3>Escolhidos pela gente</h3><p>Pelo seu perfil. Nunca algo que você recusou, e nada de amendoim nem de uva-passa.</p></li>
-      <li><h3>A carta</h3><p>Explica cada escolha.</p></li>
-    </ol>
+    <p class="eye">Qual caixa é a sua</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Três perguntas. <em>Uma caixa.</em></h2>
+    <form id="fteste" class="teste" novalidate>
+      <fieldset class="q"><legend>Quem vai comer?</legend><div class="chips">
+        <label><input type="radio" name="t1" value="1"><span>Só eu</span></label>
+        <label><input type="radio" name="t1" value="2"><span>Eu e mais uma pessoa</span></label>
+        <label><input type="radio" name="t1" value="3"><span>A casa toda</span></label>
+        <label><input type="radio" name="t1" value="4"><span>O pessoal do trabalho</span></label>
+      </div></fieldset>
+      <fieldset class="q"><legend>Quando bate a vontade?</legend><div class="chips">
+        <label><input type="radio" name="t2" value="dia"><span>Todo dia</span></label>
+        <label><input type="radio" name="t2" value="semana"><span>Alguns dias da semana</span></label>
+        <label><input type="radio" name="t2" value="visita"><span>Quando chega visita</span></label>
+      </div></fieldset>
+      <fieldset class="q"><legend>Time doce ou time salgado?</legend><div class="chips">
+        <label><input type="radio" name="t3" value="Caju Caramelizada"><span>Doce</span></label>
+        <label><input type="radio" name="t3" value="Caju com Sal"><span>Salgado</span></label>
+        <label><input type="radio" name="t3" value="Mix de Castanhas"><span>Os dois, depende do dia</span></label>
+      </div></fieldset>
+    </form>
+    <div class="tres" id="tRes" aria-live="polite"><p class="mao">Responda as três e a sua caixa aparece aqui.</p></div>
   </div>
 </section>
 
@@ -601,41 +657,48 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div class="in">
     <p class="eye">As caixas</p>
     <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Escolha sua caixa</h2>
-    <p class="tx">Todas com o seu favorito, carta com lacre de cera e pacotes que fecham de novo. Dá para trocar de tamanho quando quiser.</p>
+    <p class="tx">Todas com o seu favorito, a carta com lacre de cera e pacotes que fecham de novo. Dá para trocar de tamanho quando quiser. Na dúvida, <a href="#teste">faça o teste</a>.</p>
     <div class="pz">
-      <article class="plano">
+      <article class="plano" data-cx="essencial">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para quem mora sozinho</p>
+        <p class="cap">Para 1 pessoa</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>Essencial</h3>
-        <p class="kg">400 g · 4 pacotes de 100 g</p>
+        <p class="kg">4 pacotes de 100 g · 400 g</p>
+        <p class="rende" data-rende="essencial"></p>
         <p class="preco">R$ 69,90<small>/mês + entrega</small></p>
         <ul><li><span>Seu favorito, 1 da casa e 2 pelo seu perfil</span></li><li><span>Caixa kraft, barbante e carta</span></li></ul>
         <button type="button" class="btn" data-add="essencial">Assinar a Essencial</button>
       </article>
-      <article class="plano res">
+      <article class="plano res" data-cx="mes">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#455020"/><polygon points="6,30 114,30 104,14 16,14" fill="#56632a"/><path d="M60,14 L60,80 M10,22 H110" stroke="#B88945" stroke-width="3" fill="none"/><circle cx="60" cy="50" r="11" fill="#B88945"/><circle cx="60" cy="50" r="7" fill="none" stroke="#8a6326" stroke-width="1.4"/></svg>
-        <p class="cap">Para quem já compra 1 kg por mês</p>
-        <span class="selo-lock">A mais escolhida</span>
+        <p class="cap">Para 1 pessoa, todo dia</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>Mês Inteiro</h3>
-        <p class="kg">1 kg · 5 pacotes de 200 g</p>
+        <p class="kg">5 pacotes de 200 g · 1 kg</p>
+        <p class="rende" data-rende="mes"></p>
         <p class="preco">R$ 139,90<small>/mês + entrega</small></p>
         <ul><li><span>Seu favorito e os 3 da casa</span></li><li><span>1 escolhido pelo seu perfil</span></li><li><span>Um pacote por semana, sempre crocante</span></li></ul>
         <button type="button" class="btn ouro" data-add="mes">Assinar o Mês Inteiro</button>
       </article>
-      <article class="plano">
+      <article class="plano" data-cx="dois">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para dividir em casa</p>
+        <p class="cap">Para 2 pessoas</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>A Dois</h3>
-        <p class="kg">1,5 kg · 6 pacotes de 250 g</p>
+        <p class="kg">6 pacotes de 250 g · 1,5 kg</p>
+        <p class="rende" data-rende="dois"></p>
         <p class="preco">R$ 189,90<small>/mês + entrega</small></p>
         <ul><li><span>Seu favorito, os 3 da casa e castanha-do-pará</span></li><li><span>1 escolhido pelo seu perfil</span></li></ul>
         <button type="button" class="btn" data-add="dois">Assinar A Dois</button>
       </article>
-      <article class="plano">
+      <article class="plano" data-cx="casa">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para a família ou o escritório</p>
+        <p class="cap">Para 3 ou 4 pessoas, ou o escritório</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>Casa Cheia</h3>
-        <p class="kg">2 kg · 8 pacotes de 250 g</p>
+        <p class="kg">8 pacotes de 250 g · 2 kg</p>
+        <p class="rende" data-rende="casa"></p>
         <p class="preco">R$ 239,90<small>/mês + entrega</small></p>
         <ul><li><span>Seu favorito, os 3 da casa e castanha-do-pará</span></li><li><span>2 escolhidos pelo seu perfil</span></li><li><span>Dá para entregar na empresa</span></li></ul>
         <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
@@ -644,15 +707,25 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   </div>
 </section>
 
-<section class="pl creme" id="como">
+<section class="pl creme" id="produtos">
   <div class="in">
-    <p class="eye">Como funciona</p>
-    <ol class="passos3">
-      <li><h3>Escolha o tamanho</h3><p>De 400 g a 2 kg por mês. Dá para trocar depois.</p></li>
-      <li><h3>Conte do que gosta</h3><p>Favorito, alergias e o que você não quer receber. Leva 2 minutos.</p></li>
-      <li><h3>Receba em casa</h3><p>Uma vez por mês. A gente avisa no WhatsApp antes de sair.</p></li>
-      <li><h3>Ajuste quando quiser</h3><p>Mande pelo WhatsApp o que gostou e o que não gostou. A próxima caixa muda.</p></li>
-    </ol>
+    <p class="eye">O que pode chegar</p>
+    <div class="dupla" style="align-items:center">
+      <div class="col" style="gap:14px"><h2 class="h" style="font-size:clamp(2rem,4.4vw,3.2rem)">O que pode vir <em>na sua caixa</em></h2><p class="tx" id="tamPac">Cada item vem num pacote fechado: 100 g (Essencial), 200 g (Mês Inteiro) e 250 g (A Dois e Casa Cheia).</p></div>
+      <div class="col" style="gap:16px"><div class="amostra" id="amostra"><p class="cap">Caixa de exemplo</p><p class="mao">Os 3 sabores da casa estão sempre disponíveis. As novidades variam.</p></div><button type="button" class="btn" id="btnAmostra" style="align-self:flex-start">Ver uma caixa de exemplo</button></div>
+    </div>
+    <div class="cat">
+      <div class="item"><div class="im"><img src="assets/emb_mix_frente.webp" alt="Mix de Castanhas"></div><div class="tx2"><b>Mix de Castanhas</b><span>Caju, nozes, amêndoa, pará e cranberry</span><span class="nota">Bom para: lanche no trabalho</span><i class="tagf fixo">Da casa</i></div></div>
+      <div class="item"><div class="im"><img src="assets/emb_caram_frente.webp" alt="Caju Caramelizada"></div><div class="tx2"><b>Caju Caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: quem gosta de doce</span><i class="tagf fixo">Da casa</i></div></div>
+      <div class="item"><div class="im"><img src="assets/emb_caju_frente.webp" alt="Caju com Sal"></div><div class="tx2"><b>Caju com Sal</b><span>W1, inteiro</span><span class="nota">Bom para: petisco com amigos</span><i class="tagf fixo">Da casa</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Amêndoa defumada</b><span>Defumada</span><span class="nota">Bom para: tábua de frios</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de caju 70%</b><span>Castanha de caju coberta de chocolate 70%</span><span class="nota">Bom para: depois do almoço, com café</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Sal de parrilha</b><span>Para quem cozinha</span><span class="nota">Bom para: churrasco</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Farinha da alegria</b><span>Farinhas e sementes, porcionadas</span><span class="nota">Bom para: iogurte e frutas</span><i class="tagf sur">Novidade</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Pistache</b><span>Sem casca, inteiro</span><span class="nota">Bom para: festas de fim de ano</span><i class="tagf res">Especial</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de cereja</b><span>Cereja seca coberta de chocolate 70%</span><span class="nota">Bom para: quem gosta de frutas secas</span><i class="tagf res">Especial</i></div></div>
+      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Macadâmia caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: levar de presente</span><i class="tagf res">Especial</i></div></div>
+    </div>
   </div>
 </section>
 
@@ -675,29 +748,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   </div>
 </section>
 
-<section class="pl creme" id="produtos">
-  <div class="in">
-    <p class="eye">O que pode chegar</p>
-    <div class="dupla" style="align-items:center">
-      <h2 class="h" style="font-size:clamp(2rem,4.4vw,3.2rem)">O que pode vir <em>na sua caixa</em></h2>
-      <div class="col" style="gap:16px"><div class="amostra" id="amostra"><p class="cap">Caixa de exemplo</p><p class="mao">Os 3 sabores da casa estão sempre disponíveis. As novidades variam.</p></div><button type="button" class="btn" id="btnAmostra" style="align-self:flex-start">Ver uma caixa de exemplo</button></div>
-    </div>
-    <div class="cat">
-      <div class="item"><div class="im"><img src="assets/emb_mix_frente.webp" alt="Mix de Castanhas"></div><div class="tx2"><b>Mix de Castanhas</b><span>Caju, nozes, amêndoa, pará e cranberry</span><span class="nota">Bom para: lanche no trabalho</span><i class="tagf fixo">Da casa</i></div></div>
-      <div class="item"><div class="im"><img src="assets/emb_caram_frente.webp" alt="Caju Caramelizada"></div><div class="tx2"><b>Caju Caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: quem gosta de doce</span><i class="tagf fixo">Da casa</i></div></div>
-      <div class="item"><div class="im"><img src="assets/emb_caju_frente.webp" alt="Caju com Sal"></div><div class="tx2"><b>Caju com Sal</b><span>W1, inteiro</span><span class="nota">Bom para: petisco com amigos</span><i class="tagf fixo">Da casa</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Amêndoa defumada</b><span>Defumada</span><span class="nota">Bom para: tábua de frios</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de caju 70%</b><span>Caju com chocolate 70%</span><span class="nota">Bom para: depois do almoço, com café</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Sal de parrilha</b><span>Para quem cozinha</span><span class="nota">Bom para: churrasco</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink sprig"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Farinha da alegria</b><span>Farinhas e sementes, porcionadas</span><span class="nota">Bom para: iogurte e frutas</span><i class="tagf sur">Novidade</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Pistache</b><span>Sem casca, inteiro</span><span class="nota">Bom para: festas de fim de ano</span><i class="tagf res">Especial</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de cereja</b><span>Com chocolate 70%</span><span class="nota">Bom para: quem gosta de frutas secas</span><i class="tagf res">Especial</i></div></div>
-      <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Macadâmia caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: levar de presente</span><i class="tagf res">Especial</i></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="pl kraft faq2" id="duvidas">
+<section class="pl creme faq2" id="duvidas">
   <div class="in">
     <p class="eye">Perguntas frequentes</p>
     <div>
@@ -714,6 +765,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     </div>
   </div>
 </section>
+<a class="fixo-cta" id="fixoCta" href="#caixas">Escolher minha caixa</a>
 </main>
 
 <!-- ======================= HISTÓRIA ======================= -->
@@ -981,10 +1033,10 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 
 <script>
 (function(){
-  var PROD={essencial:{n:'Caixa Essencial',d:'Assinatura mensal · 400 g, 4 pacotes de 100 g',p:69.90,rec:true},
-    mes:{n:'Caixa Mês Inteiro',d:'Assinatura mensal · 1 kg, 5 pacotes de 200 g',p:139.90,rec:true},
-    dois:{n:'Caixa A Dois',d:'Assinatura mensal · 1,5 kg, 6 pacotes de 250 g',p:189.90,rec:true},
-    casa:{n:'Caixa Casa Cheia',d:'Assinatura mensal · 2 kg, 8 pacotes de 250 g',p:239.90,rec:true},
+  var PROD={essencial:{n:'Caixa Essencial',d:'Assinatura mensal · 400 g, 4 pacotes de 100 g',p:69.90,rec:true,pac:4,gp:100,pes:[1,1]},
+    mes:{n:'Caixa Mês Inteiro',d:'Assinatura mensal · 1 kg, 5 pacotes de 200 g',p:139.90,rec:true,pac:5,gp:200,pes:[1,1]},
+    dois:{n:'Caixa A Dois',d:'Assinatura mensal · 1,5 kg, 6 pacotes de 250 g',p:189.90,rec:true,pac:6,gp:250,pes:[2,2]},
+    casa:{n:'Caixa Casa Cheia',d:'Assinatura mensal · 2 kg, 8 pacotes de 250 g',p:239.90,rec:true,pac:8,gp:250,pes:[3,4]},
     mix100:{n:'Mix de Castanhas 100 g',d:'Uma vez, na primeira caixa',p:16.90},
     car100:{n:'Caju Caramelizada 100 g',d:'Uma vez, na primeira caixa',p:16.90},
     caj100:{n:'Caju com Sal 100 g',d:'Uma vez, na primeira caixa',p:16.90}};
@@ -1045,6 +1097,38 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     var i=e.target.closest('[data-inc]');if(i){cart[i.dataset.inc]++;save();renderCart();return;}
     var d=e.target.closest('[data-dec]');if(d){var k2=d.dataset.dec;cart[k2]--;if(cart[k2]<=0)delete cart[k2];save();renderCart();return;}
   });
+
+  // números da home: calculados das caixas, para não escrever à mão
+  var CX=['essencial','mes','dois','casa'];
+  function nomeCx(k){return PROD[k].n.replace('Caixa ','')}
+  function rende(k){var c=PROD[k],g=c.pac*c.gp,lo=Math.round(g/30/c.pes[1]),hi=Math.round(g/30/c.pes[0]);
+    return c.pes[1]===1?'Rende uns '+hi+' g por dia.':lo===hi?'Rende uns '+hi+' g por pessoa por dia.':'Rende uns '+lo+' a '+hi+' g por pessoa por dia.';}
+  document.querySelectorAll('[data-rende]').forEach(function(el){el.textContent=rende(el.dataset.rende)});
+  var pacs=CX.map(function(k){return PROD[k].pac}),precos=CX.map(function(k){return PROD[k].p});
+  $('fPac').textContent=Math.min.apply(0,pacs)+' a '+Math.max.apply(0,pacs)+' pacotes';
+  $('fPreco').textContent=brl(Math.min.apply(0,precos))+' a '+brl(Math.max.apply(0,precos));
+  (function(){var gs=[];CX.forEach(function(k){var g=PROD[k].gp,x=gs.filter(function(y){return y.g===g})[0];if(!x){x={g:g,n:[]};gs.push(x)}x.n.push(nomeCx(k))});
+    var t=gs.map(function(x){return x.g+' g ('+x.n.join(' e ')+')'});
+    $('tamPac').textContent='Cada item vem num pacote fechado: '+(t.length>1?t.slice(0,-1).join(', ')+' e '+t[t.length-1]:t[0])+'.';})();
+
+  // mini teste: 3 perguntas, indica a caixa e sugere o favorito
+  function tval(n){var x=document.querySelector('#fteste input[name="'+n+'"]:checked');return x?x.value:''}
+  $('fteste').addEventListener('change',function(){
+    var q=tval('t1'),f=tval('t2'),fav=tval('t3');if(!q||!f||!fav)return;
+    var k=q==='1'?(f==='dia'?'mes':'essencial'):q==='2'?(f==='dia'?'dois':'mes'):(f==='visita'?'dois':'casa');
+    var c=PROD[k];
+    try{localStorage.setItem('vn-fav',fav)}catch(e){}
+    document.querySelectorAll('[data-cx]').forEach(function(el){var on=el.dataset.cx===k;el.classList.toggle('ind',on);el.querySelector('.selo-lock').hidden=!on});
+    $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes de '+c.gp+' g por mês. '+rende(k)+'</p>'+
+      '<p>Favorito sugerido: <b>'+fav+'</b>. Ele vem em todas, e dá para trocar no perfil.</p>'+
+      '<div class="ctas"><button type="button" class="btn ouro" data-add="'+k+'">Assinar · '+brl(c.p)+'/mês</button><a class="btn alt" href="#caixas">Ver as 4 caixas</a></div>';
+  });
+
+  // botão fixo de compra: aparece depois do topo e some perto das caixas
+  function fixo(){var b=$('fixoCta');if($('p-loja').hidden){b.classList.remove('on');return}
+    var t=$('topo').getBoundingClientRect(),h=window.innerHeight,perto=['teste','caixas'].some(function(id){var r=$(id).getBoundingClientRect();return r.top<h&&r.bottom>0});
+    b.classList.toggle('on',t.bottom<0&&!perto);}
+  window.addEventListener('scroll',fixo,{passive:true});
 
   // jornada
   var NIV=['Semente. Ainda estamos nos conhecendo: o favorito é seu, o resto é com a gente.',
@@ -1141,6 +1225,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     pages.forEach(function(x){$('p-'+x).hidden=(x!==p)});
     $('abas').hidden=(p!=='loja');
     document.querySelectorAll('.nav nav a').forEach(function(a){if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    if(p==='perfil'&&!val('fav')){var sf='';try{sf=localStorage.getItem('vn-fav')||''}catch(e){}var r=sf&&document.querySelector('input[name="fav"][value="'+sf+'"]');if(r)r.checked=true;}
     if(p==='pagamento'){$('resumo').innerHTML=resumoHTML();$('cartaPrev').innerHTML=cartaHTML();}
     if(p==='pronto'){var pf=perfil();$('okTit').textContent=pf.nome?'Lacrado, '+pf.nome+'.':'Lacrado.';
       var d=enviado?enviado.d:pedido();
@@ -1151,6 +1236,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       if(enviado&&enviado.ok){cart={};save();}var l=document.querySelector('.lacre');l.style.animation='none';l.getBoundingClientRect();l.style.animation='';}
     renderCart();
     if(anchor)anchor.scrollIntoView();else window.scrollTo(0,0);
+    fixo();
   }
   var ABAS=[].slice.call(document.querySelectorAll('#abas a'));
   function abaAtiva(){if($('abas').hidden)return;var y=window.innerHeight*.35,on=null;
