@@ -496,6 +496,24 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 .fixo-cta{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:30;display:inline-flex;padding:15px 26px;border-radius:99px;background:var(--ouro);color:#2e1305;font:700 .74rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 26px -12px rgba(20,10,2,.7);transition:transform .3s;white-space:nowrap}
 .fixo-cta.on{transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){.fixo-cta{transition:none}}
+.avc{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.avc h3{font:500 clamp(1.5rem,3vw,2rem)/1.1 var(--serif)}
+#avLista .cat{grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:10px}
+#avLista .item .tx2{padding:10px}
+#avLista .item b{font-size:1.02rem}
+.av .tams{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.av .tams span{padding:7px 8px;font-size:.74rem;opacity:1}
+.av .preco-av{font:500 1.25rem/1 var(--serif);margin-top:4px}
+.av .btn{padding:12px 16px;margin-top:6px;font-size:.66rem}
+.fund{background:var(--profundo);color:var(--creme);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;margin:18px 0 6px;max-width:640px}
+.fund .cap{color:var(--ouro)}
+.fund p{font-size:.95rem}
+.envio{font-size:.92rem;margin:6px 0 18px}
+.monte{margin-top:28px;border:1.5px dashed var(--linha);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;max-width:640px}
+.monte .btn{align-self:flex-start}
+.avisa{display:flex;flex-direction:column;gap:8px;margin-top:12px;max-width:420px}
+.avisa input{font:500 1rem/1.2 var(--sans);padding:12px 14px;border:1.5px solid var(--linha);border-radius:8px;background:#fbf5e8;color:var(--marrom);width:100%}
+.avisa .btn{align-self:flex-start}
 </style>
 </head>
 <body>
@@ -518,7 +536,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   </nav>
   <a class="carr" href="#carrinho">Carrinho <b id="ncar">0</b></a>
 </div>
-<div class="abas" id="abas" role="navigation" aria-label="Nesta página"><a href="#como">Como funciona</a><a href="#dentro">A caixa</a><a href="#teste">Teste</a><a href="#caixas">Caixas</a><a href="#produtos">Produtos</a><a href="#jornada">Níveis</a><a href="#duvidas">Dúvidas</a></div>
+<div class="abas" id="abas" role="navigation" aria-label="Nesta página"><a href="#como">Como funciona</a><a href="#dentro">A caixa</a><a href="#teste">Teste</a><a href="#caixas">Caixas</a><a href="#produtos">Produtos</a><a href="#avulsos">Avulsos</a><a href="#jornada">Níveis</a><a href="#duvidas">Dúvidas</a></div>
 </header>
 
 <!-- ======================= LOJA ======================= -->
@@ -529,7 +547,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       <p class="cap">Assinatura de castanhas · Maringá e região</p>
       <h1>Castanha todo mês. <em>Escolhida pelo seu gosto.</em></h1>
       <p class="lead">Cansou do mesmo pacote de sempre? Você conta do que gosta. A gente escolhe, monta a caixa e entrega todo mês. Seu favorito vem em todas.</p>
-      <ul class="fatos"><li><b id="fPac">4 a 8 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
+      <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
       <div class="ctas"><a class="btn ouro" href="#teste">Qual caixa é a minha?</a><a class="btn alt" href="#caixas">Já sei: ver as caixas</a></div>
     </div>
   </div>
@@ -540,10 +558,10 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     <p class="eye">Como funciona</p>
     <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Você conta. <em>A gente escolhe.</em></h2>
     <ol class="passos3">
-      <li><h3>Escolha o tamanho</h3><p>De 4 a 8 pacotes por mês, para 1 pessoa ou para a casa toda. Dá para trocar depois.</p></li>
+      <li><h3>Escolha o tamanho</h3><p>Quatro caixas, de 1 pessoa à casa toda. Dá para trocar depois.</p></li>
       <li><h3>Conte do que gosta</h3><p>Seu favorito, alergias e o que você não quer receber. Leva 2 minutos.</p></li>
       <li><h3>A gente escolhe o resto</h3><p>Pelo seu perfil. A carta explica por que cada item veio.</p></li>
-      <li><h3>Chega em casa</h3><p>Uma vez por mês. A gente avisa no WhatsApp antes de sair.</p></li>
+      <li><h3>Chega em casa</h3><p>Uma vez por mês, no dia 15 ou 30. A gente avisa no WhatsApp antes de sair.</p></li>
     </ol>
   </div>
 </section>
@@ -555,7 +573,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Abra a caixa <em>antes de assinar.</em></h2>
       <div class="sempre">
         <div><p class="cap">Sempre vem</p><ul><li><b>Seu favorito,</b> que você escolhe, no maior pacote</li><li><b>Os da casa:</b> Mix, Caramelizada e Caju com Sal, conforme o tamanho</li><li><b>A carta,</b> com lacre de cera</li></ul></div>
-        <div><p class="cap">A gente escolhe</p><ul><li><b>1 ou 2 itens</b> pelo seu perfil. Nunca algo que você recusou.</li></ul></div>
+        <div><p class="cap">A gente escolhe</p><ul><li><b>As surpresas de 50 g</b> e os outros pacotes, pelo seu perfil. Nunca algo que você recusou.</li></ul></div>
       </div>
       <div class="nomebox"><label for="nomeHero">Seu nome</label><input id="nomeHero" type="text" autocomplete="given-name" placeholder="Vai na etiqueta da caixa" maxlength="18"><p class="reac" id="prazer" aria-live="polite" style="color:inherit"></p></div>
     </div>
@@ -658,16 +676,18 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     <p class="eye">As caixas</p>
     <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Escolha sua caixa</h2>
     <p class="tx">Todas com o seu favorito, a carta com lacre de cera e pacotes que fecham de novo. Dá para trocar de tamanho quando quiser. Na dúvida, <a href="#teste">faça o teste</a>.</p>
+    <div class="fund" id="fundador"><p class="cap">Assinante Fundador · 100 vagas até 30/11</p><p><b>Preço travado por 12 meses</b> e uma Caramelizada a mais na primeira caixa.</p></div>
+    <p class="envio" id="envio">Os envios são nos dias 15 e 30.</p>
     <div class="pz">
       <article class="plano" data-cx="essencial">
         <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
         <p class="cap">Para 1 pessoa</p>
         <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>Essencial</h3>
-        <p class="kg">4 pacotes de 100 g · 400 g</p>
+        <p class="kg" data-kg="essencial"></p>
         <p class="rende" data-rende="essencial"></p>
-        <p class="preco">R$ 69,90<small>/mês + entrega</small></p>
-        <ul><li><span>Seu favorito, 1 da casa e 2 pelo seu perfil</span></li><li><span>Caixa kraft, barbante e carta</span></li></ul>
+        <p class="preco">R$ 69,90<small data-ent></small></p>
+        <ul data-comp></ul>
         <button type="button" class="btn" data-add="essencial">Assinar a Essencial</button>
       </article>
       <article class="plano res" data-cx="mes">
@@ -675,10 +695,10 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
         <p class="cap">Para 1 pessoa, todo dia</p>
         <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>Mês Inteiro</h3>
-        <p class="kg">5 pacotes de 200 g · 1 kg</p>
+        <p class="kg" data-kg="mes"></p>
         <p class="rende" data-rende="mes"></p>
-        <p class="preco">R$ 139,90<small>/mês + entrega</small></p>
-        <ul><li><span>Seu favorito e os 3 da casa</span></li><li><span>1 escolhido pelo seu perfil</span></li><li><span>Um pacote por semana, sempre crocante</span></li></ul>
+        <p class="preco">R$ 139,90<small data-ent></small></p>
+        <ul data-comp></ul>
         <button type="button" class="btn ouro" data-add="mes">Assinar o Mês Inteiro</button>
       </article>
       <article class="plano" data-cx="dois">
@@ -686,10 +706,10 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
         <p class="cap">Para 2 pessoas</p>
         <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>A Dois</h3>
-        <p class="kg">6 pacotes de 250 g · 1,5 kg</p>
+        <p class="kg" data-kg="dois"></p>
         <p class="rende" data-rende="dois"></p>
-        <p class="preco">R$ 189,90<small>/mês + entrega</small></p>
-        <ul><li><span>Seu favorito, os 3 da casa e castanha-do-pará</span></li><li><span>1 escolhido pelo seu perfil</span></li></ul>
+        <p class="preco">R$ 189,90<small data-ent></small></p>
+        <ul data-comp></ul>
         <button type="button" class="btn" data-add="dois">Assinar A Dois</button>
       </article>
       <article class="plano" data-cx="casa">
@@ -697,10 +717,10 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
         <p class="cap">Para 3 ou 4 pessoas, ou o escritório</p>
         <span class="selo-lock" hidden>Indicada no seu teste</span>
         <h3>Casa Cheia</h3>
-        <p class="kg">8 pacotes de 250 g · 2 kg</p>
+        <p class="kg" data-kg="casa"></p>
         <p class="rende" data-rende="casa"></p>
-        <p class="preco">R$ 239,90<small>/mês + entrega</small></p>
-        <ul><li><span>Seu favorito, os 3 da casa e castanha-do-pará</span></li><li><span>2 escolhidos pelo seu perfil</span></li><li><span>Dá para entregar na empresa</span></li></ul>
+        <p class="preco">R$ 239,90<small data-ent></small></p>
+        <ul data-comp></ul>
         <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
       </article>
     </div>
@@ -711,7 +731,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div class="in">
     <p class="eye">O que pode chegar</p>
     <div class="dupla" style="align-items:center">
-      <div class="col" style="gap:14px"><h2 class="h" style="font-size:clamp(2rem,4.4vw,3.2rem)">O que pode vir <em>na sua caixa</em></h2><p class="tx" id="tamPac">Cada item vem num pacote fechado: 100 g (Essencial), 200 g (Mês Inteiro) e 250 g (A Dois e Casa Cheia).</p></div>
+      <div class="col" style="gap:14px"><h2 class="h" style="font-size:clamp(2rem,4.4vw,3.2rem)">O que pode vir <em>na sua caixa</em></h2><p class="tx">Na caixa, o favorito vem no maior pacote e as surpresas em 50 g. Avulso, em 100, 250 ou 500 g.</p></div>
       <div class="col" style="gap:16px"><div class="amostra" id="amostra"><p class="cap">Caixa de exemplo</p><p class="mao">Os 3 sabores da casa estão sempre disponíveis. As novidades variam.</p></div><button type="button" class="btn" id="btnAmostra" style="align-self:flex-start">Ver uma caixa de exemplo</button></div>
     </div>
     <div class="cat">
@@ -726,6 +746,16 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
       <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Drágea de cereja</b><span>Cereja seca coberta de chocolate 70%</span><span class="nota">Bom para: quem gosta de frutas secas</span><i class="tagf res">Especial</i></div></div>
       <div class="item"><div class="im"><i class="ink nuts"></i><span class="foto">Foto a fazer</span></div><div class="tx2"><b>Macadâmia caramelizada</b><span>Com gergelim</span><span class="nota">Bom para: levar de presente</span><i class="tagf res">Especial</i></div></div>
     </div>
+  </div>
+</section>
+
+<section class="pl creme" id="avulsos">
+  <div class="in">
+    <p class="eye">Pacotes avulsos</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Sem assinatura. <em>Você escolhe cada pacote.</em></h2>
+    <p class="tx" id="avEnt">Escolha o produto e o tamanho.</p>
+    <div id="avLista"></div>
+    <div class="monte"><p class="cap">Monte a sua</p><p>Quer os pacotes numa caixa kraft, com barbante e carta? Escolha os pacotes acima e acrescente a caixa: <b id="montePreco">R$ 9,90</b>.</p><button type="button" class="btn" data-add="monte">Acrescentar a caixa</button></div>
   </div>
 </section>
 
@@ -752,15 +782,16 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div class="in">
     <p class="eye">Perguntas frequentes</p>
     <div>
-      <details><summary>Quanto custa?</summary><p>De R$ 69,90 (400 g) a R$ 239,90 (2 kg) por mês, mais a entrega. A Mês Inteiro, de 1 kg, sai R$ 139,90.</p></details>
-      <details><summary>Por que pacotes pequenos e não um de 1 kg?</summary><p>Pacote grande aberto perde a crocância rápido. Com pacotes de 100 a 250 g, você abre um de cada vez e o resto fica fechado.</p></details>
+      <details><summary>Quanto custa?</summary><p id="faqPreco"></p></details>
+      <details><summary>Por que pacotes pequenos e não um de 1 kg?</summary><p>Pacote grande aberto perde a crocância rápido. Com pacotes separados, você abre um de cada vez e o resto fica fechado.</p></details>
       <details><summary>Tem amendoim ou uva-passa?</summary><p>Não. O Mix leva caju, nozes, amêndoa, castanha-do-pará e cranberry, sempre na mesma medida.</p></details>
       <details><summary>Como eu pago?</summary><p>Por enquanto, por Pix ou link de cartão, combinado pelo WhatsApp depois do pedido. O site não pede dados de cartão.</p></details>
       <details><summary>Posso cancelar?</summary><p>Pode, quando quiser, pelo WhatsApp. Sem multa, sem fidelidade e sem ninguém insistindo para você ficar.</p></details>
       <details><summary>E se eu não gostar de um item?</summary><p>Avise pelo WhatsApp. Ele sai do seu perfil e não volta.</p></details>
       <details><summary>Posso pular um mês?</summary><p>Pode. Quando voltar, você continua no mesmo nível.</p></details>
       <details><summary>Dá para dar de presente?</summary><p>Dá. No perfil, marque que é presente: a caixa vai com o nome de quem recebe e a carta assinada por você.</p></details>
-      <details><summary>Onde vocês entregam?</summary><p>Em Maringá e região, a própria Viva Noz entrega. Para outras cidades, o valor sai pelo CEP.</p></details>
+      <details><summary>Onde vocês entregam?</summary><p>Em Maringá e região, quem entrega é a própria Viva Noz. Para outras cidades e estados, a entrega chega em breve, com o frete calculado pelo CEP. Deixe seu contato e a gente avisa.</p><div class="avisa" data-avisa><input data-a="nome" type="text" autocomplete="given-name" placeholder="Seu nome" maxlength="40"><input data-a="zap" type="tel" autocomplete="tel" placeholder="WhatsApp, com DDD"><input data-a="cep" inputmode="numeric" autocomplete="postal-code" placeholder="CEP"><button type="button" class="btn">Me avise</button></div></details>
+      <details><summary>Quando chega?</summary><p>Os envios são nos dias 15 e 30. Pedido até o dia 10 sai no dia 15; até o dia 25, no dia 30. A gente avisa no WhatsApp antes de sair.</p></details>
       <details><summary>Tenho alergia. Posso assinar?</summary><p>Aqui não tem piada. O que você marcar como alergia não entra na sua caixa. Mas todos os itens passam pelo mesmo lugar onde a gente embala, então pode haver traços. Se a sua alergia é grave, fala com a gente antes de assinar.</p></details>
     </div>
   </div>
@@ -871,9 +902,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   <div id="addons" class="col" style="gap:12px">
     <p class="cap">Leve junto na primeira caixa (a gente não julga)</p>
     <div class="addon">
-      <button type="button" data-add="mix100"><img src="assets/emb_mix_frente.webp" alt=""><span><b>Mix de Castanhas 100 g</b>R$ 16,90 · uma vez</span></button>
-      <button type="button" data-add="car100"><img src="assets/emb_caram_frente.webp" alt=""><span><b>Caju Caramelizada 100 g</b>R$ 16,90 · uma vez</span></button>
-      <button type="button" data-add="caj100"><img src="assets/emb_caju_frente.webp" alt=""><span><b>Caju com Sal 100 g</b>R$ 16,90 · uma vez</span></button>
+      <button type="button" data-add="av-mix-de-castanhas-100"><img src="assets/emb_mix_frente.webp" alt=""><span><b>Mix de Castanhas 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-caju-caramelizada-com-gergelim-100"><img src="assets/emb_caram_frente.webp" alt=""><span><b>Caju Caramelizada 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-caju-com-sal-100"><img src="assets/emb_caju_frente.webp" alt=""><span><b>Caju com Sal 100 g</b><i data-pav></i></span></button>
     </div>
   </div>
   <div class="tot" id="totCar"></div>
@@ -985,6 +1016,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     </div>
     <label class="campo" for="erec">Recado para quem entrega<input id="erec" placeholder="“Pode deixar com o porteiro, ele é de confiança.”"></label>
     <p class="aviso" id="freteInfo">Informe o CEP para ver a forma de entrega.</p>
+    <button type="button" class="btn alt" id="avisoFora" hidden>Me avise quando chegar aqui</button>
     <div class="nav-co"><a class="btn alt" href="#perfil">Voltar</a><a class="btn" href="#pagamento">Continuar</a></div>
   </form>
 </div></section>
@@ -1033,16 +1065,20 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 
 <script>
 (function(){
-  var PROD={essencial:{n:'Caixa Essencial',d:'Assinatura mensal · 400 g, 4 pacotes de 100 g',p:69.90,rec:true,pac:4,gp:100,pes:[1,1]},
-    mes:{n:'Caixa Mês Inteiro',d:'Assinatura mensal · 1 kg, 5 pacotes de 200 g',p:139.90,rec:true,pac:5,gp:200,pes:[1,1]},
-    dois:{n:'Caixa A Dois',d:'Assinatura mensal · 1,5 kg, 6 pacotes de 250 g',p:189.90,rec:true,pac:6,gp:250,pes:[2,2]},
-    casa:{n:'Caixa Casa Cheia',d:'Assinatura mensal · 2 kg, 8 pacotes de 250 g',p:239.90,rec:true,pac:8,gp:250,pes:[3,4]},
-    mix100:{n:'Mix de Castanhas 100 g',d:'Uma vez, na primeira caixa',p:16.90},
-    car100:{n:'Caju Caramelizada 100 g',d:'Uma vez, na primeira caixa',p:16.90},
-    caj100:{n:'Caju com Sal 100 g',d:'Uma vez, na primeira caixa',p:16.90}};
+  var PROD={essencial:{n:'Caixa Essencial',p:69.90,rec:true,pes:[1,1],comp:[['Seu favorito',150,1],['Da casa',100,1],['Surpresa',50,3]]},
+    mes:{n:'Caixa Mês Inteiro',p:139.90,rec:true,pes:[1,1],comp:[['Seu favorito',250,1],['Mix',150,1],['Da casa e do seu perfil',100,4],['Surpresa',50,1]]},
+    dois:{n:'Caixa A Dois',p:189.90,rec:true,pes:[2,2],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',100,4],['Surpresa',50,1]]},
+    casa:{n:'Caixa Casa Cheia',p:239.90,rec:true,pes:[3,4],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',250,2],['Da casa e do seu perfil',100,3],['Surpresa',50,2]],extra:['Dá para entregar na empresa']},
+    monte:{n:'Caixa Monte a sua',d:'Caixa kraft, barbante e carta para os seus pacotes',p:9.90,uno:true}};
+  // entrega: só Maringá e região. Grátis a partir da Mês Inteiro; avulso grátis a partir de MIN_AV
+  var FRETE=9.90,MIN_AV=69,FUND_ATE=new Date(2026,10,30,23,59,59);
+  function peso(g){return g>=1000?String(+(g/1000).toFixed(2)).replace('.',',')+' kg':g+' g'}
+  Object.keys(PROD).forEach(function(k){var c=PROD[k];if(!c.comp)return;
+    c.g=c.comp.reduce(function(a,x){return a+x[1]*x[2]},0);c.pac=c.comp.reduce(function(a,x){return a+x[2]},0);
+    c.d='Assinatura mensal · '+c.pac+' pacotes, '+peso(c.g);});
   var cart={};
   try{cart=JSON.parse(localStorage.getItem('vn-cart')||'{}')||{}}catch(e){cart={}}
-  Object.keys(cart).forEach(function(k){if(!PROD[k])delete cart[k]});
+  Object.keys(cart).forEach(function(k){if(!PROD[k]&&k.indexOf('av-')!==0)delete cart[k]});
   function temCaixa(){return Object.keys(cart).some(function(k){return PROD[k].rec})}
   function save(){try{localStorage.setItem('vn-cart',JSON.stringify(cart))}catch(e){}}
   var $=function(id){return document.getElementById(id)};
@@ -1051,6 +1087,9 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   var pages=['loja','marca','parceiros','carrinho','perfil','entrega','pagamento','pronto'];
   function sub(){var s=0;Object.keys(cart).forEach(function(k){s+=PROD[k].p*cart[k]});return s}
+  function entrega(){if(!count())return 0;var cx=Object.keys(cart).filter(function(k){return PROD[k].rec})[0];
+    return cx?entregaCx(cx):(sub()>=MIN_AV?0:FRETE);}
+  function total(){return sub()+entrega()}
   function count(){return Object.keys(cart).reduce(function(a,k){return a+cart[k]},0)}
 
   // toast
@@ -1076,22 +1115,47 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   function ub(s){var u=$('unbox');for(var i=1;i<=4;i++)u.classList.toggle('a'+i,s>=i);u.dataset.s=s;$('ubBtn').textContent=UB[s].b;$('ubCap').textContent=UB[s].c;}
   $('ubBtn').addEventListener('click',function(){ub((+$('unbox').dataset.s+1)%5)});
 
+  // pacotes avulsos: preço em branco até a frente Preços definir (p:null = "Em breve")
+  var T3=[100,250,500],TD=[100,150,300];
+  var AV=[
+    {c:'Castanha de caju',t:T3,i:[['Caju sem sal'],['Caju com sal','assets/emb_caju_frente.webp'],['Caju caramelizada com gergelim','assets/emb_caram_frente.webp']]},
+    {c:'Castanhas e nozes',t:T3,i:[['Amêndoa torrada'],['Nozes'],['Nozes quartz'],['Castanha do Pará inteira'],['Castanha do Pará média'],['Mix de castanhas','assets/emb_mix_frente.webp']]},
+    {c:'Frutas e coco',t:T3,i:[['Cranberry fatiado'],['Mix de frutas liofilizadas'],['Frutas liofilizadas'],['Chips de coco'],['Coco caramelizado'],['Damasco']]},
+    {c:'Drageados (chocolate 70%)',t:TD,i:[['Drageado de caju com chocolate 70%'],['Drageado de morango com chocolate'],['Drageado de cereja com chocolate 70%']]}];
+  var PRECO_AV={'Caju sem sal|100':21.90,'Caju sem sal|250':45.90,'Caju sem sal|500':84.90,'Caju com sal|100':21.90,'Caju com sal|250':45.90,'Caju com sal|500':84.90,'Caju caramelizada com gergelim|100':14.90,'Caju caramelizada com gergelim|250':29.90,'Caju caramelizada com gergelim|500':54.90,'Amêndoa torrada|100':19.90,'Amêndoa torrada|250':42.90,'Amêndoa torrada|500':78.90,'Nozes|100':19.90,'Nozes|250':41.90,'Nozes|500':76.90,'Nozes quartz|100':17.90,'Nozes quartz|250':36.90,'Nozes quartz|500':65.90,'Castanha do Pará inteira|100':22.90,'Castanha do Pará inteira|250':49.90,'Castanha do Pará inteira|500':91.90,'Castanha do Pará média|100':20.90,'Castanha do Pará média|250':43.90,'Castanha do Pará média|500':80.90,'Mix de castanhas|100':19.90,'Mix de castanhas|250':40.90,'Mix de castanhas|500':74.90,'Cranberry fatiado|100':16.90,'Cranberry fatiado|250':35.90,'Cranberry fatiado|500':64.90,'Mix de frutas liofilizadas|100':45.90,'Mix de frutas liofilizadas|250':102.90,'Mix de frutas liofilizadas|500':193.90,'Frutas liofilizadas|100':51.90,'Frutas liofilizadas|250':116.90,'Frutas liofilizadas|500':220.90,'Chips de coco|100':15.90,'Chips de coco|250':32.90,'Chips de coco|500':58.90,'Coco caramelizado|100':15.90,'Coco caramelizado|250':32.90,'Coco caramelizado|500':59.90,'Damasco|100':22.90,'Damasco|250':49.90,'Damasco|500':91.90,'Drageado de caju com chocolate 70%|100':27.90,'Drageado de caju com chocolate 70%|150':39.90,'Drageado de caju com chocolate 70%|300':70.90,'Drageado de morango com chocolate|100':27.90,'Drageado de morango com chocolate|150':39.90,'Drageado de morango com chocolate|300':70.90,'Drageado de cereja com chocolate 70%|100':27.90,'Drageado de cereja com chocolate 70%|150':39.90,'Drageado de cereja com chocolate 70%|300':70.90};
+  function slug(t){return t.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+  AV.forEach(function(g){g.i.forEach(function(it){g.t.forEach(function(t){var pr=PRECO_AV[it[0]+'|'+t];
+    PROD['av-'+slug(it[0])+'-'+t]={n:it[0]+' '+t+' g',d:'Pacote avulso',p:pr==null?null:pr,av:true};});});});
+  Object.keys(cart).forEach(function(k){if(!PROD[k]||PROD[k].p==null)delete cart[k]});save();
+  $('avLista').innerHTML=AV.map(function(g,gi){return '<div class="avc"><h3>'+g.c+'</h3><div class="cat">'+g.i.map(function(it,ii){var id='av'+gi+'_'+ii;
+    return '<div class="item av" data-av="'+slug(it[0])+'"><div class="im">'+(it[1]?'<img src="'+it[1]+'" alt="'+it[0]+'" loading="lazy">':'<i class="ink nuts"></i><span class="foto">Foto a fazer</span>')+'</div>'+
+      '<div class="tx2"><b>'+it[0]+'</b><div class="chips tams" role="radiogroup" aria-label="Tamanho de '+it[0]+'">'+g.t.map(function(t,k){return '<label><input type="radio" name="'+id+'" value="'+t+'"'+(k===0?' checked':'')+'><span>'+t+' g</span></label>'}).join('')+'</div>'+
+      '<p class="preco-av"></p><button type="button" class="btn"></button></div></div>'}).join('')+'</div></div>'}).join('');
+  function avAtualiza(card){var t=card.querySelector('input:checked').value,k='av-'+card.dataset.av+'-'+t,pr=PROD[k].p,b=card.querySelector('.btn');
+    card.querySelector('.preco-av').textContent=pr==null?'Preço em breve':brl(pr);
+    b.hidden=pr==null;b.textContent='Adicionar';if(pr==null)b.removeAttribute('data-add');else b.dataset.add=k;}
+  document.querySelectorAll('.item.av').forEach(avAtualiza);
+  $('avLista').addEventListener('change',function(e){var c=e.target.closest('.item.av');if(c)avAtualiza(c)});
+  document.querySelectorAll('[data-pav]').forEach(function(el){var k=el.closest('[data-add]').dataset.add;el.textContent=brl(PROD[k].p)+' · avulso'});
+  $('montePreco').textContent=brl(PROD.monte.p);
+  $('avEnt').textContent='Escolha o produto e o tamanho. Entrega grátis em Maringá a partir de '+brl(MIN_AV).replace(',00','')+' em pacotes.';
+
   // carrinho
   function renderCart(){
     var box=$('itensCar'),ks=Object.keys(cart);
     $('ncar').textContent=count();
     $('vazio').hidden=ks.length>0;
-    $('irPerfil').hidden=!temCaixa();
+    $('irPerfil').hidden=!ks.length;$('irPerfil').href=temCaixa()?'#perfil':'#entrega';
     box.innerHTML=ks.map(function(k){var p=PROD[k];return '<div class="linha"><div><b>'+p.n+'</b><small>'+p.d+'</small></div>'+
-      (p.rec?'<span></span>':'<div class="qtd"><button type="button" data-dec="'+k+'" aria-label="Menos">−</button><span>'+cart[k]+'</span><button type="button" data-inc="'+k+'" aria-label="Mais">+</button></div>')+
+      (p.rec||p.uno?'<span></span>':'<div class="qtd"><button type="button" data-dec="'+k+'" aria-label="Menos">−</button><span>'+cart[k]+'</span><button type="button" data-inc="'+k+'" aria-label="Mais">+</button></div>')+
       '<div style="display:flex;align-items:center;gap:6px"><span class="val">'+brl(p.p*cart[k])+(p.rec?'/mês':'')+'</span><button type="button" class="rm" data-rm="'+k+'">remover</button></div></div>'}).join('');
-    $('totCar').innerHTML=ks.length?'<p><span>Subtotal</span><span>'+brl(sub())+'</span></p><p><span>Entrega</span><span>na próxima etapa</span></p><p class="g"><span>Total</span><span>'+brl(sub())+'</span></p>'+(temCaixa()?'':'<p class="aviso">Os pacotes avulsos seguem junto com uma assinatura. Escolha uma caixa para continuar.</p>'):'';
+    $('totCar').innerHTML=ks.length?'<p><span>Subtotal</span><span>'+brl(sub())+'</span></p><p><span>Entrega em Maringá</span><span>'+(entrega()?brl(entrega()):'grátis')+'</span></p><p class="g"><span>Total</span><span>'+brl(total())+'</span></p>':'';
   }
   document.addEventListener('click',function(e){
     var a=e.target.closest('[data-add]');
     if(a){var k=a.dataset.add;
       if(PROD[k].rec){var ja=cart[k];Object.keys(cart).forEach(function(x){if(PROD[x].rec&&x!==k)delete cart[x]});cart[k]=1;toast(ja?'Ela já está no carrinho. Uma por pessoa, a gente promete caprichar.':pick(['Boa. Já separamos um barbante com o seu nome.','Entrou. A cera já está esquentando.']))}
-      else{cart[k]=(cart[k]||0)+1;toast(pick(['Anotado. A caixa ficou mais pesada, no bom sentido.','Mais um. Ninguém está contando.']))}
+      else{cart[k]=PROD[k].uno?1:(cart[k]||0)+1;toast(pick(['Anotado. A caixa ficou mais pesada, no bom sentido.','Mais um. Ninguém está contando.']))}
       save();renderCart();if(location.hash!=='#carrinho')location.hash='carrinho';return;}
     var r=e.target.closest('[data-rm]');if(r){delete cart[r.dataset.rm];save();renderCart();toast('Tirado. Sem ressentimentos.');return;}
     var i=e.target.closest('[data-inc]');if(i){cart[i.dataset.inc]++;save();renderCart();return;}
@@ -1101,15 +1165,28 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   // números da home: calculados das caixas, para não escrever à mão
   var CX=['essencial','mes','dois','casa'];
   function nomeCx(k){return PROD[k].n.replace('Caixa ','')}
-  function rende(k){var c=PROD[k],g=c.pac*c.gp,lo=Math.round(g/30/c.pes[1]),hi=Math.round(g/30/c.pes[0]);
+  function rende(k){var c=PROD[k],g=c.g,lo=Math.round(g/30/c.pes[1]),hi=Math.round(g/30/c.pes[0]);
     return c.pes[1]===1?'Rende uns '+hi+' g por dia.':lo===hi?'Rende uns '+hi+' g por pessoa por dia.':'Rende uns '+lo+' a '+hi+' g por pessoa por dia.';}
   document.querySelectorAll('[data-rende]').forEach(function(el){el.textContent=rende(el.dataset.rende)});
   var pacs=CX.map(function(k){return PROD[k].pac}),precos=CX.map(function(k){return PROD[k].p});
   $('fPac').textContent=Math.min.apply(0,pacs)+' a '+Math.max.apply(0,pacs)+' pacotes';
   $('fPreco').textContent=brl(Math.min.apply(0,precos))+' a '+brl(Math.max.apply(0,precos));
-  (function(){var gs=[];CX.forEach(function(k){var g=PROD[k].gp,x=gs.filter(function(y){return y.g===g})[0];if(!x){x={g:g,n:[]};gs.push(x)}x.n.push(nomeCx(k))});
-    var t=gs.map(function(x){return x.g+' g ('+x.n.join(' e ')+')'});
-    $('tamPac').textContent='Cada item vem num pacote fechado: '+(t.length>1?t.slice(0,-1).join(', ')+' e '+t[t.length-1]:t[0])+'.';})();
+  function compLi(x){var l=x[0],g=x[1],q=x[2];if(l==='Surpresa')return q>1?q+' surpresas de '+g+' g':'1 surpresa de '+g+' g';
+    return q>1?q+' pacotes de '+g+' g · '+l.toLowerCase():l+' · '+g+' g';}
+  function entregaCx(k){return k==='essencial'?FRETE:0}
+  document.querySelectorAll('[data-cx]').forEach(function(el){var k=el.dataset.cx,c=PROD[k];
+    el.querySelector('[data-kg]').textContent=c.pac+' pacotes · '+peso(c.g);
+    el.querySelector('[data-ent]').textContent=entregaCx(k)?'/mês + '+brl(FRETE)+' de entrega':'/mês · entrega grátis';
+    el.querySelector('[data-comp]').innerHTML=c.comp.map(compLi).concat(['Caixa kraft, barbante e carta'],c.extra||[]).map(function(t){return '<li><span>'+t+'</span></li>'}).join('');});
+  var cxP=CX.map(function(k){return PROD[k]});
+  $('faqPreco').textContent='De '+brl(cxP[0].p)+' ('+peso(cxP[0].g)+') a '+brl(cxP[3].p)+' ('+peso(cxP[3].g)+') por mês. A entrega em Maringá é grátis a partir da '+nomeCx('mes')+'; na '+nomeCx('essencial')+', '+brl(FRETE)+'.';
+  // envio: dias 15 e 30
+  function proxEnvio(d){var y=d.getFullYear(),m=d.getMonth(),dia=d.getDate(),ult=new Date(y,m+1,0).getDate();
+    return dia<=10?new Date(y,m,15):dia<=25?new Date(y,m,Math.min(30,ult)):new Date(y,m+1,15);}
+  function dm(d){return ('0'+d.getDate()).slice(-2)+'/'+('0'+(d.getMonth()+1)).slice(-2)}
+  $('envio').textContent='Pedindo hoje, sua caixa sai no dia '+dm(proxEnvio(new Date()))+'. Os envios são nos dias 15 e 30.';
+  function fundador(){return new Date()<=FUND_ATE}
+  $('fundador').hidden=!fundador();
 
   // mini teste: 3 perguntas, indica a caixa e sugere o favorito
   function tval(n){var x=document.querySelector('#fteste input[name="'+n+'"]:checked');return x?x.value:''}
@@ -1119,7 +1196,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     var c=PROD[k];
     try{localStorage.setItem('vn-fav',fav)}catch(e){}
     document.querySelectorAll('[data-cx]').forEach(function(el){var on=el.dataset.cx===k;el.classList.toggle('ind',on);el.querySelector('.selo-lock').hidden=!on});
-    $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes de '+c.gp+' g por mês. '+rende(k)+'</p>'+
+    $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes, '+peso(c.g)+' por mês. '+rende(k)+'</p>'+
       '<p>Favorito sugerido: <b>'+fav+'</b>. Ele vem em todas, e dá para trocar no perfil.</p>'+
       '<div class="ctas"><button type="button" class="btn ouro" data-add="'+k+'">Assinar · '+brl(c.p)+'/mês</button><a class="btn alt" href="#caixas">Ver as 4 caixas</a></div>';
   });
@@ -1179,11 +1256,11 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   }
   function frete(){var c=($('ecep').value||'').replace(/\D/g,'');
     if(c.length<5)return {t:'Informe o CEP para ver a forma de entrega.',v:null};
-    var n=+c.slice(0,3);if(n>=870&&n<=871)return {t:'Maringá e região: quem entrega é a própria Viva Noz. Valor a definir.',v:0};
-    return {t:'Fora de Maringá: vai por transportadora, com valor calculado pelo CEP.',v:null};}
+    var n=+c.slice(0,3);if(n>=870&&n<=871)return {t:'Maringá e região: quem entrega é a própria Viva Noz. Entrega: '+(entrega()?brl(entrega()):'grátis')+'. Sai no dia '+dm(proxEnvio(new Date()))+'.',v:entrega()};
+    return {t:'Para outras cidades e estados, a entrega chega em breve, com o frete calculado pelo CEP. Deixe seu WhatsApp acima e toque em "Me avise".',v:null,fora:true};}
   function resumoHTML(){var p=perfil(),f=frete();
     var linhas=Object.keys(cart).map(function(k){return '<p style="display:flex;justify-content:space-between;gap:12px"><span>'+PROD[k].n+(cart[k]>1?' × '+cart[k]:'')+'</span><b>'+brl(PROD[k].p*cart[k])+'</b></p>'}).join('');
-    return '<p class="cap">Resumo</p>'+linhas+'<p style="display:flex;justify-content:space-between"><span>Entrega</span><span>'+(f.v===0?'Viva Noz · a definir':'a calcular')+'</span></p><p style="display:flex;justify-content:space-between;font:500 1.4rem/1.2 var(--serif)"><span>Total</span><span>'+brl(sub())+'</span></p>'+
+    return '<p class="cap">Resumo</p>'+linhas+'<p style="display:flex;justify-content:space-between"><span>Entrega</span><span>'+(entrega()?brl(entrega()):'grátis')+'</span></p><p style="display:flex;justify-content:space-between;font:500 1.4rem/1.2 var(--serif)"><span>Total</span><span>'+brl(total())+'</span></p>'+(temCaixa()&&fundador()?'<p>Assinante Fundador: preço travado por 12 meses e uma Caramelizada a mais na primeira caixa.</p>':'')+
       '<p class="cap" style="margin-top:10px">Seu perfil</p><p>Favorito: '+(p.fav?'<b>'+esc(p.fav)+'</b>':'não informado')+'</p><p>Alergias: '+(p.alergias.length?esc(p.alergias.join(', ')):'não informadas')+'</p>'+(p.momento.length?'<p>Momentos: '+esc(p.momento.join(', '))+'</p>':'');
   }
   function cartaHTML(){var p=perfil(),L=[];
@@ -1195,19 +1272,30 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     if(p.nunca)L.push('E fica combinado: '+esc(p.nunca.toLowerCase())+' não entra aqui.');
     L.push('Até a primeira caixa,<br>Clara');
     return L.map(function(l){return '<p>'+l+'</p>'}).join('');}
-  $('fent').addEventListener('input',function(){$('freteInfo').textContent=frete().t});
+  $('fent').addEventListener('input',function(){var f=frete();$('freteInfo').textContent=f.t;$('avisoFora').hidden=!f.fora});
+  // fora de Maringá: pede aviso pelo mesmo caminho dos pedidos (aparece na planilha com origem "aviso-entrega")
+  function avisar(nome,zap,cep){
+    if(!nome||zap.replace(/\D/g,'').length<10){toast('Faltou o nome ou o WhatsApp. Sem eles a gente não te acha.');return false;}
+    var d={nome:nome,whatsapp:zap,cep:cep,cidade:'',recado:'Quer aviso: entrega fora de Maringá',pagamento:'aviso de entrega',itens:[],total:'0',origem:'aviso-entrega',perfil:{}};
+    if(PEDIDOS_URL.indexOf('https://')===0)fetch(PEDIDOS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).catch(function(){});
+    toast('Anotado. Quando a entrega chegar aí, a gente avisa no WhatsApp.');return true;}
+  document.querySelectorAll('[data-avisa]').forEach(function(f){f.querySelector('.btn').addEventListener('click',function(){
+    var v=function(k){return f.querySelector('[data-a="'+k+'"]').value.trim()};
+    if(avisar(v('nome'),v('zap'),v('cep')))f.querySelectorAll('input').forEach(function(i){i.value=''});});});
+  $('avisoFora').addEventListener('click',function(){avisar($('enome').value.trim(),$('ezap').value.trim(),$('ecep').value.trim())});
   var PEDIDOS_URL='https://script.google.com/macros/s/AKfycbzM7tXejpZs2qQkblR4OkEeeOh5btTRGL3YzdFJ3tI_leVuWqu9VBtY23ZvQ928eSRRjg/exec',enviado=null;
   var ORIGEM=(location.search.match(/[?&]o=([\w-]{1,30})/)||[])[1];
   try{if(ORIGEM)localStorage.setItem('vn-origem',ORIGEM);else ORIGEM=localStorage.getItem('vn-origem')||'site'}catch(e){ORIGEM=ORIGEM||'site'}
-  function pedido(){var p=perfil();return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
+  function pedido(){var p=perfil();p.entrega=entrega().toFixed(2);p.fundador=temCaixa()&&fundador();p.envio=dm(proxEnvio(new Date()));return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
     endereco:$('erua').value.trim(),bairro:$('ebai').value.trim(),complemento:$('ecomp').value.trim(),horario:$('ejan').value,recado:$('erec').value.trim(),pagamento:val('pag'),
-    itens:Object.keys(cart).map(function(k){return {item:PROD[k].n,qtd:cart[k],preco:PROD[k].p}}),total:sub().toFixed(2),origem:ORIGEM,perfil:p};}
-  function zapTexto(d){var p=d.perfil;return 'Olá, Viva Noz! Acabei de pedir pelo site.\n\n'+d.itens.map(function(i){return '• '+i.item+(i.qtd>1?' × '+i.qtd:'')}).join('\n')+'\nTotal: '+brl(+d.total)+' + entrega'+
+    itens:Object.keys(cart).map(function(k){return {item:PROD[k].n,qtd:cart[k],preco:PROD[k].p}}),entrega:entrega().toFixed(2),total:total().toFixed(2),fundador:temCaixa()&&fundador(),envio:dm(proxEnvio(new Date())),origem:ORIGEM,perfil:p};}
+  function zapTexto(d){var p=d.perfil;return 'Olá, Viva Noz! Acabei de pedir pelo site.\n\n'+d.itens.map(function(i){return '• '+i.item+(i.qtd>1?' × '+i.qtd:'')}).join('\n')+'\nTotal: '+brl(+d.total)+' (entrega: '+(+d.entrega?brl(+d.entrega):'grátis')+')'+(d.fundador?'\nAssinante Fundador':'')+'\nEnvio: dia '+d.envio+
     '\n\nNome: '+d.nome+'\nEndereço: '+[d.endereco,d.complemento,d.bairro,d.cidade,d.cep].filter(Boolean).join(', ')+'\nPagamento: '+d.pagamento+
     (p.fav?'\nFavorito: '+p.fav:'')+(p.alergias.length?'\nAlergias: '+p.alergias.join(', '):'');}
   $('finalizar').addEventListener('click',function(){
     var d=pedido(),btn=$('finalizar');
     if(!d.nome||d.whatsapp.replace(/\D/g,'').length<10){toast('Faltou o nome ou o WhatsApp. Sem eles a gente não te acha.');location.hash='entrega';return;}
+    if(frete().v===null){toast(frete().fora?'Para fora de Maringá, a entrega chega em breve. Toque em "Me avise".':'Faltou o CEP.');location.hash='entrega';return;}
     btn.disabled=true;btn.textContent='Lacrando…';
     if(PEDIDOS_URL.indexOf('https://')!==0){enviado={ok:false,d:d};btn.disabled=false;btn.textContent='Lacrar minha caixa';location.hash='pronto';return;}
     fetch(PEDIDOS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
@@ -1221,12 +1309,12 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   function show(){
     var h=(location.hash||'#loja').slice(1),p=pages.indexOf(h)>=0?h:null,anchor=null;
     if(!p){var el=document.getElementById(h);var pg=el&&el.closest('.page');p=pg?pg.id.slice(2):'loja';anchor=el;}
-    if(['perfil','entrega','pagamento'].indexOf(p)>=0&&!temCaixa())p='carrinho';
+    if((p==='perfil'&&!temCaixa())||(['entrega','pagamento'].indexOf(p)>=0&&!count()))p='carrinho';
     pages.forEach(function(x){$('p-'+x).hidden=(x!==p)});
     $('abas').hidden=(p!=='loja');
     document.querySelectorAll('.nav nav a').forEach(function(a){if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     if(p==='perfil'&&!val('fav')){var sf='';try{sf=localStorage.getItem('vn-fav')||''}catch(e){}var r=sf&&document.querySelector('input[name="fav"][value="'+sf+'"]');if(r)r.checked=true;}
-    if(p==='pagamento'){$('resumo').innerHTML=resumoHTML();$('cartaPrev').innerHTML=cartaHTML();}
+    if(p==='pagamento'){$('resumo').innerHTML=resumoHTML();$('cartaPrev').innerHTML=cartaHTML();$('cartaPrev').hidden=!temCaixa();}
     if(p==='pronto'){var pf=perfil();$('okTit').textContent=pf.nome?'Lacrado, '+pf.nome+'.':'Lacrado.';
       var d=enviado?enviado.d:pedido();
       $('okTxt').textContent=enviado&&enviado.ok?'Recebemos o seu pedido e o seu perfil. A Viva Noz te chama no WhatsApp para combinar o pagamento e a primeira entrega.':'Seu pedido ainda não chegou até nós. Toque no botão abaixo para mandar pelo WhatsApp, que a gente resolve por lá.';
