@@ -514,6 +514,25 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 .avisa{display:flex;flex-direction:column;gap:8px;margin-top:12px;max-width:420px}
 .avisa input{font:500 1rem/1.2 var(--sans);padding:12px 14px;border:1.5px solid var(--linha);border-radius:8px;background:#fbf5e8;color:var(--marrom);width:100%}
 .avisa .btn{align-self:flex-start}
+.mais{font-size:.9rem}
+a.mais{color:inherit;text-underline-offset:3px}
+.trio{display:flex;justify-content:center;align-items:flex-end;gap:0;height:clamp(130px,30vw,220px)}
+.trio img{height:85%;width:auto;filter:drop-shadow(0 12px 12px rgba(10,5,0,.45))}
+.trio img:nth-child(2){height:100%;margin:0 -14px;position:relative;z-index:1}
+.trio img:first-child{transform:rotate(-6deg)}.trio img:last-child{transform:rotate(6deg)}
+.mais a{color:inherit;text-underline-offset:3px}
+.passos1{display:flex;flex-wrap:wrap;gap:8px 16px;margin:4px 0 6px;font-size:.92rem}
+.passos1 b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--marrom);color:var(--creme);font:700 .72rem/1 var(--sans);margin-right:6px}
+.plano details.vem summary{font:700 .7rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:6px 0;opacity:.8}
+#prova .addon i{font-style:normal;font-weight:700;display:block;margin-top:4px}
+#p-teste .q{min-height:200px}
+@media(max-width:700px){
+  #caixas .pz{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:6px 2px 16px;scrollbar-width:none}
+  #caixas .pz::-webkit-scrollbar{display:none}
+  #caixas .plano{flex:0 0 84%;scroll-snap-align:center;gap:10px}
+  #caixas .plano .mini{display:none}
+  .pitch{gap:18px}
+}
 </style>
 </head>
 <body>
@@ -530,13 +549,14 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 <header class="nav"><div class="row">
   <a href="#loja" aria-label="Viva Noz, início"><i class="ink word"></i></a>
   <nav aria-label="Áreas do site">
-    <a href="#loja" data-p="loja">Caixas</a>
-    <a href="#marca" data-p="marca">Nossa história</a>
-    <a href="#parceiros" data-p="parceiros">Para parceiros</a>
+    <a href="#loja" data-p="loja">Assinar</a>
+    <a href="#avulsos" data-p="avulsos">Avulsos</a>
+    <a href="#caixa" data-p="caixa">A caixa</a>
+    <a href="#marca" data-p="marca">História</a>
   </nav>
   <a class="carr" href="#carrinho">Carrinho <b id="ncar">0</b></a>
 </div>
-<div class="abas" id="abas" role="navigation" aria-label="Nesta página"><a href="#como">Como funciona</a><a href="#dentro">A caixa</a><a href="#teste">Teste</a><a href="#caixas">Caixas</a><a href="#produtos">Produtos</a><a href="#avulsos">Avulsos</a><a href="#jornada">Níveis</a><a href="#duvidas">Dúvidas</a></div>
+<div class="abas" id="abas" hidden></div>
 </header>
 
 <!-- ======================= LOJA ======================= -->
@@ -544,28 +564,121 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 <section class="pl verde" id="topo">
   <div class="in">
     <div class="col pitch">
-      <p class="cap">Assinatura de castanhas · Maringá e região</p>
+      <p class="cap">Viva Noz · castanhas de Maringá</p>
       <h1>Castanha todo mês. <em>Escolhida pelo seu gosto.</em></h1>
-      <p class="lead">Cansou do mesmo pacote de sempre? Você conta do que gosta. A gente escolhe, monta a caixa e entrega todo mês. Seu favorito vem em todas.</p>
+      <p class="lead">A Viva Noz nasceu vendendo castanha na rua, em Maringá. Hoje monta uma caixa por mês: você conta do que gosta, a gente escolhe e entrega.</p>
+      <div class="trio" aria-hidden="true"><img src="assets/emb_caram_frente.webp" alt=""><img src="assets/emb_mix_frente.webp" alt=""><img src="assets/emb_caju_frente.webp" alt=""></div>
       <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
-      <div class="ctas"><a class="btn ouro" href="#teste">Qual caixa é a minha?</a><a class="btn alt" href="#caixas">Já sei: ver as caixas</a></div>
+      <div class="ctas"><a class="btn ouro" href="#caixas">Assinar</a><a class="btn alt" href="#teste">Qual caixa é a minha?</a></div>
+      <a class="mais" href="#avulsos">Prefere comprar só um pacote? Ver os avulsos</a>
     </div>
   </div>
 </section>
 
-<section class="pl creme" id="como">
+<section class="pl kraft" id="caixas">
   <div class="in">
-    <p class="eye">Como funciona</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Você conta. <em>A gente escolhe.</em></h2>
-    <ol class="passos3">
-      <li><h3>Escolha o tamanho</h3><p>Quatro caixas, de 1 pessoa à casa toda. Dá para trocar depois.</p></li>
-      <li><h3>Conte do que gosta</h3><p>Seu favorito, alergias e o que você não quer receber. Leva 2 minutos.</p></li>
-      <li><h3>A gente escolhe o resto</h3><p>Pelo seu perfil. A carta explica por que cada item veio.</p></li>
-      <li><h3>Chega em casa</h3><p>Uma vez por mês, no dia 15 ou 30. A gente avisa no WhatsApp antes de sair.</p></li>
-    </ol>
+    <p class="eye">Assinatura</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Escolha sua caixa</h2>
+    <ol class="passos1"><li><b>1</b> Escolha a caixa</li><li><b>2</b> Conte do que gosta, em 2 minutos</li><li><b>3</b> Chega no dia 15 ou 30</li></ol>
+    <div class="fund" id="fundador"><p class="cap">Assinante Fundador · 100 vagas até 30/11</p><p><b>Preço travado por 12 meses</b> e uma Caramelizada a mais na primeira caixa.</p></div>
+    <div class="pz">
+      <article class="plano" data-cx="essencial">
+        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
+        <p class="cap">Para 1 pessoa</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
+        <h3>Essencial</h3>
+        <p class="kg" data-kg="essencial"></p>
+        <p class="rende" data-rende="essencial"></p>
+        <p class="preco">R$ 69,90<small data-ent></small></p>
+        <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
+        <button type="button" class="btn" data-add="essencial">Assinar a Essencial</button>
+      </article>
+      <article class="plano res" data-cx="mes">
+        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#455020"/><polygon points="6,30 114,30 104,14 16,14" fill="#56632a"/><path d="M60,14 L60,80 M10,22 H110" stroke="#B88945" stroke-width="3" fill="none"/><circle cx="60" cy="50" r="11" fill="#B88945"/><circle cx="60" cy="50" r="7" fill="none" stroke="#8a6326" stroke-width="1.4"/></svg>
+        <p class="cap">Para 1 pessoa, todo dia</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
+        <h3>Mês Inteiro</h3>
+        <p class="kg" data-kg="mes"></p>
+        <p class="rende" data-rende="mes"></p>
+        <p class="preco">R$ 139,90<small data-ent></small></p>
+        <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
+        <button type="button" class="btn ouro" data-add="mes">Assinar o Mês Inteiro</button>
+      </article>
+      <article class="plano" data-cx="dois">
+        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
+        <p class="cap">Para 2 pessoas</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
+        <h3>A Dois</h3>
+        <p class="kg" data-kg="dois"></p>
+        <p class="rende" data-rende="dois"></p>
+        <p class="preco">R$ 189,90<small data-ent></small></p>
+        <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
+        <button type="button" class="btn" data-add="dois">Assinar A Dois</button>
+      </article>
+      <article class="plano" data-cx="casa">
+        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
+        <p class="cap">Para 3 ou 4 pessoas, ou o escritório</p>
+        <span class="selo-lock" hidden>Indicada no seu teste</span>
+        <h3>Casa Cheia</h3>
+        <p class="kg" data-kg="casa"></p>
+        <p class="rende" data-rende="casa"></p>
+        <p class="preco">R$ 239,90<small data-ent></small></p>
+        <details class="vem"><summary>O que vem</summary><ul data-comp></ul></details>
+        <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
+      </article>
+    </div>
+    <p class="envio" id="envio">Os envios são nos dias 15 e 30.</p>
+    <p class="mais"><a href="#teste">Na dúvida, faça o teste de 3 perguntas</a> · <a href="#caixa">Ver a caixa por dentro</a></p>
   </div>
 </section>
 
+<section class="pl creme" id="prova">
+  <div class="in">
+    <p class="eye">Pacotes avulsos</p>
+    <h2 class="h" style="font-size:clamp(2rem,5vw,3.2rem)">Quer provar antes? <em>Leve um pacote.</em></h2>
+    <div class="addon">
+      <button type="button" data-add="av-caju-caramelizada-com-gergelim-100"><img src="assets/emb_caram_frente.webp" alt=""><span><b>Caju caramelizada com gergelim · 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-caju-com-sal-100"><img src="assets/emb_caju_frente.webp" alt=""><span><b>Caju com sal · 100 g</b><i data-pav></i></span></button>
+      <button type="button" data-add="av-mix-de-castanhas-100"><img src="assets/emb_mix_frente.webp" alt=""><span><b>Mix de castanhas · 100 g</b><i data-pav></i></span></button>
+    </div>
+    <p class="mais"><a href="#avulsos">Ver todos os 18 avulsos</a> · <a href="#duvidas">Dúvidas</a></p>
+  </div>
+</section>
+<a class="fixo-cta" id="fixoCta" href="#caixas">Assinar</a>
+</main>
+
+<!-- ======================= TESTE ======================= -->
+<main class="page" id="p-teste" hidden>
+<section class="pl creme" id="teste">
+  <div class="in">
+    <p class="eye">Qual caixa é a sua</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Três perguntas. <em>Uma caixa.</em></h2>
+    <p class="cap" id="tPasso"></p>
+    <form id="fteste" class="teste" novalidate>
+      <fieldset class="q"><legend>Quem vai comer?</legend><div class="chips">
+        <label><input type="radio" name="t1" value="1"><span>Só eu</span></label>
+        <label><input type="radio" name="t1" value="2"><span>Eu e mais uma pessoa</span></label>
+        <label><input type="radio" name="t1" value="3"><span>A casa toda</span></label>
+        <label><input type="radio" name="t1" value="4"><span>O pessoal do trabalho</span></label>
+      </div></fieldset>
+      <fieldset class="q"><legend>Quando bate a vontade?</legend><div class="chips">
+        <label><input type="radio" name="t2" value="dia"><span>Todo dia</span></label>
+        <label><input type="radio" name="t2" value="semana"><span>Alguns dias da semana</span></label>
+        <label><input type="radio" name="t2" value="visita"><span>Quando chega visita</span></label>
+      </div></fieldset>
+      <fieldset class="q"><legend>Time doce ou time salgado?</legend><div class="chips">
+        <label><input type="radio" name="t3" value="Caju Caramelizada"><span>Doce</span></label>
+        <label><input type="radio" name="t3" value="Caju com Sal"><span>Salgado</span></label>
+        <label><input type="radio" name="t3" value="Mix de Castanhas"><span>Os dois, depende do dia</span></label>
+      </div></fieldset>
+    </form>
+    <div class="tres" id="tRes" aria-live="polite" hidden></div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= A CAIXA POR DENTRO ======================= -->
+<main class="page" id="p-caixa" hidden>
 <section class="pl verde" id="dentro" style="overflow:hidden">
   <div class="in hero2">
     <div class="col" style="gap:22px">
@@ -645,85 +758,16 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   </div>
 </section>
 
-<section class="pl creme" id="teste">
+<section class="pl creme" id="como">
   <div class="in">
-    <p class="eye">Qual caixa é a sua</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Três perguntas. <em>Uma caixa.</em></h2>
-    <form id="fteste" class="teste" novalidate>
-      <fieldset class="q"><legend>Quem vai comer?</legend><div class="chips">
-        <label><input type="radio" name="t1" value="1"><span>Só eu</span></label>
-        <label><input type="radio" name="t1" value="2"><span>Eu e mais uma pessoa</span></label>
-        <label><input type="radio" name="t1" value="3"><span>A casa toda</span></label>
-        <label><input type="radio" name="t1" value="4"><span>O pessoal do trabalho</span></label>
-      </div></fieldset>
-      <fieldset class="q"><legend>Quando bate a vontade?</legend><div class="chips">
-        <label><input type="radio" name="t2" value="dia"><span>Todo dia</span></label>
-        <label><input type="radio" name="t2" value="semana"><span>Alguns dias da semana</span></label>
-        <label><input type="radio" name="t2" value="visita"><span>Quando chega visita</span></label>
-      </div></fieldset>
-      <fieldset class="q"><legend>Time doce ou time salgado?</legend><div class="chips">
-        <label><input type="radio" name="t3" value="Caju Caramelizada"><span>Doce</span></label>
-        <label><input type="radio" name="t3" value="Caju com Sal"><span>Salgado</span></label>
-        <label><input type="radio" name="t3" value="Mix de Castanhas"><span>Os dois, depende do dia</span></label>
-      </div></fieldset>
-    </form>
-    <div class="tres" id="tRes" aria-live="polite"><p class="mao">Responda as três e a sua caixa aparece aqui.</p></div>
-  </div>
-</section>
-
-<section class="pl kraft" id="caixas">
-  <div class="in">
-    <p class="eye">As caixas</p>
-    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Escolha sua caixa</h2>
-    <p class="tx">Todas com o seu favorito, a carta com lacre de cera e pacotes que fecham de novo. Dá para trocar de tamanho quando quiser. Na dúvida, <a href="#teste">faça o teste</a>.</p>
-    <div class="fund" id="fundador"><p class="cap">Assinante Fundador · 100 vagas até 30/11</p><p><b>Preço travado por 12 meses</b> e uma Caramelizada a mais na primeira caixa.</p></div>
-    <p class="envio" id="envio">Os envios são nos dias 15 e 30.</p>
-    <div class="pz">
-      <article class="plano" data-cx="essencial">
-        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para 1 pessoa</p>
-        <span class="selo-lock" hidden>Indicada no seu teste</span>
-        <h3>Essencial</h3>
-        <p class="kg" data-kg="essencial"></p>
-        <p class="rende" data-rende="essencial"></p>
-        <p class="preco">R$ 69,90<small data-ent></small></p>
-        <ul data-comp></ul>
-        <button type="button" class="btn" data-add="essencial">Assinar a Essencial</button>
-      </article>
-      <article class="plano res" data-cx="mes">
-        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#455020"/><polygon points="6,30 114,30 104,14 16,14" fill="#56632a"/><path d="M60,14 L60,80 M10,22 H110" stroke="#B88945" stroke-width="3" fill="none"/><circle cx="60" cy="50" r="11" fill="#B88945"/><circle cx="60" cy="50" r="7" fill="none" stroke="#8a6326" stroke-width="1.4"/></svg>
-        <p class="cap">Para 1 pessoa, todo dia</p>
-        <span class="selo-lock" hidden>Indicada no seu teste</span>
-        <h3>Mês Inteiro</h3>
-        <p class="kg" data-kg="mes"></p>
-        <p class="rende" data-rende="mes"></p>
-        <p class="preco">R$ 139,90<small data-ent></small></p>
-        <ul data-comp></ul>
-        <button type="button" class="btn ouro" data-add="mes">Assinar o Mês Inteiro</button>
-      </article>
-      <article class="plano" data-cx="dois">
-        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para 2 pessoas</p>
-        <span class="selo-lock" hidden>Indicada no seu teste</span>
-        <h3>A Dois</h3>
-        <p class="kg" data-kg="dois"></p>
-        <p class="rende" data-rende="dois"></p>
-        <p class="preco">R$ 189,90<small data-ent></small></p>
-        <ul data-comp></ul>
-        <button type="button" class="btn" data-add="dois">Assinar A Dois</button>
-      </article>
-      <article class="plano" data-cx="casa">
-        <svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>
-        <p class="cap">Para 3 ou 4 pessoas, ou o escritório</p>
-        <span class="selo-lock" hidden>Indicada no seu teste</span>
-        <h3>Casa Cheia</h3>
-        <p class="kg" data-kg="casa"></p>
-        <p class="rende" data-rende="casa"></p>
-        <p class="preco">R$ 239,90<small data-ent></small></p>
-        <ul data-comp></ul>
-        <button type="button" class="btn" data-add="casa">Assinar a Casa Cheia</button>
-      </article>
-    </div>
+    <p class="eye">Como funciona</p>
+    <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.6rem)">Você conta. <em>A gente escolhe.</em></h2>
+    <ol class="passos3">
+      <li><h3>Escolha o tamanho</h3><p>Quatro caixas, de 1 pessoa à casa toda. Dá para trocar depois.</p></li>
+      <li><h3>Conte do que gosta</h3><p>Seu favorito, alergias e o que você não quer receber. Leva 2 minutos.</p></li>
+      <li><h3>A gente escolhe o resto</h3><p>Pelo seu perfil. A carta explica por que cada item veio.</p></li>
+      <li><h3>Chega em casa</h3><p>Uma vez por mês, no dia 15 ou 30. A gente avisa no WhatsApp antes de sair.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -748,7 +792,11 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     </div>
   </div>
 </section>
+<section class="pl kraft"><div class="in" style="align-items:flex-start"><a class="btn ouro" href="#caixas">Assinar</a></div></section>
+</main>
 
+<!-- ======================= AVULSOS ======================= -->
+<main class="page" id="p-avulsos" hidden>
 <section class="pl creme" id="avulsos">
   <div class="in">
     <p class="eye">Pacotes avulsos</p>
@@ -756,6 +804,28 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     <p class="tx" id="avEnt">Escolha o produto e o tamanho.</p>
     <div id="avLista"></div>
     <div class="monte"><p class="cap">Monte a sua</p><p>Quer os pacotes numa caixa kraft, com barbante e carta? Escolha os pacotes acima e acrescente a caixa: <b id="montePreco">R$ 9,90</b>.</p><button type="button" class="btn" data-add="monte">Acrescentar a caixa</button></div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= DÚVIDAS ======================= -->
+<main class="page" id="p-duvidas" hidden>
+<section class="pl creme faq2" id="duvidas">
+  <div class="in">
+    <p class="eye">Perguntas frequentes</p>
+    <div>
+      <details><summary>Quanto custa?</summary><p id="faqPreco"></p></details>
+      <details><summary>Por que pacotes pequenos e não um de 1 kg?</summary><p>Pacote grande aberto perde a crocância rápido. Com pacotes separados, você abre um de cada vez e o resto fica fechado.</p></details>
+      <details><summary>Tem amendoim ou uva-passa?</summary><p>Não. O Mix leva caju, nozes, amêndoa, castanha-do-pará e cranberry, sempre na mesma medida.</p></details>
+      <details><summary>Como eu pago?</summary><p>Por enquanto, por Pix ou link de cartão, combinado pelo WhatsApp depois do pedido. O site não pede dados de cartão.</p></details>
+      <details><summary>Posso cancelar?</summary><p>Pode, quando quiser, pelo WhatsApp. Sem multa, sem fidelidade e sem ninguém insistindo para você ficar.</p></details>
+      <details><summary>E se eu não gostar de um item?</summary><p>Avise pelo WhatsApp. Ele sai do seu perfil e não volta.</p></details>
+      <details><summary>Posso pular um mês?</summary><p>Pode. Quando voltar, você continua no mesmo nível.</p></details>
+      <details><summary>Dá para dar de presente?</summary><p>Dá. No perfil, marque que é presente: a caixa vai com o nome de quem recebe e a carta assinada por você.</p></details>
+      <details><summary>Onde vocês entregam?</summary><p>Em Maringá e região, quem entrega é a própria Viva Noz. Para outras cidades e estados, a entrega chega em breve, com o frete calculado pelo CEP. Deixe seu contato e a gente avisa.</p><div class="avisa" data-avisa><input data-a="nome" type="text" autocomplete="given-name" placeholder="Seu nome" maxlength="40"><input data-a="zap" type="tel" autocomplete="tel" placeholder="WhatsApp, com DDD"><input data-a="cep" inputmode="numeric" autocomplete="postal-code" placeholder="CEP"><button type="button" class="btn">Me avise</button></div></details>
+      <details><summary>Quando chega?</summary><p>Os envios são nos dias 15 e 30. Pedido até o dia 10 sai no dia 15; até o dia 25, no dia 30. A gente avisa no WhatsApp antes de sair.</p></details>
+      <details><summary>Tenho alergia. Posso assinar?</summary><p>Aqui não tem piada. O que você marcar como alergia não entra na sua caixa. Mas todos os itens passam pelo mesmo lugar onde a gente embala, então pode haver traços. Se a sua alergia é grave, fala com a gente antes de assinar.</p></details>
+    </div>
   </div>
 </section>
 
@@ -777,26 +847,6 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     </div>
   </div>
 </section>
-
-<section class="pl creme faq2" id="duvidas">
-  <div class="in">
-    <p class="eye">Perguntas frequentes</p>
-    <div>
-      <details><summary>Quanto custa?</summary><p id="faqPreco"></p></details>
-      <details><summary>Por que pacotes pequenos e não um de 1 kg?</summary><p>Pacote grande aberto perde a crocância rápido. Com pacotes separados, você abre um de cada vez e o resto fica fechado.</p></details>
-      <details><summary>Tem amendoim ou uva-passa?</summary><p>Não. O Mix leva caju, nozes, amêndoa, castanha-do-pará e cranberry, sempre na mesma medida.</p></details>
-      <details><summary>Como eu pago?</summary><p>Por enquanto, por Pix ou link de cartão, combinado pelo WhatsApp depois do pedido. O site não pede dados de cartão.</p></details>
-      <details><summary>Posso cancelar?</summary><p>Pode, quando quiser, pelo WhatsApp. Sem multa, sem fidelidade e sem ninguém insistindo para você ficar.</p></details>
-      <details><summary>E se eu não gostar de um item?</summary><p>Avise pelo WhatsApp. Ele sai do seu perfil e não volta.</p></details>
-      <details><summary>Posso pular um mês?</summary><p>Pode. Quando voltar, você continua no mesmo nível.</p></details>
-      <details><summary>Dá para dar de presente?</summary><p>Dá. No perfil, marque que é presente: a caixa vai com o nome de quem recebe e a carta assinada por você.</p></details>
-      <details><summary>Onde vocês entregam?</summary><p>Em Maringá e região, quem entrega é a própria Viva Noz. Para outras cidades e estados, a entrega chega em breve, com o frete calculado pelo CEP. Deixe seu contato e a gente avisa.</p><div class="avisa" data-avisa><input data-a="nome" type="text" autocomplete="given-name" placeholder="Seu nome" maxlength="40"><input data-a="zap" type="tel" autocomplete="tel" placeholder="WhatsApp, com DDD"><input data-a="cep" inputmode="numeric" autocomplete="postal-code" placeholder="CEP"><button type="button" class="btn">Me avise</button></div></details>
-      <details><summary>Quando chega?</summary><p>Os envios são nos dias 15 e 30. Pedido até o dia 10 sai no dia 15; até o dia 25, no dia 30. A gente avisa no WhatsApp antes de sair.</p></details>
-      <details><summary>Tenho alergia. Posso assinar?</summary><p>Aqui não tem piada. O que você marcar como alergia não entra na sua caixa. Mas todos os itens passam pelo mesmo lugar onde a gente embala, então pode haver traços. Se a sua alergia é grave, fala com a gente antes de assinar.</p></details>
-    </div>
-  </div>
-</section>
-<a class="fixo-cta" id="fixoCta" href="#caixas">Escolher minha caixa</a>
 </main>
 
 <!-- ======================= HISTÓRIA ======================= -->
@@ -1059,13 +1109,13 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
 
 <footer class="rodape2"><div class="in">
   <i class="ink word" role="img" aria-label="Viva Noz"></i>
-  <p>Viva Noz · Maringá, PR · Embalado à mão<br>@viva_noz · (44) 99849-6222 · vivanozcastanhas@gmail.com</p>
+  <p>Viva Noz · Maringá, PR · Embalado à mão · <a href="#parceiros" style="color:inherit">Para lojas parceiras</a> · <a href="#duvidas" style="color:inherit">Dúvidas</a><br>@viva_noz · (44) 99849-6222 · vivanozcastanhas@gmail.com</p>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
-  var PROD={essencial:{n:'Caixa Essencial',p:69.90,rec:true,pes:[1,1],comp:[['Seu favorito',150,1],['Da casa',100,1],['Surpresa',50,3]]},
+  var PROD={essencial:{n:'Caixa Essencial',p:69.90,rec:true,pes:[1,1],comp:[['Seu favorito',150,1],['Da casa',100,1],['Da casa',50,1],['Surpresa',50,2]]},
     mes:{n:'Caixa Mês Inteiro',p:139.90,rec:true,pes:[1,1],comp:[['Seu favorito',250,1],['Mix',150,1],['Da casa e do seu perfil',100,4],['Surpresa',50,1]]},
     dois:{n:'Caixa A Dois',p:189.90,rec:true,pes:[2,2],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',100,4],['Surpresa',50,1]]},
     casa:{n:'Caixa Casa Cheia',p:239.90,rec:true,pes:[3,4],comp:[['Seu favorito',500,1],['Mix',250,1],['Da casa e do seu perfil',250,2],['Da casa e do seu perfil',100,3],['Surpresa',50,2]],extra:['Dá para entregar na empresa']},
@@ -1085,7 +1135,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   var brl=function(v){return 'R$ '+v.toFixed(2).replace('.',',')};
   function pick(a){return a[Math.floor(Math.random()*a.length)]}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  var pages=['loja','marca','parceiros','carrinho','perfil','entrega','pagamento','pronto'];
+  var pages=['loja','teste','caixa','avulsos','duvidas','marca','parceiros','carrinho','perfil','entrega','pagamento','pronto'];
   function sub(){var s=0;Object.keys(cart).forEach(function(k){s+=PROD[k].p*cart[k]});return s}
   function entrega(){if(!count())return 0;var cx=Object.keys(cart).filter(function(k){return PROD[k].rec})[0];
     return cx?entregaCx(cx):(sub()>=MIN_AV?0:FRETE);}
@@ -1145,7 +1195,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     var box=$('itensCar'),ks=Object.keys(cart);
     $('ncar').textContent=count();
     $('vazio').hidden=ks.length>0;
-    $('irPerfil').hidden=!ks.length;$('irPerfil').href=temCaixa()?'#perfil':'#entrega';
+    $('irPerfil').hidden=!ks.length;$('irPerfil').href=temCaixa()?'#perfil':'#entrega';$('irPerfil').textContent=temCaixa()?'Continuar: conte do que gosta':'Continuar para a entrega';
     box.innerHTML=ks.map(function(k){var p=PROD[k];return '<div class="linha"><div><b>'+p.n+'</b><small>'+p.d+'</small></div>'+
       (p.rec||p.uno?'<span></span>':'<div class="qtd"><button type="button" data-dec="'+k+'" aria-label="Menos">−</button><span>'+cart[k]+'</span><button type="button" data-inc="'+k+'" aria-label="Mais">+</button></div>')+
       '<div style="display:flex;align-items:center;gap:6px"><span class="val">'+brl(p.p*cart[k])+(p.rec?'/mês':'')+'</span><button type="button" class="rm" data-rm="'+k+'">remover</button></div></div>'}).join('');
@@ -1188,7 +1238,12 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
   function fundador(){return new Date()<=FUND_ATE}
   $('fundador').hidden=!fundador();
 
-  // mini teste: 3 perguntas, indica a caixa e sugere o favorito
+  // mini teste: 3 perguntas, uma por tela
+  var TQ=[].slice.call(document.querySelectorAll('#fteste fieldset'));
+  function tq(i){TQ.forEach(function(f,k){f.hidden=k!==i});$('tPasso').textContent=i<TQ.length?'Pergunta '+(i+1)+' de '+TQ.length:'';$('tRes').hidden=i<TQ.length;}
+  tq(0);
+  $('fteste').addEventListener('change',function(e){var i=TQ.indexOf(e.target.closest('fieldset'));setTimeout(function(){tq(i+1)},220)});
+  $('tRes').addEventListener('click',function(e){if(e.target.id==='tRefaz'){$('fteste').reset();tq(0);}});
   function tval(n){var x=document.querySelector('#fteste input[name="'+n+'"]:checked');return x?x.value:''}
   $('fteste').addEventListener('change',function(){
     var q=tval('t1'),f=tval('t2'),fav=tval('t3');if(!q||!f||!fav)return;
@@ -1198,12 +1253,12 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     document.querySelectorAll('[data-cx]').forEach(function(el){var on=el.dataset.cx===k;el.classList.toggle('ind',on);el.querySelector('.selo-lock').hidden=!on});
     $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes, '+peso(c.g)+' por mês. '+rende(k)+'</p>'+
       '<p>Favorito sugerido: <b>'+fav+'</b>. Ele vem em todas, e dá para trocar no perfil.</p>'+
-      '<div class="ctas"><button type="button" class="btn ouro" data-add="'+k+'">Assinar · '+brl(c.p)+'/mês</button><a class="btn alt" href="#caixas">Ver as 4 caixas</a></div>';
+      '<div class="ctas"><button type="button" class="btn ouro" data-add="'+k+'">Assinar · '+brl(c.p)+'/mês</button><a class="btn alt" href="#caixas">Ver as 4 caixas</a></div><button type="button" class="mais" id="tRefaz" style="background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;align-self:flex-start;color:inherit">Refazer o teste</button>';
   });
 
   // botão fixo de compra: aparece depois do topo e some perto das caixas
   function fixo(){var b=$('fixoCta');if($('p-loja').hidden){b.classList.remove('on');return}
-    var t=$('topo').getBoundingClientRect(),h=window.innerHeight,perto=['teste','caixas'].some(function(id){var r=$(id).getBoundingClientRect();return r.top<h&&r.bottom>0});
+    var t=$('topo').getBoundingClientRect(),h=window.innerHeight,perto=['caixas'].some(function(id){var r=$(id).getBoundingClientRect();return r.top<h&&r.bottom>0});
     b.classList.toggle('on',t.bottom<0&&!perto);}
   window.addEventListener('scroll',fixo,{passive:true});
 
@@ -1311,7 +1366,7 @@ fieldset.q{border:0;margin:0;border-bottom:1px solid var(--linha)}
     if(!p){var el=document.getElementById(h);var pg=el&&el.closest('.page');p=pg?pg.id.slice(2):'loja';anchor=el;}
     if((p==='perfil'&&!temCaixa())||(['entrega','pagamento'].indexOf(p)>=0&&!count()))p='carrinho';
     pages.forEach(function(x){$('p-'+x).hidden=(x!==p)});
-    $('abas').hidden=(p!=='loja');
+    $('abas').hidden=true;
     document.querySelectorAll('.nav nav a').forEach(function(a){if(a.dataset.p===p)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     if(p==='perfil'&&!val('fav')){var sf='';try{sf=localStorage.getItem('vn-fav')||''}catch(e){}var r=sf&&document.querySelector('input[name="fav"][value="'+sf+'"]');if(r)r.checked=true;}
     if(p==='pagamento'){$('resumo').innerHTML=resumoHTML();$('cartaPrev').innerHTML=cartaHTML();$('cartaPrev').hidden=!temCaixa();}
