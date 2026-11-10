@@ -547,6 +547,10 @@ a.mais{color:inherit;text-underline-offset:3px}
 .embreve b{display:block;font:700 .66rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--areia);margin-bottom:6px}
 .prints{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .prints img{flex:0 0 72%;max-width:280px;border-radius:10px;scroll-snap-align:center}
+.porque{display:grid;gap:10px;margin:2px 0 8px}
+@media(min-width:800px){.porque{grid-template-columns:repeat(3,1fr)}}
+.porque li{background:var(--creme);color:var(--marrom);border-radius:10px;padding:14px 16px;font-size:.92rem;line-height:1.35}
+.porque b{display:block;font:500 1.25rem/1.1 var(--serif);margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -578,12 +582,12 @@ a.mais{color:inherit;text-underline-offset:3px}
 <section class="pl verde" id="topo">
   <div class="in">
     <div class="col pitch">
-      <p class="cap">Viva Noz · castanhas de Maringá</p>
-      <h1>Castanha todo mês. <em>Escolhida pelo seu gosto.</em></h1>
-      <p class="lead">A Viva Noz nasceu vendendo castanha na rua, em Maringá. Hoje monta uma caixa por mês: você conta do que gosta, a gente escolhe e entrega.</p>
-      <video class="vid" src="assets/video_mix.mp4" poster="assets/video_mix_capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pacote do Mix de Castanhas da Viva Noz sendo aberto"></video>
-      <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
+      <p class="cap">Viva Noz · assinatura de castanhas · Maringá</p>
+      <h1>Um presente para você, <em>todo mês.</em></h1>
+      <p class="lead">A Viva Noz nasceu do gosto de presentear. Todo mês, uma caixa de castanhas montada pelo seu gosto: seu favorito sempre, e o resto a gente escolhe.</p>
       <div class="ctas"><a class="btn ouro" href="#caixas">Assinar</a><a class="btn alt" href="#teste">Qual caixa é a minha?</a></div>
+      <ul class="fatos"><li><b id="fPac">5 a 9 pacotes</b> por mês</li><li>de <b id="fPreco">R$ 69,90 a R$ 239,90</b></li><li>sem fidelidade</li></ul>
+      <video class="vid" src="assets/video_mix.mp4" poster="assets/video_mix_capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Pacote do Mix de Castanhas da Viva Noz sendo aberto"></video>
       <a class="mais" href="#avulsos">Prefere comprar só um pacote? Ver os avulsos</a>
     </div>
   </div>
@@ -593,6 +597,12 @@ a.mais{color:inherit;text-underline-offset:3px}
   <div class="in">
     <p class="eye">Assinatura</p>
     <h2 class="h" style="font-size:clamp(2.2rem,5vw,3.8rem)">Escolha sua caixa</h2>
+    <ul class="porque">
+      <li><b>Não acaba no meio do mês</b>Chega sozinha, no dia 15 ou 30. Você não precisa lembrar de comprar.</li>
+      <li><b>Todo mês, algo novo</b>2 surpresas de 50 g para provar o que você não pegaria no mercado.</li>
+      <li><b>Escolhida para você</b>Seu favorito em todas, e uma carta dizendo por que cada item veio.</li>
+    </ul>
+    <p class="cap" style="margin-top:6px">Como assinar</p>
     <ol class="passos1"><li><b>1</b> Escolha a caixa</li><li><b>2</b> Conte do que gosta, em 2 minutos</li><li><b>3</b> Chega no dia 15 ou 30</li></ol>
     <div class="fund" id="fundador"><p class="cap">Assinante Fundador · 100 vagas até 30/11</p><p><b>Preço travado por 12 meses</b> e uma Caramelizada a mais na primeira caixa.</p></div>
     <div class="pz">
