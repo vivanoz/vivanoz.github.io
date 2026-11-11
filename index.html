@@ -644,14 +644,16 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
 #topo .btn.grande{padding:16px 20px}
 #topo .btn.alt{padding:12px 20px}
 #topo .nomebox{display:none}
-#topo .unbox{margin-top:0;gap:6px}
+#topo .unbox{margin-top:0;gap:6px;order:4}
+#topo .ctas.col1{order:5}
+#topo .nomebox{order:6}
 #topo .ub-art{width:min(100%,calc((100svh - 430px) * 1.07))}
 #topo .ub-cap{display:none}
 #topo .ub-ctl .btn{padding:10px 18px}
 @media(min-width:880px){
   #topo{min-height:calc(100vh - 80px)}
   #topo .pitch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;align-items:center;align-content:center}
-  #topo .pitch>*{grid-column:1}
+  #topo .pitch>*{grid-column:1;order:0!important}
   #topo .unbox{grid-column:2;grid-row:1 / span 5}
   #topo .ub-art{width:min(100%,calc(100vh - 200px))}
   #topo .ub-cap{display:block}
@@ -666,6 +668,21 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
 .carr{position:relative;border:0!important;padding:6px!important;flex:none}
 @media(min-width:700px){.nav .row{display:grid!important;grid-template-columns:1fr auto 1fr}.nav .row>a:first-child{justify-self:start}.carr{justify-self:end}.nav nav{overflow:visible}}
 .carr b{position:absolute;top:0;right:-4px;min-width:17px;height:17px;font-size:.6rem}
+.sub-q{margin-top:6px;padding:12px;border-radius:12px;background:#fbf5e8;display:flex;flex-direction:column;gap:8px}
+.sub-q .chips{flex-direction:row!important;flex-wrap:wrap!important}
+.sub-q .chips label{display:inline-block!important}
+.sub-q .chips span{width:auto!important;padding:10px 14px!important}
+#dlgTr{border:0;border-radius:14px 14px 0 0;padding:0;width:100%;max-width:560px;max-height:85vh;margin:auto auto 0;background:var(--creme);color:var(--marrom)}
+#dlgTr::backdrop{background:rgba(20,10,2,.55)}
+#dlgTr .op{cursor:pointer}
+#dlgTr .op.on{border-color:var(--verde);border-width:2px}
+.sub2{display:block;font-size:.78rem;opacity:.7;margin-top:3px;font-weight:400}
+#fteste .chips span,#fperfil .chips span{flex-wrap:wrap}
+.cmp{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 8px;scrollbar-width:none}
+.cmpc{flex:0 0 58%;scroll-snap-align:start;display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid var(--linha);border-radius:12px;background:#fff}
+.cmpc b{font:500 1.25rem/1.1 var(--serif)}
+.cmpc small{font-size:.8rem;opacity:.75}
+.cmpc .btn{padding:10px 12px;margin-top:6px;font-size:.62rem}
 </style>
 </head>
 <body>
@@ -862,11 +879,12 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
     <div class="prog" aria-hidden="true"><i id="tBar"></i></div>
     <p class="cap" id="tPasso"></p>
     <form id="fteste" class="teste" novalidate>
-      <fieldset class="q"><legend>Quem vai comer?</legend><div class="chips">
-        <label><input type="radio" name="t1" value="1"><span>Só eu</span></label>
-        <label><input type="radio" name="t1" value="2"><span>Eu e mais uma pessoa</span></label>
-        <label><input type="radio" name="t1" value="3"><span>A casa toda</span></label>
-        <label><input type="radio" name="t1" value="4"><span>O pessoal do trabalho</span></label>
+      <fieldset class="q"><legend>Com quem você divide?</legend><div class="chips">
+        <label><input type="radio" name="t1" value="1"><span>Sozinho, e escondo</span></label>
+        <label><input type="radio" name="t1" value="2"><span>Eu e minha pessoa</span></label>
+        <label><input type="radio" name="t1" value="3"><span>Pra toda a família</span></label>
+        <label><input type="radio" name="t1" value="4"><span>Com a galera<small class="sub2">Social em casa, trabalho, etc.</small></span></label>
+        <div class="sub-q" id="t1n" hidden><p class="cap">Quantas pessoas?</p><div class="chips"><label><input type="radio" name="t1n" value="3"><span>3 pessoas</span></label><label><input type="radio" name="t1n" value="4"><span>4 pessoas</span></label><label><input type="radio" name="t1n" value="5"><span>5 ou mais</span></label></div></div>
       </div></fieldset>
       <fieldset class="q"><legend>Quando bate a vontade?</legend><div class="chips">
         <label><input type="radio" name="t2" value="dia"><span>Todo dia</span></label>
@@ -1049,7 +1067,7 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
 <!-- ======================= CARRINHO ======================= -->
 <main class="page co" id="p-carrinho" hidden>
 <section class="pl"><div class="in">
-  <div class="etapas"><span class="on">Carrinho</span><span>Seu perfil</span><span>Entrega</span><span>Pagamento</span></div>
+  <div class="etapas"><span class="on">Carrinho</span><span>Seus dados</span><span>Seu perfil</span><span>Pagamento</span></div>
   <h2>Seu <em>carrinho</em></h2>
   <div id="itensCar"></div>
   <div id="vazio" class="col" style="gap:14px" hidden><p class="tx">Seu carrinho está vazio. Igual pacote de Caramelizada depois do almoço.</p><a class="btn" href="#caixas" style="align-self:flex-start">Ver as caixas</a></div>
@@ -1069,10 +1087,15 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
 <!-- ======================= PERFIL ======================= -->
 <main class="page co" id="p-perfil" hidden>
 <section class="pl"><div class="in">
-  <div class="etapas"><span class="ok">Carrinho</span><span class="on">Seu perfil</span><span>Entrega</span><span>Pagamento</span></div>
+  <div class="etapas"><span class="ok">Carrinho</span><span class="ok">Seus dados</span><span class="on">Seu perfil</span><span>Pagamento</span></div>
   <h2>Quero te <em>conhecer melhor.</em></h2>
   <div class="prog" aria-hidden="true"><i id="pBar"></i></div>
   <form id="fperfil" novalidate>
+    <fieldset class="q"><legend>Como você quer a sua caixa?</legend>
+      <div class="chips">
+        <label><input type="radio" name="modo" value="Do meu jeitinho"><span>Do meu jeitinho<small class="sub2">Conto do que gosto e o que evito</small></span></label>
+        <label><input type="radio" name="modo" value="Vocês escolhem"><span>Vocês escolhem pra mim<small class="sub2">Não tenho alergia nem restrição</small></span></label>
+      </div><p class="sub">Tem alguma alergia? Escolha "Do meu jeitinho" para contar.</p></fieldset>
     <div class="q"><label class="t" for="pnome">Como a gente te chama?</label><div class="campo"><input id="pnome" type="text" autocomplete="given-name" placeholder="Vai na etiqueta e na carta" maxlength="18"></div></div>
 
     <fieldset class="q"><legend>Qual é o seu favorito?</legend><p class="sub">Ele vem em toda caixa. Pode ser difícil escolher, mas a gente vai cobrar.</p>
@@ -1121,13 +1144,6 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
         <label><input type="checkbox" name="momento" value="Com vinho" data-r="Com vinho: anotado para a amêndoa defumada."><span>Com um vinho</span></label>
       </div><p class="reac" aria-live="polite"></p></fieldset>
 
-    <fieldset class="q"><legend>Com quem você divide?</legend>
-      <div class="chips">
-        <label><input type="radio" name="divide" value="Só eu" data-r="Segredo nosso."><span>Só eu, e escondo</span></label>
-        <label><input type="radio" name="divide" value="A dois" data-r="Vamos mandar o bastante para não ter briga."><span>Com mais uma pessoa</span></label>
-        <label><input type="radio" name="divide" value="Família" data-r="Vamos precisar de mais pacotes. Ou de mais esconderijos."><span>Com a família toda</span></label>
-        <label><input type="radio" name="divide" value="Trabalho" data-r="Você vai virar a pessoa favorita do escritório."><span>Com o pessoal do trabalho</span></label>
-      </div><p class="reac" aria-live="polite"></p></fieldset>
 
     <fieldset class="q"><legend>E se chegar algo que você nunca provou?</legend>
       <div class="chips">
@@ -1147,7 +1163,7 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
       </div><p class="reac" aria-live="polite"></p></fieldset>
 
     <div class="q"><label class="t" for="pnunca">Uma coisa que você nunca quer receber</label><div class="campo"><input id="pnunca" type="text" placeholder="Uva-passa? Pode falar."></div></div>
-    <div class="nav-co" id="pNav"><button type="button" class="btn alt" id="pVolta">Voltar</button><button type="button" class="btn" id="pSegue">Continuar</button><a class="btn" id="pFim" href="#entrega" hidden>Continuar para a entrega</a></div>
+    <div class="nav-co" id="pNav"><button type="button" class="btn alt" id="pVolta">Voltar</button><button type="button" class="btn" id="pSegue">Continuar</button><a class="btn" id="pFim" href="#pagamento" hidden>Continuar</a></div>
   </form>
 </div></section>
 </main>
@@ -1155,17 +1171,24 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
 <!-- ======================= ENTREGA ======================= -->
 <main class="page co" id="p-entrega" hidden>
 <section class="pl"><div class="in">
-  <div class="etapas"><span class="ok">Carrinho</span><span class="ok">Seu perfil</span><span class="on">Entrega</span><span>Pagamento</span></div>
-  <h2>Para onde a gente <em>leva?</em></h2>
+  <div class="etapas"><span class="ok">Carrinho</span><span class="on">Seus dados</span><span>Seu perfil</span><span>Pagamento</span></div>
+  <h2>Seus <em>dados</em></h2>
   <form id="fent" class="col" style="gap:14px" novalidate>
     <div class="grid2">
       <label class="campo" for="enome">Nome completo<input id="enome" autocomplete="name"></label>
       <label class="campo" for="ezap">WhatsApp<input id="ezap" type="tel" autocomplete="tel" placeholder="(44) 9…"></label>
-      <label class="campo" for="ecep">CEP<input id="ecep" inputmode="numeric" autocomplete="postal-code" placeholder="87000-000"></label>
-      <label class="campo" for="ecid">Cidade<input id="ecid" autocomplete="address-level2"></label>
-      <label class="campo" for="erua">Rua e número<input id="erua" autocomplete="street-address"></label>
+      <label class="campo" for="email">E-mail<input id="email" type="email" autocomplete="email"></label>
+      <label class="campo" for="ecep">CEP<input id="ecep" inputmode="numeric" autocomplete="postal-code" placeholder="87000-000" maxlength="9"></label>
+    </div>
+    <p class="aviso" id="cepMsg" hidden></p>
+    <div class="grid2" id="endAuto" hidden>
+      <label class="campo" for="erua">Rua<input id="erua" autocomplete="address-line1"></label>
       <label class="campo" for="ebai">Bairro<input id="ebai"></label>
-      <label class="campo" for="ecomp">Complemento<input id="ecomp" placeholder="Apto, bloco, “casa do portão verde”"></label>
+      <label class="campo" for="ecid">Cidade<input id="ecid" autocomplete="address-level2"></label>
+    </div>
+    <div class="grid2">
+      <label class="campo" for="enum">Número<input id="enum" inputmode="numeric" autocomplete="address-line2" maxlength="10"></label>
+      <label class="campo" for="ecomp">Complemento<input id="ecomp" placeholder="Apto, bloco, casa"></label>
       <label class="campo" for="ejan">Melhor horário para receber<select id="ejan"><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Tanto faz</option></select></label>
     </div>
     <div class="chips"><label><input type="checkbox" id="epres"><span>É presente para outra pessoa</span></label></div>
@@ -1174,10 +1197,10 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
       <label class="campo" for="eprcartao">Mensagem do cartão<textarea id="eprcartao" maxlength="200" rows="3" placeholder="Escreva do seu jeito. Vai à mão no cartão."></textarea></label>
       <p class="aviso">Use acima o endereço de quem vai receber.</p>
     </div>
-    <label class="campo" for="erec">Recado para quem entrega<input id="erec" placeholder="“Pode deixar com o porteiro, ele é de confiança.”"></label>
+    <label class="campo" for="erec">Ponto de referência (opcional)<input id="erec" placeholder="“Casa do portão verde”, “ao lado da padaria”"></label>
     <p class="aviso" id="freteInfo">Informe o CEP para ver a forma de entrega.</p>
     <button type="button" class="btn alt" id="avisoFora" hidden>Me avise quando chegar aqui</button>
-    <div class="nav-co"><a class="btn alt" href="#perfil">Voltar</a><a class="btn" href="#pagamento">Continuar</a></div>
+    <div class="nav-co"><a class="btn alt" href="#carrinho">Voltar</a><a class="btn" id="entSegue" href="#perfil">Continuar</a></div>
   </form>
 </div></section>
 </main>
@@ -1218,6 +1241,7 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
 </main>
 
 <a class="zapf" id="zapf" href="#" target="_blank" rel="noopener" aria-label="Falar com a Viva Noz no WhatsApp"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5 1-1.8.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.6 5.8 5.1c2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.3z"/></svg></a>
+<dialog id="dlgTr" aria-label="Trocar produto"><div class="dlg-in" id="trIn"></div></dialog>
 <dialog id="dlgPr" aria-label="Produto"><div class="dlg-in" id="prIn"></div></dialog>
 <dialog id="dlgCx" aria-labelledby="dlgTit"><div class="dlg-in" id="dlgIn"></div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1350,7 +1374,7 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
     var box=$('itensCar'),ks=Object.keys(cart);
     $('ncar').textContent=count();
     $('vazio').hidden=ks.length>0;
-    $('irPerfil').hidden=!ks.length;$('irPerfil').href=temCaixa()?'#perfil':'#entrega';$('irPerfil').textContent='Finalizar compra';
+    $('irPerfil').hidden=!ks.length;$('irPerfil').href='#entrega';$('entSegue').href=temCaixa()?'#perfil':'#pagamento';$('irPerfil').textContent='Finalizar compra';
     box.innerHTML=ks.map(function(k){var p=PROD[k],fn=p.av&&FOTOS_AV[Object.keys(FOTOS_AV).filter(function(n){return k.indexOf('av-'+slug(n)+'-')===0})[0]];return '<div class="linha'+(p.rec?' princ':'')+'">'+(p.rec?'<svg class="mini" viewBox="0 0 120 86" aria-hidden="true"><rect x="10" y="30" width="100" height="50" rx="3" fill="#c49a68"/><polygon points="6,30 114,30 104,14 16,14" fill="#d8b183"/><path d="M80,14 L84,30 L84,80 M10,22 H110" stroke="#f1e4c8" stroke-width="2" fill="none"/><use href="#selo" x="20" y="44" width="26" height="26"/></svg>':(fn?'<img src="'+fn[0]+'" alt="">':''))+'<div><b>'+p.n+'</b><small>'+p.d+'</small></div>'+
       (p.rec||p.uno?'<span></span>':'<div class="qtd"><button type="button" data-dec="'+k+'" aria-label="Menos">−</button><span>'+cart[k]+'</span><button type="button" data-inc="'+k+'" aria-label="Mais">+</button></div>')+
       '<div style="display:flex;align-items:center;gap:6px"><span class="val">'+brl(p.p*cart[k])+(p.rec?'/mês':'')+'</span><button type="button" class="rm" data-rm="'+k+'">remover</button></div></div>'}).join('');
@@ -1396,26 +1420,38 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
   var TQ=[].slice.call(document.querySelectorAll('#fteste fieldset')),TQi=0;
   function tq(i){TQ.forEach(function(f,k){f.hidden=k!==i});$('tPasso').textContent=i<TQ.length?'Pergunta '+(i+1)+' de '+TQ.length:'A sua caixa';$('tBar').style.width=(Math.min(i,TQ.length)/TQ.length*100)+'%';$('tVolta').hidden=!(i>0&&i<TQ.length);TQi=i;$('tRes').hidden=i<TQ.length;}
   tq(0);
-  $('fteste').addEventListener('change',function(e){var i=TQ.indexOf(e.target.closest('fieldset'));setTimeout(function(){tq(i+1)},220)});
+  $('fteste').addEventListener('change',function(e){var t=e.target,i=TQ.indexOf(t.closest('fieldset'));
+    if(t.name==='t1'){var casa=t.value==='3';$('t1n').hidden=!casa;if(casa){document.querySelectorAll('input[name="t1n"]').forEach(function(x){x.checked=false});return}}
+    setTimeout(function(){tq(i+1)},220)});
   $('tVolta').addEventListener('click',function(){tq(TQi-1)});
   var TR=null,ESCOLHA=[];
   var TROCA=['Mix de castanhas','Caju caramelizada com gergelim','Caju com sal','Caju sem sal','Amêndoa torrada','Nozes','Nozes quartz','Castanha do Pará inteira','Castanha do Pará média','Chips de coco','Coco caramelizado','Cranberry fatiado','Damasco'];
   function liRes(x,i){var d=x.n&&DESC[x.n];
     return '<li>'+(x.n&&FOTO[x.n]?'<img src="'+FOTO[x.n]+'" alt="">':'<span class="ph">'+(x.n?'':'?')+'</span>')+'<div><b>'+(x.n||'Surpresa')+' · '+x.g+' g</b><small>'+x.t+'</small>'+
       (d?'<span>'+d[0]+'</span>':'<span>A gente escolhe pelo seu perfil. A carta conta por quê.</span>')+
-      (x.n?(TR.aberto===i?'<select class="trsel" data-trocasel="'+i+'" aria-label="Trocar '+x.n+'"><option value="">Trocar por…</option>'+TROCA.filter(function(o){return TR.itens.every(function(y){return y.n!==o})}).map(function(o){return '<option>'+o+'</option>'}).join('')+'</select>':'<button type="button" class="lnk" data-troca="'+i+'">Trocar</button>'):'')+'</div></li>'}
+      (x.n?'<button type="button" class="lnk" data-troca="'+i+'">Trocar</button>':'')+'</div></li>'}
   function renderRes(){var k=TR.k,c=PROD[k],fix=TR.itens.filter(function(x){return x.n}),sur=TR.itens.filter(function(x){return !x.n});
     ESCOLHA=fix.map(function(x){return x.n+' '+x.g+' g'});
-    $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes, '+peso(c.g)+' por mês. '+rende(k)+'</p>'+
+    $('tRes').innerHTML='<p class="cap">A sua caixa</p><h3>'+nomeCx(k)+'</h3><p>'+c.pac+' pacotes, '+peso(c.g)+' por mês.</p>'+
       '<p class="cap">Vem sempre</p><ul class="dlg-lista">'+fix.map(liRes).join('')+'</ul>'+
       '<p class="cap">Surpresas</p><ul class="dlg-lista">'+sur.map(function(x){return liRes(x,-1)}).join('')+'</ul>'+
       '<p class="preco-t">'+brl(c.p)+'<small>/mês'+(entregaCx(k)?' + '+brl(FRETE)+' de entrega':' · entrega grátis')+'</small></p>'+
       '<button type="button" class="btn ouro grande" data-add="'+k+'">Assinar: '+nomeCx(k)+'</button>'+
-      '<p class="mais"><a href="#caixas">Ver outras caixas</a> · <button type="button" id="tRefaz" class="lnk">Refazer</button></p>';}
+      '<p class="cap" style="margin-top:14px">Compare com as outras</p><div class="cmp">'+CX.filter(function(x){return x!==k}).map(function(x){var o=PROD[x];
+        return '<div class="cmpc"><b>'+nomeCx(x)+'</b><small>'+o.pac+' pacotes · '+peso(o.g)+'</small><span>'+brl(o.p)+'/mês</span><button type="button" class="btn alt" data-vercx="'+x+'">Ver esta</button></div>'}).join('')+'</div>'+
+      '<p class="mais"><button type="button" id="tRefaz" class="lnk">Refazer o quiz</button></p>';}
   $('tRes').addEventListener('click',function(e){if(e.target.id==='tRefaz'){$('fteste').reset();tq(0);return}
-    var t=e.target.closest('[data-troca]');if(t){TR.aberto=+t.dataset.troca;renderRes();}});
-  $('tRes').addEventListener('change',function(e){var t=e.target.closest('[data-trocasel]');if(!t||!t.value)return;
-    var fix=TR.itens.filter(function(x){return x.n});fix[+t.dataset.trocasel].n=t.value;TR.aberto=null;renderRes();});
+    var t=e.target.closest('[data-troca]');if(t)abreTroca(+t.dataset.troca);
+    var v=e.target.closest('[data-vercx]');if(v){TR={k:v.dataset.vercx,itens:simula(v.dataset.vercx,TR.favN),aberto:null,favN:TR.favN};renderRes();$('tRes').scrollIntoView();}});
+  function fotoDe(n){return FOTO[n]||(FOTOS_AV[n]&&FOTOS_AV[n][1])||''}
+  function abreTroca(i){var fix=TR.itens.filter(function(x){return x.n}),atual=fix[i];
+    $('trIn').innerHTML='<div class="dlg-top"><p class="cap">Trocar '+atual.n+' · '+atual.g+' g</p><button type="button" class="dlg-x" data-fechatr aria-label="Fechar">×</button></div>'+
+      '<ul class="dlg-lista">'+TROCA.map(function(n){var d=DESC[n],f=fotoDe(n);
+        return '<li class="op'+(n===atual.n?' on':'')+'" data-escolhe="'+n+'" data-idx="'+i+'" tabindex="0" role="button">'+(f?'<img src="'+f+'" alt="">':'<span class="ph"></span>')+'<div><b>'+n+'</b>'+(d?'<span>'+d[0]+'</span><span class="nota">Bom para '+d[1]+'</span>':'')+'</div></li>'}).join('')+'</ul>';
+    var d=$('dlgTr');if(d.showModal)d.showModal();else d.setAttribute('open','')}
+  function fechaTr(){var d=$('dlgTr');if(d.close)d.close();else d.removeAttribute('open')}
+  $('dlgTr').addEventListener('click',function(e){if(e.target===$('dlgTr')||e.target.closest('[data-fechatr]')){fechaTr();return}
+    var o=e.target.closest('[data-escolhe]');if(!o)return;var fix=TR.itens.filter(function(x){return x.n});fix[+o.dataset.idx].n=o.dataset.escolhe;fechaTr();renderRes();});
   function tval(n){var x=document.querySelector('#fteste input[name="'+n+'"]:checked');return x?x.value:''}
   $('fteste').addEventListener('change',function(){
     var q=tval('t1'),f=tval('t2'),fav=tval('t3');if(!q||!f||!fav)return;
@@ -1423,7 +1459,7 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
     var c=PROD[k];var favN={'Caju Caramelizada':'Caju caramelizada com gergelim','Caju com Sal':'Caju com sal','Mix de Castanhas':'Mix de castanhas'}[fav]||fav;
     try{localStorage.setItem('vn-fav',fav)}catch(e){}
     document.querySelectorAll('[data-cx]').forEach(function(el){var on=el.dataset.cx===k;el.classList.toggle('ind',on);el.querySelector('.selo-lock').hidden=!on});
-    TR={k:k,itens:simula(k,favN),aberto:null};renderRes();
+    TR={k:k,itens:simula(k,favN),aberto:null,favN:favN};renderRes();
   });
 
   // botão fixo de compra: aparece depois do topo e some perto das caixas
@@ -1469,8 +1505,8 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
     return [].every.call(ins,function(x){return x.type==='radio'&&x.name===n})}
   pq(0);
   $('pSegue').addEventListener('click',function(){pq(PQi+1)});
-  $('pVolta').addEventListener('click',function(){if(PQi===0)location.hash='carrinho';else pq(PQi-1)});
-  $('fperfil').addEventListener('change',function(e){var q=e.target.closest('#fperfil > .q');if(q&&soUma(q)&&e.target.type==='radio')setTimeout(function(){if(PQ[PQi]===q)pq(PQi+1)},450)});
+  $('pVolta').addEventListener('click',function(){if(PQi===0)location.hash='entrega';else pq(PQi-1)});
+  $('fperfil').addEventListener('change',function(e){if(e.target.name==='modo'&&e.target.value==='Vocês escolhem'){location.hash='pagamento';return}var q=e.target.closest('#fperfil > .q');if(q&&soUma(q)&&e.target.type==='radio')setTimeout(function(){if(PQ[PQi]===q)pq(PQi+1)},450)});
   // favorito com foto
   var FOTOFAV={'Mix de Castanhas':'assets/mix_tigela.webp','Caju Caramelizada':'assets/caram_tigela.webp','Caju com Sal':'assets/caju_tigela.webp'};
   document.querySelectorAll('input[name="fav"]').forEach(function(x){var f=FOTOFAV[x.value];if(f)x.nextElementSibling.insertAdjacentHTML('afterbegin','<img src="'+f+'" alt="">')});
@@ -1490,8 +1526,8 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
     var escv=ITENS.map(function(it,j){return [it,val('esc'+j)]}).filter(function(x){return x[1]});
     var outra=$('palergia').value.trim();
     return {nome:$('pnome').value.trim(),fav:val('fav'),alergias:vals('alergia').concat(outra?[outra]:[]),
-      esc:escv,consentimento_alergias:$('pconsent').checked,textura:val('textura'),momento:vals('momento'),divide:val('divide'),novo:val('novo'),nunca:$('pnunca').value.trim(),
-      presente:val('para')==='Presente',presente_para:$('ppnome').value.trim(),presente_recado:$('pprec').value.trim(),itens_caixa:ESCOLHA};
+      esc:escv,consentimento_alergias:$('pconsent').checked,textura:val('textura'),momento:vals('momento'),divide:(function(){var x=document.querySelector('#fteste input[name="t1"]:checked');return x?x.nextElementSibling.firstChild.textContent:''})(),novo:val('novo'),nunca:$('pnunca').value.trim(),
+      presente:val('para')==='Presente',presente_para:$('ppnome').value.trim(),presente_recado:$('pprec').value.trim(),itens_caixa:ESCOLHA,modo:val('modo')};
   }
   function frete(){var c=($('ecep').value||'').replace(/\D/g,'');
     if(c.length<5)return {t:'Informe o CEP para ver a forma de entrega.',v:null};
@@ -1511,6 +1547,14 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
     if(p.nunca)L.push('E fica combinado: '+esc(p.nunca.toLowerCase())+' não entra aqui.');
     L.push('Até a primeira caixa,<br>Clara');
     return L.map(function(l){return '<p>'+l+'</p>'}).join('');}
+  // CEP: preenche rua, bairro e cidade sozinho (ViaCEP); se falhar, a pessoa digita
+  var cepFeito='';
+  $('ecep').addEventListener('input',function(){var c=this.value.replace(/\D/g,'');if(c.length>5)this.value=c.slice(0,5)+'-'+c.slice(5,8);
+    if(c.length!==8||c===cepFeito)return;cepFeito=c;$('cepMsg').hidden=false;$('cepMsg').textContent='Buscando o endereço…';
+    fetch('https://viacep.com.br/ws/'+c+'/json/').then(function(r){return r.json()}).then(function(d){if(d.erro)throw 0;
+      $('erua').value=d.logradouro||'';$('ebai').value=d.bairro||'';$('ecid').value=(d.localidade||'')+(d.uf?' - '+d.uf:'');
+      $('endAuto').hidden=false;$('cepMsg').hidden=true;$('enum').focus();$('fent').dispatchEvent(new Event('input'));})
+    .catch(function(){$('endAuto').hidden=false;$('cepMsg').textContent='Não achamos esse CEP. Preencha a rua, o bairro e a cidade.';});});
   $('fent').addEventListener('input',function(){var f=frete();$('freteInfo').textContent=f.t;$('avisoFora').hidden=!f.fora});
   // fora de Maringá: pede aviso pelo mesmo caminho dos pedidos (aparece na planilha com origem "aviso-entrega")
   function avisar(nome,zap,cep){
@@ -1525,8 +1569,8 @@ main.co .etapas span{min-width:0;font-size:.52rem;letter-spacing:.1em;padding-to
   var PEDIDOS_URL='https://script.google.com/macros/s/AKfycbzM7tXejpZs2qQkblR4OkEeeOh5btTRGL3YzdFJ3tI_leVuWqu9VBtY23ZvQ928eSRRjg/exec',enviado=null;
   var ORIGEM=(location.search.match(/[?&]o=([\w-]{1,30})/)||[])[1];
   try{if(ORIGEM)localStorage.setItem('vn-origem',ORIGEM);else ORIGEM=localStorage.getItem('vn-origem')||'site'}catch(e){ORIGEM=ORIGEM||'site'}
-  function pedido(){var p=perfil();if($('epres').checked){p.presente=true;p.presente_para=$('eprnome').value.trim();p.presente_recado=$('eprcartao').value.trim();}p.entrega=entrega().toFixed(2);p.fundador=temCaixa()&&fundador();p.envio=dm(proxEnvio(new Date()));return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
-    endereco:$('erua').value.trim(),bairro:$('ebai').value.trim(),complemento:$('ecomp').value.trim(),horario:$('ejan').value,recado:$('erec').value.trim(),pagamento:val('pag'),
+  function pedido(){var p=perfil();p.email=$('email').value.trim();if($('epres').checked){p.presente=true;p.presente_para=$('eprnome').value.trim();p.presente_recado=$('eprcartao').value.trim();}p.entrega=entrega().toFixed(2);p.fundador=temCaixa()&&fundador();p.envio=dm(proxEnvio(new Date()));return {nome:$('enome').value.trim()||p.nome,whatsapp:$('ezap').value.trim(),cep:$('ecep').value.trim(),cidade:$('ecid').value.trim(),
+    endereco:[$('erua').value.trim(),$('enum').value.trim()].filter(Boolean).join(', '),bairro:$('ebai').value.trim(),complemento:$('ecomp').value.trim(),horario:$('ejan').value,recado:$('erec').value.trim(),pagamento:val('pag'),
     itens:Object.keys(cart).map(function(k){return {item:PROD[k].n,qtd:cart[k],preco:PROD[k].p}}),entrega:entrega().toFixed(2),total:total().toFixed(2),fundador:temCaixa()&&fundador(),envio:dm(proxEnvio(new Date())),origem:ORIGEM,perfil:p};}
   function zapTexto(d){var cx=d.itens.filter(function(i){return /^Caixa/.test(i.item)}).map(function(i){return i.item.replace('Caixa ','')}),av=d.itens.filter(function(i){return !/^Caixa/.test(i.item)});
     return 'Olá, Viva Noz! Quero finalizar meu pedido.\n\nPedido: '+(d.numero||'')+'\nNome: '+d.nome+(cx.length?'\nCaixa: '+cx.join(', '):'')+(av.length?'\nProdutos: '+av.map(function(i){return i.item+(i.qtd>1?' × '+i.qtd:'')}).join(', '):'')+'\nTotal: '+brl(+d.total)+' (com entrega)';}
